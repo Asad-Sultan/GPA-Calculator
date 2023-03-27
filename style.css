@@ -195,7 +195,8 @@ body {
 
 /*For hovering field*/
 .change-field {
-
+  background-color: #f3deba;
+  border: 2px solid #675d50;
 }
 
 /*For hovering button*/
