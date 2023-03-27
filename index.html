@@ -26,40 +26,40 @@
     <title>Grade Calculator</title>
   </head>
   <body>
-    <div class="app">
+    <div class="app" id="app">
       <div class="heading">
         <h1>GPA Calculator</h1>
       </div>
 
-      <div id="cardBody">
-        <div class="seladd">
-          <select id="sub">
-            <option value="physics">Applied Physics</option>
-            <option value="pf">Programming Fundamentals</option>
-            <option value="ict">ICT</option>
-            <option value="eng">English</option>
-            <option value="logics">Introduction to Logics</option>
-          </select>
+      <div class="seladd">
+        <select id="sub">
+          <option value="physics">Applied Physics</option>
+          <option value="pf">Programming Fundamentals</option>
+          <option value="ict">ICT</option>
+          <option value="eng">English</option>
+          <option value="logics">Introduction to Logics</option>
+        </select>
 
-          <button class="btn">+</button>
-        </div>
-
-        <div id="cardDiv"></div>
+        <button id="plus-btn" class="btn">+</button>
       </div>
 
-      <div class="calculate-btn-div">
-        <button class="btn" id="calculate-btn">Calculate</button>
-      </div>
+      <!-- <div class="cardBody" id="cardBody">
+        <div class="cardDiv" id="cardDiv"></div>
 
-      <div class="results">
-        <div class="marks">
-          <label>Marks:</label>
-          <label id="showMarks"></label>
+        <div class="results">
+          <div class="marks">
+            <label>Marks:</label>
+            <label id="showMarks"></label>
+          </div>
+          <div class="gpa">
+            <label>GPA:</label>
+            <label id="showGrade"></label><br />
+          </div>
         </div>
-        <div class="gpa">
-          <label>GPA:</label>
-          <label id="showGrade"></label><br />
-        </div>
+      </div> -->
+
+      <div class="calculate-btn-div" id="calculate-btn-div">
+        <button class="btn calculate-btn" id="calculate-btn">Calculate</button>
       </div>
     </div>
 

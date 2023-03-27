@@ -21,6 +21,7 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type="number"] {
   -moz-appearance: textfield;
+  appearance: textfield;
 }
 
 /***********************************/
@@ -117,7 +118,7 @@ body {
   font-family: inherit;
 }
 
-#cardBody {
+.cardBody {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -125,6 +126,14 @@ body {
   border-radius: 5px;
   padding: 15px;
 }
+/* #cardBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: 3px #9ab099 solid;
+  border-radius: 5px;
+  padding: 15px;
+} */
 
 #cardDiv {
   display: flex;
@@ -159,21 +168,30 @@ body {
   font-weight: 500;
 }
 
-#showMarks,
-#showGrade {
+.showMarks,
+.showGrade {
   color: #788977;
 }
+/* #showMarks,
+#showGrade {
+  color: #788977;
+} */
 
 .calculate-btn-div {
   text-align: center;
   margin-top: 30px;
 }
 
-#calculate-btn {
+.calculate-btn {
   padding: 8px 16px;
   font-size: 14px;
   font-weight: 500;
 }
+/* #calculate-btn {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+} */
 
 .credit {
   margin-top: 30px;

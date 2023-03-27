@@ -17,24 +17,26 @@ var selectedSubjects = [];
 // var labels = [];
 
 class Subject {
-  constructor(name, max, weight) {
+  constructor(name, max, weight, creditHR) {
     this.name = name;
     this.max = max;
     this.weight = weight;
+    this.creditHR = creditHR;
   }
 }
 
 var subObj = [];
+var noOfCards = 0;
 
-subObj.push(new Subject("physics", [40, 40, 30, 40, 20], [10, 10, 20, 40, 20]));
+subObj.push(new Subject("physics", [40, 40, 30, 40, 20], [10, 10, 20, 40, 20], 3));
 
-subObj.push(new Subject("pf", [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0]));
+subObj.push(new Subject("pf", [0, 0, 0, 0, 0, 0], [1, 1, 1, 1, 1, 1], 4));
 
-subObj.push(new Subject("ict", [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0]));
+subObj.push(new Subject("ict", [0, 0, 0, 0, 0, 0], [1, 1, 1, 1, 1, 1], 4));
 
-subObj.push(new Subject("eng", [0, 0, 0, 0], [0, 0, 0, 0]));
+subObj.push(new Subject("eng", [0, 0, 0, 0], [1, 1, 1, 1], 3));
 
-subObj.push(new Subject("logics", [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]));
+subObj.push(new Subject("logics", [0, 0, 0, 0, 0], [1, 1, 1, 1, 1], 3));
 
 var changingSubject = subObj[0];
 var changingIndex = 0;
@@ -58,17 +60,17 @@ function addListeners(labels) {
       ev.preventDefault();
       let div = document.createElement("div");
       let t = document.createElement("input");
-      let b = document.createElement("button");
+      // let b = document.createElement("button");
 
       t.type = "number";
       t.id = "change-txt";
       t.className = "change-field";
 
-      b.innerHTML = "Change?";
-      b.id = "change-btn";
-      b.className = "change-btn btn";
+      // b.innerHTML = "Change?";
+      // b.id = "change-btn";
+      // b.className = "change-btn btn";
       div.append(t);
-      div.append(b);
+      // div.append(b);
 
       div.className = "hoveringPrompt";
       div.style.left = ev.clientX.toString() + "px";
@@ -103,6 +105,28 @@ function addListeners(labels) {
 }
 
 function createInputs(subject) {
+  //TODO: GIVE IDS TO ALL NEW ELEMENTS
+  //FIXME: RENAME ALL PREVIOUS IDS ACCORDINGLY
+
+  selectedSubjects.push(subject);
+
+  let outerDiv = document.createElement("div");
+  let innerDiv = document.createElement("div");
+  outerDiv.className = "cardBody";
+  innerDiv.className = "cardDiv";
+
+
+  let subName = "";
+  document.querySelectorAll("option").forEach(element => {
+    if (element.value === document.getElementById("sub").value) {
+      subName = element.innerHTML;
+    }
+  });
+
+  let heading = document.createElement("h2");
+  heading.innerHTML = subName;
+  innerDiv.appendChild(heading);
+
   var labels = [];
   for (let i = 0; i < subject.max.length; i++) {
     let containerDiv = document.createElement("div");
@@ -112,7 +136,7 @@ function createInputs(subject) {
     let total = document.createElement("label");
 
     input.type = "number";
-    input.id = "criteria-" + i;
+    input.id = "criteria-" + i + "-" + noOfCards;
     input.className = "numberBox";
     input.min = 0;
     input.max = subject.max[i];
@@ -130,19 +154,55 @@ function createInputs(subject) {
 
     containerDiv.appendChild(label);
     containerDiv.appendChild(twoDiv);
-    document.getElementById("cardDiv").appendChild(containerDiv);
+    innerDiv.appendChild(containerDiv);
   }
+  outerDiv.appendChild(innerDiv);
+
+  let resultDiv = document.createElement("div");
+  let marksDiv = document.createElement("div");
+  let statmarksLabel = document.createElement("label");
+  let marksLabel = document.createElement("label");
+  let gradeDiv = document.createElement("div");
+  let statgradeLabel = document.createElement("label");
+  let gradeLabel = document.createElement("label");
+
+  resultDiv.className = "results";
+  marksDiv.className = "marks";
+
+  statmarksLabel.innerHTML = "Marks:";
+  marksLabel.id = "showMarks";
+  marksLabel.className = "showMarks";
+  marksLabel.innerHTML = "";
+
+  statgradeLabel.innerHTML = "GPA:";
+  gradeLabel.id = "showGrade";
+  gradeLabel.className = "showGrade";
+  gradeLabel.innerHTML = "";
+
+  marksDiv.appendChild(statmarksLabel);
+  marksDiv.appendChild(marksLabel);
+
+  gradeDiv.appendChild(statgradeLabel);
+  gradeDiv.appendChild(gradeLabel);
+
+  resultDiv.appendChild(marksDiv);
+  resultDiv.appendChild(gradeDiv);
+
+  outerDiv.appendChild(resultDiv)
+
+  document.getElementById("app").insertBefore(outerDiv, document.getElementById("calculate-btn-div"));
   addListeners(labels);
+  noOfCards++;
 }
 
-function calculateTotal(subject) {
+function calculateSubTotal(subject, cardNo) {
   let totalMarks = 0;
   for (let i = 0; i < subject.max.length; i++) {
-    let id = "criteria-" + i;
+    let id = "criteria-" + i + "-" + cardNo;
     let marks = document.getElementById(id).value;
     if (marks < 0) marks = 0;
     if (marks > subject.max[i]) marks = subject.max[i];
-    totalMarks += (marks / subject.max[i]) * subject.weight[i];
+    if (subject.max[i] > 0) totalMarks += (marks / subject.max[i]) * subject.weight[i];
   }
   return totalMarks.toFixed(2);
 }
@@ -163,8 +223,8 @@ function getGrade(marks) {
 
 createInputs(subObj[0]);
 
-document.getElementById("sub").onclick = () => {
-  document.getElementById("cardDiv").innerHTML = "";
+document.getElementById("plus-btn").onclick = () => {
+  // document.getElementById("cardDiv").innerHTML = "";
 
   for (let i = 0; i < subObj.length; i++) {
     if (document.getElementById("sub").value === subObj[i].name) {
@@ -175,16 +235,30 @@ document.getElementById("sub").onclick = () => {
 };
 
 document.getElementById("calculate-btn").onclick = () => {
-  let marks = 0;
+  let marks = [];
+
+  console.log(selectedSubjects);
 
   for (let i = 0; i < subObj.length; i++) {
-    if (document.getElementById("sub").value === subObj[i].name) {
-      marks = calculateTotal(subObj[i]);
-    }
+    selectedSubjects.forEach(subject => {
+      if (subject.name === subObj[i].name) {
+        marks.push(calculateSubTotal(subObj[i], selectedSubjects.indexOf(subject)));
+      }});
   }
 
-  document.getElementById("showMarks").innerHTML = marks;
-  document.getElementById("showGrade").innerHTML = getGrade(marks);
+  console.log(marks);
+
+  let m = Array.from(document.querySelectorAll("#showMarks"));
+  m.forEach(label => {
+    label.innerHTML = marks[m.indexOf(label)];
+  });
+
+  let g = Array.from(document.querySelectorAll("#showGrade"));
+  g.forEach(label => {
+    label.innerHTML = getGrade(marks[g.indexOf(label)]);
+  });
+  // document.getElementById("showMarks").innerHTML = marks;
+  // document.getElementById("showGrade").innerHTML = getGrade(marks);
 
   Array.from(document.getElementsByClassName("results")).forEach((element) => {
     element.style.display = "flex";
