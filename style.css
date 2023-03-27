@@ -41,6 +41,7 @@ input[type="number"] {
   border: 3px solid #abc4aa;
   border-radius: 5px;
   box-shadow: 1px 1px 5px 0 rgba(103, 93, 80, 0.5);
+  font-family: inherit;
   color: inherit;
   cursor: pointer;
   transition-duration: 250ms;
@@ -170,7 +171,6 @@ body {
 
 #calculate-btn {
   padding: 8px 16px;
-  font-family: inherit;
   font-size: 14px;
   font-weight: 500;
 }
@@ -182,24 +182,28 @@ body {
   gap: 3px;
 }
 
-/*TODO: PLS DESIGN THIS, THIS IS JUST FOR FUNCTIONALITY*/
-/*This class is the div that contains the change field and button*/
 .hoveringPrompt {
   position: absolute;
   top: 0px;
-  left: 0px;
-  background-color: white;
-  border: 2px black solid;
+  left: 40px;
   z-index: 1;
 }
 
-/*For hovering field*/
+/* For hovering field */
 .change-field {
   background-color: #f3deba;
   border: 2px solid #675d50;
+  padding: 3px;
+  border-radius: 3px;
+  color: inherit;
+  font-family: inherit;
+  width: 40px;
 }
 
-/*For hovering button*/
+/* For hovering button */
 .change-btn {
-
+  padding: 2px 4px;
+  box-shadow: none;
+  border-radius: 3px;
+  margin-left: 5px;
 }
