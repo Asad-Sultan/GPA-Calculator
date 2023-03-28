@@ -28,7 +28,9 @@ class Subject {
 var subObj = [];
 var noOfCards = 0;
 
-subObj.push(new Subject("physics", [40, 40, 30, 40, 20], [10, 10, 20, 40, 20], 3));
+subObj.push(
+  new Subject("physics", [40, 40, 30, 40, 20], [10, 10, 20, 40, 20], 3)
+);
 
 subObj.push(new Subject("pf", [0, 0, 0, 0, 0, 0], [1, 1, 1, 1, 1, 1], 4));
 
@@ -116,9 +118,8 @@ function createInputs(subject) {
   outerDiv.id = "card-" + noOfCards;
   innerDiv.className = "cardDiv";
 
-
   let subName = "";
-  document.querySelectorAll("option").forEach(element => {
+  document.querySelectorAll("option").forEach((element) => {
     if (element.value === document.getElementById("sub").value) {
       subName = element.innerHTML;
     }
@@ -132,7 +133,7 @@ function createInputs(subject) {
   heading.innerHTML = subName;
   removeBtn.className = "btn remove-btn";
   removeBtn.id = "remove-btn-" + noOfCards;
-  removeBtn.innerHTML = "-";
+  removeBtn.innerHTML = "<ion-icon name='close-outline'></ion-icon>";
 
   headingDiv.appendChild(heading);
   headingDiv.appendChild(removeBtn);
@@ -181,12 +182,12 @@ function createInputs(subject) {
   resultDiv.className = "results";
   marksDiv.className = "marks";
 
-  statmarksLabel.innerHTML = "Marks:";
+  statmarksLabel.innerHTML = "Marks: ";
   marksLabel.id = "showMarks";
   marksLabel.className = "showMarks";
   marksLabel.innerHTML = "";
 
-  statgradeLabel.innerHTML = "GPA:";
+  statgradeLabel.innerHTML = "GPA: ";
   gradeLabel.id = "showGrade";
   gradeLabel.className = "showGrade";
   gradeLabel.innerHTML = "";
@@ -200,9 +201,11 @@ function createInputs(subject) {
   resultDiv.appendChild(marksDiv);
   resultDiv.appendChild(gradeDiv);
 
-  outerDiv.appendChild(resultDiv)
+  outerDiv.appendChild(resultDiv);
 
-  document.getElementById("app").insertBefore(outerDiv, document.getElementById("calculate-btn-div"));
+  document
+    .getElementById("app")
+    .insertBefore(outerDiv, document.getElementById("calculate-btn-div"));
   addListeners(labels);
   noOfCards++;
 }
@@ -214,7 +217,8 @@ function calculateSubTotal(subject, cardNo) {
     let marks = document.getElementById(id).value;
     if (marks < 0) marks = 0;
     if (marks > subject.max[i]) marks = subject.max[i];
-    if (subject.max[i] > 0) totalMarks += (marks / subject.max[i]) * subject.weight[i];
+    if (subject.max[i] > 0)
+      totalMarks += (marks / subject.max[i]) * subject.weight[i];
   }
   return totalMarks.toFixed(2);
 }
@@ -235,7 +239,7 @@ function getGrade(marks) {
 
 // createInputs(subObj[0]);
 
-document.getElementById("plus-btn").onclick = () => {
+document.getElementById("add-btn").onclick = () => {
   // document.getElementById("cardDiv").innerHTML = "";
 
   for (let i = 0; i < subObj.length; i++) {
@@ -252,21 +256,24 @@ document.getElementById("calculate-btn").onclick = () => {
   console.log(selectedSubjects);
 
   for (let i = 0; i < subObj.length; i++) {
-    selectedSubjects.forEach(subject => {
+    selectedSubjects.forEach((subject) => {
       if (subject.name === subObj[i].name) {
-        marks.push(calculateSubTotal(subObj[i], selectedSubjects.indexOf(subject)));
-      }});
+        marks.push(
+          calculateSubTotal(subObj[i], selectedSubjects.indexOf(subject))
+        );
+      }
+    });
   }
 
   console.log(marks);
 
   let m = Array.from(document.querySelectorAll("#showMarks"));
-  m.forEach(label => {
+  m.forEach((label) => {
     label.innerHTML = marks[m.indexOf(label)];
   });
 
   let g = Array.from(document.querySelectorAll("#showGrade"));
-  g.forEach(label => {
+  g.forEach((label) => {
     label.innerHTML = getGrade(marks[g.indexOf(label)]);
   });
   // document.getElementById("showMarks").innerHTML = marks;

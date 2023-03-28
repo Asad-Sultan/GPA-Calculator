@@ -23,7 +23,7 @@
 
     <link rel="stylesheet" href="style.css" />
 
-    <title>Grade Calculator</title>
+    <title>GPA Calculator</title>
   </head>
   <body>
     <div class="app" id="app">
@@ -40,7 +40,9 @@
           <option value="logics">Logics</option>
         </select>
 
-        <button id="plus-btn" class="btn">+</button>
+        <button id="add-btn" class="btn add-btn">
+          <ion-icon name="add-outline"></ion-icon>
+        </button>
       </div>
 
       <!-- <div class="cardBody" id="cardBody">
@@ -63,9 +65,22 @@
       </div>
     </div>
 
-    <p class="credit">
-      Made with <ion-icon name="heart-outline"></ion-icon> by Addan & Asad
-    </p>
+    <div class="app-footer">
+      <p class="credit">
+        Made with <ion-icon name="heart-outline"></ion-icon> by Addan & Asad
+      </p>
+      <div class="footer-btns">
+        <a href="#" class="footer-btn usage-btn"
+          >Usage <ion-icon name="settings-outline"></ion-icon
+        ></a>
+        <a
+          href="https://github.com/Asad-Sultan/GPA-Calculator"
+          target="_blank"
+          class="footer-btn github-btn"
+          >GitHub <ion-icon name="logo-github"></ion-icon
+        ></a>
+      </div>
+    </div>
 
     <script src="script.js"></script>
   </body>

@@ -34,8 +34,30 @@ input[type="number"] {
 }
 
 /***********************************/
+/* Universal Styles */
+/***********************************/
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Rubik", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 400;
+  color: #1f1c18;
+  background-color: #f3deba;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/***********************************/
 /* General Classes */
 /***********************************/
+
+/* General Button Styles */
 
 .btn {
   background-color: #abc4aa;
@@ -53,36 +75,47 @@ input[type="number"] {
   border: 3px solid #9ab099;
 }
 
-/***********************************/
-/* Universal Styles */
-/***********************************/
+/* Square Buttons With Icons */
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Rubik", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-weight: 400;
-  color: #1f1c18;
-  background-color: #f3deba;
-  height: 100vh;
+.add-btn,
+.remove-btn {
+  min-height: 28px;
+  min-width: 28px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.add-btn ion-icon,
+.remove-btn ion-icon {
+  font-size: 18px;
+  --ionicon-stroke-width: 69px;
+}
+
+/* General Input Style */
+
+input {
+  background-color: #f3deba;
+  border: 2px solid #675d50;
+  padding: 3px;
+  border-radius: 4px;
+  color: inherit;
+  font-family: inherit;
+  width: 40px;
+}
+
+.hoveringPrompt {
+  position: absolute;
+  top: 0px;
+  left: 40px;
+  z-index: 1;
 }
 
 /***********************************/
 /* Page Styles */
 /***********************************/
 
-.heading {
-  text-align: center;
-  margin-bottom: 30px;
-}
+/* Main Div */
 
 .app {
   background-color: #dbc8a7;
@@ -93,7 +126,17 @@ body {
   flex-direction: column;
   transition-duration: 250ms;
   min-width: 325px;
+  margin-top: 100px;
 }
+
+/* App Heading */
+
+.heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Subject Selection */
 
 .seladd {
   display: flex;
@@ -104,6 +147,7 @@ body {
   text-align-last: center;
   font-family: inherit;
   color: inherit;
+  font-weight: 500;
   background-color: #f3deba;
   border: 2px solid #675d50;
   border-radius: 3px;
@@ -111,12 +155,7 @@ body {
   width: 100%;
 }
 
-.seladd button {
-  font-size: 16px;
-  font-weight: bold;
-  padding: 6px 10px;
-  font-family: inherit;
-}
+/* Subject Outer Div */
 
 .cardBody {
   display: flex;
@@ -125,56 +164,43 @@ body {
   border: 3px #9ab099 solid;
   border-radius: 5px;
   padding: 15px;
+  margin-top: 20px;
 }
-/* #cardBody {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  border: 3px #9ab099 solid;
-  border-radius: 5px;
-  padding: 15px;
-} */
+
+/* Subject Inner Div */
 
 .cardDiv {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   gap: 5px;
-  margin-top: 20px;
 }
-/* #cardDiv {
+
+.card-header {
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  gap: 5px;
-  margin-top: 20px;
-} */
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.card-header h2 {
+  font-size: 20px;
+  font-weight: 600;
+}
 
 .cardDiv input {
-  padding: 3px;
-  background-color: #f3deba;
-  border: 2px solid #675d50;
-  border-radius: 3px;
-  color: inherit;
-  font-family: inherit;
-  width: 40px;
   margin-right: 3px;
 }
-/* #cardDiv input {
-  padding: 3px;
-  background-color: #f3deba;
-  border: 2px solid #675d50;
-  border-radius: 3px;
-  color: inherit;
-  font-family: inherit;
-  width: 40px;
-  margin-right: 3px;
-} */
+
+/* Row Including Assessment Type, Weightage, Obtained & Max Marks */
 
 .rowInput {
   display: flex;
   justify-content: space-between;
 }
+
+/* Subject Results */
 
 .results {
   display: none;
@@ -187,12 +213,10 @@ body {
 
 .showMarks,
 .showGrade {
-  color: #788977;
+  color: #606e5f;
 }
-/* #showMarks,
-#showGrade {
-  color: #788977;
-} */
+
+/* Calculate Btn */
 
 .calculate-btn-div {
   text-align: center;
@@ -200,45 +224,62 @@ body {
 }
 
 .calculate-btn {
-  padding: 8px 16px;
-  font-size: 14px;
+  padding: 4px 8px;
+  font-size: 15px;
   font-weight: 500;
 }
-/* #calculate-btn {
-  padding: 8px 16px;
-  font-size: 14px;
-  font-weight: 500;
-} */
+
+/* App Footer */
+
+.app-footer {
+  margin-top: 30px;
+  margin-bottom: 100px;
+}
+
+/* Footer Credit */
 
 .credit {
-  margin-top: 30px;
   display: flex;
   align-items: center;
   gap: 3px;
+  font-weight: 500;
 }
 
-.hoveringPrompt {
-  position: absolute;
-  top: 0px;
-  left: 40px;
-  z-index: 1;
+/* Footer Btns */
+
+.footer-btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
 }
 
-/* For hovering field */
-.change-field {
-  background-color: #f3deba;
-  border: 2px solid #675d50;
-  padding: 3px;
-  border-radius: 3px;
-  color: inherit;
-  font-family: inherit;
-  width: 40px;
+.footer-btn:link,
+.footer-btn:visited {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 15px;
+  font-weight: 500;
+  border: 2px solid #1f1c18;
+  color: #1f1c18;
+  padding: 3px 6px;
+  border-radius: 4px;
+  transition-duration: 250ms;
 }
 
-/* For hovering button */
-.change-btn {
-  padding: 2px 4px;
-  box-shadow: none;
-  border-radius: 3px;
-  margin-left: 5px;
+.footer-btn:hover,
+.footer-btn:active {
+  background-color: #1f1c18;
+  color: #f3deba;
+}
+
+/* Footer Icons */
+
+.credit ion-icon,
+.footer-btn ion-icon {
+  --ionicon-stroke-width: 50px;
 }
