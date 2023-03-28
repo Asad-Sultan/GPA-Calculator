@@ -134,6 +134,13 @@ function updateMax(element) {
   });
 }
 
+if(document.cookie == "vanilla") color.vanilla();
+if(document.cookie == "saffron") color.saffron();
+if(document.cookie == "fruitCocktail") color.fruitCocktail();
+if(document.cookie == "breeze") color.breeze();
+if(document.cookie == "dracula") color.dracula();
+if(document.cookie == "sky") color.sky();
+
 // function addListeners(labels) {
 //   labels.forEach((element) => {
 //     element.addEventListener("contextmenu", (ev) => {
@@ -196,6 +203,7 @@ function changeColor() {
         if(btn.value == "breeze") color.breeze();
         if(btn.value == "dracula") color.dracula();
         if(btn.value == "sky") color.sky();
+        document.cookie = btn.value + "; expires=Tue, 31 Dec 2030 23:59:59 GMT";
       }
     })
   })
