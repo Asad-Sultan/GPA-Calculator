@@ -34,7 +34,9 @@ subObj.push(
   new Subject("physics", [40, 40, 30, 40, 20], [10, 10, 20, 40, 20], 3)
 );
 
-subObj.push(new Subject("pf", [0, 0, 0, 0, 0, 0], [1, 1, 1, 1, 1, 1], 4));
+subObj.push(
+  new Subject("pf", [40, 40, 40, 60, 10, 10], [10, 10, 20, 40, 10, 10], 4)
+);
 
 subObj.push(new Subject("ict", [0, 0, 0, 0, 0, 0], [1, 1, 1, 1, 1, 1], 4));
 
@@ -139,13 +141,14 @@ function createInputs(subject) {
 
   let headingDiv = document.createElement("div");
   let heading = document.createElement("h2");
+  ``;
   let removeBtn = document.createElement("button");
 
   headingDiv.className = "card-header";
   heading.innerHTML = subName;
   removeBtn.className = "btn remove-btn";
   removeBtn.id = "remove-btn-" + noOfCards;
-  removeBtn.innerHTML = "<ion-icon name='close-outline'></ion-icon>";
+  removeBtn.innerHTML = "<ion-icon name='trash-outline'></ion-icon>";
 
   removeBtns.push(removeBtn);
 
@@ -154,9 +157,15 @@ function createInputs(subject) {
 
   innerDiv.appendChild(headingDiv);
 
+  let crhrWrapper = document.createElement("div");
   let crhr = document.createElement("h3");
-  crhr.innerHTML = subject.creditHR + "Hrs";
-  innerDiv.appendChild(crhr);
+  let crhrNo = document.createElement("span");
+  crhrWrapper.className = "crhr-wrapper";
+  crhr.innerHTML = "Credit Hours: ";
+  crhrNo.innerHTML = subject.creditHR;
+  crhrWrapper.appendChild(crhr);
+  crhr.appendChild(crhrNo);
+  innerDiv.appendChild(crhrWrapper);
 
   var labels = [];
   for (let i = 0; i < subject.max.length; i++) {
@@ -314,7 +323,8 @@ document.getElementById("calculate-btn").onclick = () => {
     totalHrs += subObj[i].creditHR;
   }
 
-  document.getElementById("cgpa").innerHTML = totalGP / totalHrs;
+  document.getElementById("spga-wrapper").style.display = "flex";
+  document.getElementById("sgpa").innerHTML = (totalGP / totalHrs).toFixed(2);
 
   Array.from(document.getElementsByClassName("results")).forEach((element) => {
     element.style.display = "flex";
