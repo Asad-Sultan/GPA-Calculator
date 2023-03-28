@@ -60,70 +60,76 @@ function updateMax(element) {
   });
 }
 
-function addListeners(labels) {
-  labels.forEach((element) => {
-    element.addEventListener("contextmenu", (ev) => {
-      ev.preventDefault();
-      let div = document.createElement("div");
-      let t = document.createElement("input");
-      // let b = document.createElement("button");
+// function addListeners(labels) {
+//   labels.forEach((element) => {
+//     element.addEventListener("contextmenu", (ev) => {
+//       ev.preventDefault();
+//       let div = document.createElement("div");
+//       let t = document.createElement("input");
+//       // let b = document.createElement("button");
 
-      t.type = "number";
-      t.id = "change-txt";
-      t.className = "change-field";
+//       t.type = "number";
+//       t.id = "change-txt";
+//       t.className = "change-field";
 
-      // b.innerHTML = "Change?";
-      // b.id = "change-btn";
-      // b.className = "change-btn btn";
-      div.append(t);
-      // div.append(b);
+//       // b.innerHTML = "Change?";
+//       // b.id = "change-btn";
+//       // b.className = "change-btn btn";
+//       div.append(t);
+//       // div.append(b);
 
-      div.className = "hoveringPrompt";
-      div.style.left = ev.clientX.toString() + "px";
-      div.style.top = ev.clientY.toString() + "px";
+//       div.className = "hoveringPrompt";
+//       div.style.left = ev.clientX.toString() + "px";
+//       div.style.top = ev.clientY.toString() + "px";
 
-      changingIndex = labels.indexOf(element);
+//       changingIndex = labels.indexOf(element);
 
-      document.querySelectorAll(".hoveringPrompt").forEach((el) => {
-        el.remove();
-      });
+//       document.querySelectorAll(".hoveringPrompt").forEach((el) => {
+//         el.remove();
+//       });
 
-      document.body.appendChild(div);
+//       document.body.appendChild(div);
 
-      document.onkeydown = function (evt) {
-        evt = evt || window.event;
-        if ("key" in evt) {
-          if (evt.key === "Enter") {
-            updateMax(element);
-          } else if (evt.key === "Escape") {
-            document.querySelectorAll(".hoveringPrompt").forEach((element) => {
-              element.remove();
-            });
-          }
-        }
-      };
+//       document.onkeydown = function (evt) {
+//         evt = evt || window.event;
+//         if ("key" in evt) {
+//           if (evt.key === "Enter") {
+//             updateMax(element);
+//           } else if (evt.key === "Escape") {
+//             document.querySelectorAll(".hoveringPrompt").forEach((element) => {
+//               element.remove();
+//             });
+//           }
+//         }
+//       };
 
-      document.getElementById("change-btn").onclick = function () {
-        updateMax(element);
-      };
-    });
-  });
-}
+//       document.getElementById("change-btn").onclick = function () {
+//         updateMax(element);
+//       };
+//     });
+//   });
+// }
 
 function addListenersRemove(removeBtns) {
   removeBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
       let index = removeBtns.indexOf(btn);
-      document.getElementById("card-" + index).remove();
+      let btnID = Array.from(btn.id).lastIndexOf("-");
+      let newID = "";
+      for (let x = btnID + 1; x < btn.id.length; x++) {
+        newID += btn.id[x];
+      }
+      document.getElementById("card-" + newID).remove();
+      // document.getElementById("card-" + index).remove();
       document.getElementById("sub").appendChild(cardsUsed[index]);
+      cardsUsed.splice(index, 1);
+      selectedSubjects.splice(index, 1);
+      removeBtns.splice(index, 1);
     });
   });
 }
 
 function createInputs(subject) {
-  //TODO: GIVE IDS TO ALL NEW ELEMENTS
-  //FIXME: RENAME ALL PREVIOUS IDS ACCORDINGLY
-
   selectedSubjects.push(subject);
 
   let outerDiv = document.createElement("div");
@@ -233,22 +239,55 @@ function createInputs(subject) {
   document
     .getElementById("app")
     .insertBefore(outerDiv, document.getElementById("calculate-btn-div"));
-  addListeners(labels);
+  // addListeners(labels);
   addListenersRemove(removeBtns);
   noOfCards++;
 }
 
-function calculateSubTotal(subject, cardNo) {
-  let totalMarks = 0;
-  for (let i = 0; i < subject.max.length; i++) {
-    let id = "criteria-" + i + "-" + cardNo;
-    let marks = document.getElementById(id).value;
-    if (marks < 0) marks = 0;
-    if (marks > subject.max[i]) marks = subject.max[i];
-    if (subject.max[i] > 0)
-      totalMarks += (marks / subject.max[i]) * subject.weight[i];
+function calculateSubTotal() {
+  let totalMarks = [];
+  let ids = [];
+  //queryselectall the ids of criterias
+  let allCards = document.querySelectorAll(".rowInput");
+  allCards.forEach(card => {
+    ids.push(card.querySelectorAll("input")[0].id);
+  });
+
+  idsSep = [];
+  let temp = [ids[0]];
+  for (let i = 1; i < ids.length; i++) {
+    let rainCheck = "";
+    for (let j = ids[i].indexOf("-") + 1; j < ids[i].lastIndexOf("-"); j++) {
+      rainCheck += ids[i][j];
+    }
+    if (rainCheck == "0") {
+      idsSep.push(temp);
+      temp = [];
+    }
+    temp.push(ids[i]);
   }
-  return totalMarks.toFixed(1);
+  idsSep.push(temp);
+
+  for (let i = 0; i < idsSep.length; i++) {
+    let subMarks = [];
+    for (let j = 0; j < idsSep[i].length; j++) {
+      let value = document.getElementById(idsSep[i][j]);
+      subMarks.push(value.value);
+    }
+    totalMarks.push(subMarks);
+  }
+
+  return totalMarks;
+
+  // for (let i = 0; i < subject.max.length; i++) {
+  //   let id = "criteria-" + i + "-" + cardNo;
+  //   let marks = document.getElementById(id).value;
+  //   if (marks < 0) marks = 0;
+  //   if (marks > subject.max[i]) marks = subject.max[i];
+  //   if (subject.max[i] > 0)
+  //     totalMarks += (marks / subject.max[i]) * subject.weight[i];
+  // }
+  // return totalMarks.toFixed(1);
 }
 
 function getGrade(marks) {
@@ -287,24 +326,31 @@ document.getElementById("add-btn").onclick = () => {
 document.getElementById("calculate-btn").onclick = () => {
   let obtainedSubs = [];
   let marks = [];
+  let allMarks = calculateSubTotal();
   let grades = [];
   let totalHrs = 0;
   let totalGP = 0;
 
-  console.log(selectedSubjects);
-
   for (let i = 0; i < subObj.length; i++) {
     selectedSubjects.forEach((subject) => {
       if (subject.name === subObj[i].name) {
-        marks.push(
-          calculateSubTotal(subObj[i], selectedSubjects.indexOf(subject))
-        );
+        // marks.push(
+        //   calculateSubTotal(subObj[i], selectedSubjects.indexOf(subject))
+        // );
         obtainedSubs.push(subObj[i]);
       }
     });
   }
 
-  console.log(marks);
+  for (let i = 0; i < allMarks.length; i++) {
+    let totalMarksSub = 0;
+    for (let j = 0; j < allMarks[i].length; j++) {
+      if (allMarks[i][j] < 0) allMarks[i][j] = 0;
+      if (allMarks[i][j] > obtainedSubs[i].max[j]) allMarks[i][j] = obtainedSubs[i].max[j];
+      totalMarksSub += (allMarks[i][j] / obtainedSubs[i].max[j]) * obtainedSubs[i].weight[j];
+    }
+    marks.push(totalMarksSub);
+  }
 
   let m = Array.from(document.querySelectorAll("#showMarks"));
   m.forEach((label) => {
