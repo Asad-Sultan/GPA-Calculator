@@ -1,2 +1,12 @@
-weightage after labels
-after data entry, replace input with label
+Addan:
+
+- Weightage after labels
+- After data entry, replace input with label and vice versa
+- Fix the bug which prevents calculation after removing and re-adding subjects
+- Implement theme selector
+
+Asad:
+
+- Implement grid layout on rowinputs
+- Design new features
+- Obsess over small things
