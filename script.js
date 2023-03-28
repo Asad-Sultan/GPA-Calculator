@@ -482,7 +482,7 @@ document.getElementById("calculate-btn").onclick = () => {
 
 document.onkeydown = function (evt) {
   evt = evt || window.event;
-  let popup = document.querySelector(".popup").style;
+  let popup = document.querySelector(".theme-popup").style;
   if ("key" in evt) {
     if (evt.key === "Enter") {
       console.log(popup.display);

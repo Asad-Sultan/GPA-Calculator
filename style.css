@@ -457,7 +457,8 @@ input {
 
 /* Theme Selector */
 
-.popup {
+.theme-popup,
+.usage-popup {
   display: none;
   align-items: center;
   justify-content: center;
