@@ -1,12 +1,12 @@
 Addan:
-
-- Weightage after labels
-- After data entry, replace input with label and vice versa
-- Fix the bug which prevents calculation after removing and re-adding subjects
-- Implement theme selector
+  - Weightage after labels
+  - After data entry, replace input with label and vice versa
+  - Fix the bug which prevents calculation after removing and re-adding subjects
+  - Implement theme selector
+  - Implement "Add Subject" as default item in select menu. Also choose it back again after adding/removing subjects
+  - Hide SGPA when all subjects are removed
 
 Asad:
-
-- Implement grid layout on rowinputs
-- Design new features
-- Obsess over small things
+  - Implement grid layout on rowinputs
+  - Design new features
+  - Obsess over small things

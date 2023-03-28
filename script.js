@@ -248,7 +248,7 @@ function calculateSubTotal(subject, cardNo) {
     if (subject.max[i] > 0)
       totalMarks += (marks / subject.max[i]) * subject.weight[i];
   }
-  return totalMarks.toFixed(2);
+  return totalMarks.toFixed(1);
 }
 
 function getGrade(marks) {
@@ -313,7 +313,7 @@ document.getElementById("calculate-btn").onclick = () => {
 
   let g = Array.from(document.querySelectorAll("#showGrade"));
   g.forEach((label) => {
-    let grade = getGrade(marks[g.indexOf(label)]);
+    let grade = getGrade(marks[g.indexOf(label)]).toFixed(2);
     label.innerHTML = grade;
     grades.push(grade);
   });

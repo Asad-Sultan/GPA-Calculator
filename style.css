@@ -228,7 +228,6 @@ input {
   border-radius: 7px;
   display: flex;
   flex-direction: column;
-  transition-duration: 250ms;
   min-width: 325px;
   margin-top: 69px;
 }
