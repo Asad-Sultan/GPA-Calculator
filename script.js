@@ -150,8 +150,12 @@ function createInputs(subject) {
 
   headingDiv.appendChild(heading);
   headingDiv.appendChild(removeBtn);
-
+  
   innerDiv.appendChild(headingDiv);
+
+  let crhr = document.createElement("h3");
+  crhr.innerHTML = subject.creditHR + "Hrs";
+  innerDiv.appendChild(crhr);
 
   var labels = [];
   for (let i = 0; i < subject.max.length; i++) {
@@ -268,7 +272,11 @@ document.getElementById("plus-btn").onclick = () => {
 };
 
 document.getElementById("calculate-btn").onclick = () => {
+  let obtainedSubs = [];
   let marks = [];
+  let grades = [];
+  let totalHrs = 0;
+  let totalGP = 0;
 
   console.log(selectedSubjects);
 
@@ -276,6 +284,7 @@ document.getElementById("calculate-btn").onclick = () => {
     selectedSubjects.forEach(subject => {
       if (subject.name === subObj[i].name) {
         marks.push(calculateSubTotal(subObj[i], selectedSubjects.indexOf(subject)));
+        obtainedSubs.push(subObj[i]);
       }
     });
   }
@@ -289,10 +298,17 @@ document.getElementById("calculate-btn").onclick = () => {
 
   let g = Array.from(document.querySelectorAll("#showGrade"));
   g.forEach(label => {
-    label.innerHTML = getGrade(marks[g.indexOf(label)]);
+    let grade = getGrade(marks[g.indexOf(label)]);
+    label.innerHTML = grade;
+    grades.push(grade);
   });
-  // document.getElementById("showMarks").innerHTML = marks;
-  // document.getElementById("showGrade").innerHTML = getGrade(marks);
+  
+  for(let i = 0; i < grades.length; i++) {
+    totalGP += grades[i] * subObj[i].creditHR;
+    totalHrs += subObj[i].creditHR;
+  }
+
+  document.getElementById("cgpa").innerHTML = totalGP / totalHrs;
 
   Array.from(document.getElementsByClassName("results")).forEach((element) => {
     element.style.display = "flex";
