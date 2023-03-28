@@ -14,6 +14,8 @@ const inputTypeList = [
   "Lab",
 ];
 var selectedSubjects = [];
+var removeBtns = [];
+var cardsUsed = [];
 // var labels = [];
 
 class Subject {
@@ -104,6 +106,16 @@ function addListeners(labels) {
   });
 }
 
+function addListenersRemove(removeBtns) {
+  removeBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      let index = removeBtns.indexOf(btn);
+      document.getElementById("card-" + index).remove();
+      document.getElementById("sub").appendChild(cardsUsed[index]);
+    })
+  });
+}
+
 function createInputs(subject) {
   //TODO: GIVE IDS TO ALL NEW ELEMENTS
   //FIXME: RENAME ALL PREVIOUS IDS ACCORDINGLY
@@ -133,6 +145,8 @@ function createInputs(subject) {
   removeBtn.className = "btn remove-btn";
   removeBtn.id = "remove-btn-" + noOfCards;
   removeBtn.innerHTML = "-";
+
+  removeBtns.push(removeBtn);
 
   headingDiv.appendChild(heading);
   headingDiv.appendChild(removeBtn);
@@ -204,6 +218,7 @@ function createInputs(subject) {
 
   document.getElementById("app").insertBefore(outerDiv, document.getElementById("calculate-btn-div"));
   addListeners(labels);
+  addListenersRemove(removeBtns);
   noOfCards++;
 }
 
@@ -244,6 +259,12 @@ document.getElementById("plus-btn").onclick = () => {
       createInputs(subObj[i]);
     }
   }
+  document.querySelectorAll("option").forEach(option => {
+    if (option.value === changingSubject.name) {
+      cardsUsed.push(option);
+      option.remove();
+    }
+  })
 };
 
 document.getElementById("calculate-btn").onclick = () => {
@@ -255,7 +276,8 @@ document.getElementById("calculate-btn").onclick = () => {
     selectedSubjects.forEach(subject => {
       if (subject.name === subObj[i].name) {
         marks.push(calculateSubTotal(subObj[i], selectedSubjects.indexOf(subject)));
-      }});
+      }
+    });
   }
 
   console.log(marks);
