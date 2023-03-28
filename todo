@@ -1,4 +1,5 @@
 Addan:
+  - Add toFixed(1) to subject marks
   - Trigger .popup-theme-selector with button instead of "Enter"
   - Add functionality to pop-up closing button
   - Fix subject orders
