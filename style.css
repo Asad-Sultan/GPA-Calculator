@@ -3,29 +3,20 @@
 /***********************************/
 
 /* Palette 1 (Default) - Vanilla*/
-:root {
+/* :root {
   --colorBackground: #f3deba;
   --colorApp: #dbc8a7;
   --colorInputBackground: #d3d3d3;
 
-  --colorMain: #abc4aa;
-  --colorMain_ShadeOne: #9ab099;
-  --colorMain_ShadeTwo: #606e5f;
+  --colorMain: #9ed7a9;
+  --colorMain_ShadeOne: #8ec298;
+  --colorMain_ShadeTwo: #6f9776;
 
   --colorBoxShadow: rgba(17, 20, 17, 0.5);
 
   --colorText: #1f1c18;
   --colorInputBorders: #675d50;
-}
-
-.popup {
-  display: none;
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  background-color: red;
-  z-index: 2;
-}
+} */
 
 /* Palette 2 - Saffron*/
 /* :root {
@@ -130,7 +121,7 @@ input[type="number"] {
 
 *:focus {
   outline: none;
-  box-shadow: 0 0 0 2px var(--colorMain_ShadeOne);
+  box-shadow: 0 0 0 2px var(--colorMain);
 }
 
 /***********************************/
@@ -170,7 +161,8 @@ body {
   transition-duration: 250ms;
 }
 
-.btn:hover {
+.btn:hover,
+.btn:active {
   background-color: var(--colorMain_ShadeOne);
   border: 3px solid var(--colorMain_ShadeOne);
 }
@@ -178,7 +170,8 @@ body {
 /* Square Buttons With Icons */
 
 .add-btn,
-.remove-btn {
+.remove-btn,
+.popup-close {
   min-height: 28px;
   min-width: 28px;
   display: flex;
@@ -198,6 +191,19 @@ body {
 .remove-btn ion-icon {
   --ionicon-stroke-width: 35px;
 }
+
+.popup-close {
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  box-shadow: none;
+}
+
+.popup-close ion-icon {
+  font-size: 18px;
+  --ionicon-stroke-width: 100px;
+}
+
 
 /* General Input Style */
 
@@ -224,15 +230,19 @@ input {
 
 /* Main Div */
 
+.theme-selector,
 .app {
   background-color: var(--colorApp);
   box-shadow: 4px 4px 10px 0 var(--colorBoxShadow);
-  padding: 30px 20px;
+  padding: 40px 20px;
   border-radius: 7px;
+  min-width: 325px;
+}
+
+.app {
   display: flex;
   flex-direction: column;
-  min-width: 325px;
-  margin-top: 69px;
+  margin-top: 50px;
 }
 
 /* App Heading */
@@ -246,6 +256,7 @@ input {
 
 .seladd {
   display: flex;
+  justify-content: center;
   gap: 10px;
 }
 
@@ -258,7 +269,7 @@ input {
   border: 2px solid var(--colorInputBorders);
   border-radius: 3px;
   padding: 0 5px;
-  width: 100%;
+  width: 69%;
 }
 
 /* Subject Outer Div */
@@ -372,7 +383,7 @@ input {
 
 .app-footer {
   margin-top: 30px;
-  margin-bottom: 69px;
+  margin-bottom: 50px;
 }
 
 /* Footer Credit */
@@ -394,19 +405,21 @@ input {
   margin-top: 10px;
 }
 
-.footer-btn:link,
-.footer-btn:visited {
+.footer-btn {
   text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 5px;
   font-size: 15px;
+  font-family: inherit;
   font-weight: 500;
   border: 2px solid var(--colorText);
   color: var(--colorText);
+  background-color: var(--colorBackground);
   padding: 3px 6px;
   border-radius: 4px;
+  cursor: pointer;
   transition-duration: 250ms;
 }
 
@@ -416,9 +429,187 @@ input {
   color: var(--colorBackground);
 }
 
+.theme-btn-div {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+}
+
+.theme-btn {
+  border: 2px solid var(--colorMain);
+  background-color: var(--colorMain);
+  box-shadow: 1px 1px 5px 0 var(--colorBoxShadow);
+  padding: 4px 8px;
+}
+
+.theme-btn:hover {
+  background-color:var(--colorMain);
+  color: var(--colorText);
+  transform: scale(1.069);
+}
+
 /* Footer Icons */
 
 .credit ion-icon,
 .footer-btn ion-icon {
   --ionicon-stroke-width: 50px;
+}
+
+/* Theme Selector */
+
+.popup {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  min-width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.69);
+  backdrop-filter: blur(10px);
+  z-index: 2;
+}
+
+.theme-selector {
+  position: relative;
+}
+
+.theme-selector-heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Themes */
+
+.colorDivWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+/* Theme Row */
+
+.colorDiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px;
+}
+
+.color-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.radioDots {
+  height: 18px;
+  width: 18px;
+  accent-color: var(--colorMain);
+}
+
+.paletteName {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.palettePreview {
+  display: flex;
+  border: 2px solid var(--colorText);
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.palettePreview div:nth-child(1) {
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+}
+
+.palettePreview div:nth-child(4) {
+  border-bottom-right-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+.palettePreview div {
+  height: 28px;
+  width: 28px;
+}
+
+/* Palette Colors */
+
+.vanilla1 {
+  background-color: #f3deba;
+}
+.vanilla2 {
+  background-color: #dbc8a7;
+}
+.vanilla3 {
+  background-color: #9ed7a9;
+}
+.vanilla4 {
+  background-color: #1f1c18;
+}
+
+.saffron1 {
+  background-color: #e4dccf;
+}
+.saffron2 {
+  background-color: #cdc6ba;
+}
+.saffron3 {
+  background-color: #ea5455;
+}
+.saffron4 {
+  background-color: #00162e;
+}
+
+.fruitCocktail1 {
+  background-color: #f9ed69;
+}
+.fruitCocktail2 {
+  background-color: #f08a5d;
+}
+.fruitCocktail3 {
+  background-color: #b83b5e;
+}
+.fruitCocktail4 {
+  background-color: #351638;
+}
+
+.breeze1 {
+  background-color: #393e46;
+}
+.breeze2 {
+  background-color: #222831;
+}
+.breeze3 {
+  background-color: #00adb5;
+}
+.breeze4 {
+  background-color: #dddddd;
+}
+
+.dracula1 {
+  background-color: #413543;
+}
+.dracula2 {
+  background-color: #2d2727;
+}
+.dracula3 {
+  background-color: #8f43ee;
+}
+.dracula4 {
+  background-color: #f0eb8d;
+}
+
+.sky1 {
+  background-color: #0f4c75;
+}
+.sky2 {
+  background-color: #1b262c;
+}
+.sky3 {
+  background-color: #3282b8;
+}
+.sky4 {
+  background-color: #bbe1fa;
 }

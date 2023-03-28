@@ -26,36 +26,6 @@
     <title>GPA Calculator</title>
   </head>
   <body>
-    <div class="popup">
-      
-    </div>
-    <header class="colorDivWrapper" id="colorsTop">
-      <div class="colorDiv" id="colorDiv">
-        <label for="color" class="paletteName" id="paletteName"></label>
-        <input type="radio" name="colors" class="radioDots" value="vanilla" checked="true">
-      </div>
-      <div class="colorDiv" id="colorDiv">
-        <label for="color" class="paletteName" id="paletteName"></label>
-        <input type="radio" name="colors" class="radioDots" value="saffron">
-      </div>
-      <div class="colorDiv" id="colorDiv">
-        <label for="color" class="paletteName" id="paletteName"></label>
-        <input type="radio" name="colors" class="radioDots" value="fruitCocktail">
-      </div>
-      <div class="colorDiv" id="colorDiv">
-        <label for="color" class="paletteName" id="paletteName"></label>
-        <input type="radio" name="colors" class="radioDots" value="breeze">
-      </div>
-      <div class="colorDiv" id="colorDiv">
-        <label for="color" class="paletteName" id="paletteName"></label>
-        <input type="radio" name="colors" class="radioDots" value="dracula">
-      </div>
-      <div class="colorDiv" id="colorDiv">
-        <label for="color" class="paletteName" id="paletteName"></label>
-        <input type="radio" name="colors" class="radioDots" value="sky">
-      </div>
-    </header>
-
     <div class="app" id="app">
       <div class="heading">
         <h1>GPA Calculator</h1>
@@ -104,16 +74,169 @@
       <p class="credit">
         Made with <ion-icon name="heart-outline"></ion-icon> by Addan & Asad
       </p>
+
       <div class="footer-btns">
-        <a href="#" class="footer-btn usage-btn"
-          >Usage <ion-icon name="settings-outline"></ion-icon
-        ></a>
+        <button href="#" class="footer-btn usage-btn">
+          Usage
+          <ion-icon name="settings-outline"></ion-icon>
+        </button>
+
         <a
           href="https://github.com/Asad-Sultan/GPA-Calculator"
           target="_blank"
           class="footer-btn github-btn"
-          >GitHub <ion-icon name="logo-github"></ion-icon
-        ></a>
+        >
+          GitHub
+          <ion-icon name="logo-github"></ion-icon>
+        </a>
+      </div>
+
+      <div class="theme-btn-div">
+        <button class="footer-btn theme-btn">
+          Change Theme
+          <ion-icon name="color-palette-outline"></ion-icon>
+        </button>
+      </div>
+    </div>
+
+    <div class="popup">
+      <div class="theme-selector">
+        <button class="popup-close btn">
+          <ion-icon name="close-outline"></ion-icon>
+        </button>
+        
+        <div class="theme-selector-heading">
+          <h2>Change Theme</h2>
+        </div>
+
+        <div class="colorDivWrapper" id="colorsTop">
+          <div class="colorDiv" id="colorDiv">
+            <div class="color-label">
+              <input
+                type="radio"
+                name="colors"
+                class="radioDots"
+                value="vanilla"
+                checked="true"
+              />
+
+              <label for="color" class="paletteName" id="paletteName">
+                Vanilla
+              </label>
+            </div>
+
+            <div class="palettePreview">
+              <div class="vanilla1"></div>
+              <div class="vanilla2"></div>
+              <div class="vanilla3"></div>
+              <div class="vanilla4"></div>
+            </div>
+          </div>
+
+          <div class="colorDiv" id="colorDiv">
+            <div class="color-label">
+              <input
+                type="radio"
+                name="colors"
+                class="radioDots"
+                value="saffron"
+              />
+
+              <label for="color" class="paletteName" id="paletteName">
+                Saffron
+              </label>
+            </div>
+
+            <div class="palettePreview">
+              <div class="saffron1"></div>
+              <div class="saffron2"></div>
+              <div class="saffron3"></div>
+              <div class="saffron4"></div>
+            </div>
+          </div>
+
+          <div class="colorDiv" id="colorDiv">
+            <div class="color-label">
+              <input
+                type="radio"
+                name="colors"
+                class="radioDots"
+                value="fruitCocktail"
+              />
+
+              <label for="color" class="paletteName" id="paletteName">
+                Fruit Cocktail
+              </label>
+            </div>
+
+            <div class="palettePreview">
+              <div class="fruitCocktail1"></div>
+              <div class="fruitCocktail2"></div>
+              <div class="fruitCocktail3"></div>
+              <div class="fruitCocktail4"></div>
+            </div>
+          </div>
+
+          <div class="colorDiv" id="colorDiv">
+            <div class="color-label">
+              <input
+                type="radio"
+                name="colors"
+                class="radioDots"
+                value="breeze"
+              />
+
+              <label for="color" class="paletteName" id="paletteName">
+                Breeze
+              </label>
+            </div>
+
+            <div class="palettePreview">
+              <div class="breeze1"></div>
+              <div class="breeze2"></div>
+              <div class="breeze3"></div>
+              <div class="breeze4"></div>
+            </div>
+          </div>
+
+          <div class="colorDiv" id="colorDiv">
+            <div class="color-label">
+              <input
+                type="radio"
+                name="colors"
+                class="radioDots"
+                value="dracula"
+              />
+
+              <label for="color" class="paletteName" id="paletteName">
+                Dracula
+              </label>
+            </div>
+
+            <div class="palettePreview">
+              <div class="dracula1"></div>
+              <div class="dracula2"></div>
+              <div class="dracula3"></div>
+              <div class="dracula4"></div>
+            </div>
+          </div>
+
+          <div class="colorDiv" id="colorDiv">
+            <div class="color-label">
+              <input type="radio" name="colors" class="radioDots" value="sky" />
+              <label for="color" class="paletteName" id="paletteName"
+                >Sky</label
+              >
+            </div>
+
+            <div class="palettePreview">
+              <div class="sky1"></div>
+              <div class="sky2"></div>
+              <div class="sky3"></div>
+              <div class="sky4"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 

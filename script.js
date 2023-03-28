@@ -35,10 +35,10 @@ class ColorPallete {
     document.documentElement.style.setProperty("--colorBackground", "#f3deba");
     document.documentElement.style.setProperty("--colorApp", "#dbc8a7");
     document.documentElement.style.setProperty("--colorInputBackground", "#d3d3d3");
-    document.documentElement.style.setProperty("--colorMain", "#abc4aa");
-    document.documentElement.style.setProperty("--colorMain_ShadeOne", "#9ab099");
-    document.documentElement.style.setProperty("--colorMain_ShadeTwo", "#606e5f");
-    document.documentElement.style.setProperty("--colorBoxShadow", "rbga(17,20,17,0.5)");
+    document.documentElement.style.setProperty("--colorMain", "#9ed7a9");
+    document.documentElement.style.setProperty("--colorMain_ShadeOne", "#8ec298");
+    document.documentElement.style.setProperty("--colorMain_ShadeTwo", "#6f9776");
+    document.documentElement.style.setProperty("--colorBoxShadow", "rgba(17, 20, 17, 0.5)");
     document.documentElement.style.setProperty("--colorText", "#1f1c18");
     document.documentElement.style.setProperty("--colorInputBorders", "#675d50");
   }
@@ -49,7 +49,7 @@ class ColorPallete {
     document.documentElement.style.setProperty("--colorMain", "#ea5455");
     document.documentElement.style.setProperty("--colorMain_ShadeOne", "#d34c4c");
     document.documentElement.style.setProperty("--colorMain_ShadeTwo", "#bb4344");
-    document.documentElement.style.setProperty("--colorBoxShadow", "rbga(23,8,8,0.5)");
+    document.documentElement.style.setProperty("--colorBoxShadow", "rgba(23, 8, 8, 0.5)");
     document.documentElement.style.setProperty("--colorText", "#00162e");
     document.documentElement.style.setProperty("--colorInputBorders", "#002b5b");
   }
@@ -479,8 +479,8 @@ document.onkeydown = function (evt) {
     if (evt.key === "Enter") {
       console.log(popup.display);
       if(popup.display == "") {
-        popup.display = "block";
-      } else if(popup.display == "block")
+        popup.display = "flex";
+      } else if(popup.display == "flex")
         popup.display = "";
     }
   }
