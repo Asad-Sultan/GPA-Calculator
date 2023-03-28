@@ -184,6 +184,25 @@ function updateMax(element) {
 //   });
 // }
 
+function changeColor() {
+  let colors = document.getElementById("colorsTop");
+  let radioBtns = document.querySelectorAll(".radioDots");
+  colors.addEventListener("click", () => {
+    radioBtns.forEach(btn => {
+      if(btn.checked) {
+        if(btn.value == "vanilla") color.vanilla();
+        if(btn.value == "saffron") color.saffron();
+        if(btn.value == "fruitCocktail") color.fruitCocktail();
+        if(btn.value == "breeze") color.breeze();
+        if(btn.value == "dracula") color.dracula();
+        if(btn.value == "sky") color.sky();
+      }
+    })
+  })
+}
+
+changeColor();
+
 function addListenersRemove(removeBtns) {
   removeBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
