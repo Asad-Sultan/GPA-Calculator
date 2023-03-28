@@ -27,6 +27,80 @@ class Subject {
   }
 }
 
+class ColorPallete {
+  constructor() {
+    this.vanilla();
+  }
+  vanilla() {
+    document.documentElement.style.setProperty("--colorBackground", "#f3deba");
+    document.documentElement.style.setProperty("--colorApp", "#dbc8a7");
+    document.documentElement.style.setProperty("--colorInputBackground", "#d3d3d3");
+    document.documentElement.style.setProperty("--colorMain", "#abc4aa");
+    document.documentElement.style.setProperty("--colorMain_ShadeOne", "#9ab099");
+    document.documentElement.style.setProperty("--colorMain_ShadeTwo", "#606e5f");
+    document.documentElement.style.setProperty("--colorBoxShadow", "rbga(17,20,17,0.5)");
+    document.documentElement.style.setProperty("--colorText", "#1f1c18");
+    document.documentElement.style.setProperty("--colorInputBorders", "#675d50");
+  }
+  saffron() {
+    document.documentElement.style.setProperty("--colorBackground", "#e4dccf");
+    document.documentElement.style.setProperty("--colorApp", "#cdc6ba");
+    document.documentElement.style.setProperty("--colorInputBackground", "#d3d3d3");
+    document.documentElement.style.setProperty("--colorMain", "#ea5455");
+    document.documentElement.style.setProperty("--colorMain_ShadeOne", "#d34c4c");
+    document.documentElement.style.setProperty("--colorMain_ShadeTwo", "#bb4344");
+    document.documentElement.style.setProperty("--colorBoxShadow", "rbga(23,8,8,0.5)");
+    document.documentElement.style.setProperty("--colorText", "#00162e");
+    document.documentElement.style.setProperty("--colorInputBorders", "#002b5b");
+  }
+  fruitCocktail() {
+    document.documentElement.style.setProperty("--colorBackground", "#f9ed69");
+    document.documentElement.style.setProperty("--colorApp", "#f08a5d");
+    document.documentElement.style.setProperty("--colorInputBackground", "#d87c54");
+    document.documentElement.style.setProperty("--colorMain", "#b83b5e");
+    document.documentElement.style.setProperty("--colorMain_ShadeOne", "#a63555");
+    document.documentElement.style.setProperty("--colorMain_ShadeTwo", "#a63555");
+    document.documentElement.style.setProperty("--colorBoxShadow", "rgba(18, 6, 9, 0.5)");
+    document.documentElement.style.setProperty("--colorText", "#351638");
+    document.documentElement.style.setProperty("--colorInputBorders", "#401a43");
+  }
+  breeze() {
+    document.documentElement.style.setProperty("--colorBackground", "#393e46");
+    document.documentElement.style.setProperty("--colorApp", "#222831");
+    document.documentElement.style.setProperty("--colorInputBackground", "#2e3238");
+    document.documentElement.style.setProperty("--colorMain", "#00adb5");
+    document.documentElement.style.setProperty("--colorMain_ShadeOne", "#008a91");
+    document.documentElement.style.setProperty("--colorMain_ShadeTwo", "#33bdc4");
+    document.documentElement.style.setProperty("--colorBoxShadow", "rgba(0, 17, 18, 0.5)");
+    document.documentElement.style.setProperty("--colorText", "#dddddd");
+    document.documentElement.style.setProperty("--colorInputBorders", "#eeeeee");
+  }
+  dracula() {
+    document.documentElement.style.setProperty("--colorBackground", "#413543");
+    document.documentElement.style.setProperty("--colorApp", "#2d2727");
+    document.documentElement.style.setProperty("--colorInputBackground", "#342a36");
+    document.documentElement.style.setProperty("--colorMain", "#8f43ee");
+    document.documentElement.style.setProperty("--colorMain_ShadeOne", "#7236be");
+    document.documentElement.style.setProperty("--colorMain_ShadeTwo", "#a569f1");
+    document.documentElement.style.setProperty("--colorBoxShadow", "rgba(14, 7, 24, 0.5)");
+    document.documentElement.style.setProperty("--colorText", "#f0eb8d");
+    document.documentElement.style.setProperty("--colorInputBorders", "#d8d47f");
+  }
+  sky() {
+    document.documentElement.style.setProperty("--colorBackground", "#0f4c75");
+    document.documentElement.style.setProperty("--colorApp", "#1b262c");
+    document.documentElement.style.setProperty("--colorInputBackground", "#0c3d5e");
+    document.documentElement.style.setProperty("--colorMain", "#3282b8");
+    document.documentElement.style.setProperty("--colorMain_ShadeOne", "#286893");
+    document.documentElement.style.setProperty("--colorMain_ShadeTwo", "#478fbf");
+    document.documentElement.style.setProperty("--colorBoxShadow", "rgba(5, 13, 18, 0.5)");
+    document.documentElement.style.setProperty("--colorText", "#bbe1fa");
+    document.documentElement.style.setProperty("--colorInputBorders", "#c2e4fb");
+  }
+}
+
+const color = new ColorPallete();
+
 var subObj = [];
 var noOfCards = 0;
 
@@ -331,16 +405,18 @@ document.getElementById("calculate-btn").onclick = () => {
   let totalHrs = 0;
   let totalGP = 0;
 
-  for (let i = 0; i < subObj.length; i++) {
-    selectedSubjects.forEach((subject) => {
+  selectedSubjects.forEach((subject) => {
+    for (let i = 0; i < subObj.length; i++) {
       if (subject.name === subObj[i].name) {
         // marks.push(
         //   calculateSubTotal(subObj[i], selectedSubjects.indexOf(subject))
         // );
         obtainedSubs.push(subObj[i]);
       }
-    });
-  }
+    }
+  });
+
+  console.log(obtainedSubs);
 
   for (let i = 0; i < allMarks.length; i++) {
     let totalMarksSub = 0;
