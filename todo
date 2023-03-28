@@ -1,14 +1,13 @@
 Addan:
-  - Add toFixed(1) to subject marks
-  - Trigger .popup-theme-selector with button instead of "Enter"
-  - Add functionality to pop-up closing button
+Done  - Add toFixed(1) to subject marks
+Done  - Trigger .popup-theme-selector with button instead of "Enter"
+Done  - Add functionality to pop-up closing button
   - Fix subject orders
   - Implement "Add Subject" as default item in select menu. Also choose it back again after adding/removing subjects
   - Change html layout for assessments
   - Hide SGPA when subject is added or removed
   - Add weightage after labels
-  - Since theme preference is saved, sync the checked radio-button with current theme after refresh/revisit
-
+Done  - Since theme preference is saved, sync the checked radio-button with current theme after refresh/revisit
 Asad:
   - Implement grid layout on rowinputs
   - Design new features

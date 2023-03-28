@@ -41,6 +41,7 @@ class ColorPallete {
     document.documentElement.style.setProperty("--colorBoxShadow", "rgba(17, 20, 17, 0.5)");
     document.documentElement.style.setProperty("--colorText", "#1f1c18");
     document.documentElement.style.setProperty("--colorInputBorders", "#675d50");
+    document.getElementById("vanilla").checked = true;
   }
   saffron() {
     document.documentElement.style.setProperty("--colorBackground", "#e4dccf");
@@ -52,6 +53,7 @@ class ColorPallete {
     document.documentElement.style.setProperty("--colorBoxShadow", "rgba(23, 8, 8, 0.5)");
     document.documentElement.style.setProperty("--colorText", "#00162e");
     document.documentElement.style.setProperty("--colorInputBorders", "#002b5b");
+    document.getElementById("saffron").checked = true;
   }
   fruitCocktail() {
     document.documentElement.style.setProperty("--colorBackground", "#f9ed69");
@@ -63,6 +65,7 @@ class ColorPallete {
     document.documentElement.style.setProperty("--colorBoxShadow", "rgba(18, 6, 9, 0.5)");
     document.documentElement.style.setProperty("--colorText", "#351638");
     document.documentElement.style.setProperty("--colorInputBorders", "#401a43");
+    document.getElementById("fruitCocktail").checked = true;
   }
   breeze() {
     document.documentElement.style.setProperty("--colorBackground", "#393e46");
@@ -74,6 +77,7 @@ class ColorPallete {
     document.documentElement.style.setProperty("--colorBoxShadow", "rgba(0, 17, 18, 0.5)");
     document.documentElement.style.setProperty("--colorText", "#dddddd");
     document.documentElement.style.setProperty("--colorInputBorders", "#eeeeee");
+    document.getElementById("breeze").checked = true;
   }
   dracula() {
     document.documentElement.style.setProperty("--colorBackground", "#413543");
@@ -85,6 +89,7 @@ class ColorPallete {
     document.documentElement.style.setProperty("--colorBoxShadow", "rgba(14, 7, 24, 0.5)");
     document.documentElement.style.setProperty("--colorText", "#f0eb8d");
     document.documentElement.style.setProperty("--colorInputBorders", "#d8d47f");
+    document.getElementById("dracula").checked = true;
   }
   sky() {
     document.documentElement.style.setProperty("--colorBackground", "#0f4c75");
@@ -96,6 +101,7 @@ class ColorPallete {
     document.documentElement.style.setProperty("--colorBoxShadow", "rgba(5, 13, 18, 0.5)");
     document.documentElement.style.setProperty("--colorText", "#bbe1fa");
     document.documentElement.style.setProperty("--colorInputBorders", "#c2e4fb");
+    document.getElementById("sky").checked = true;
   }
 }
 
@@ -452,7 +458,7 @@ document.getElementById("calculate-btn").onclick = () => {
       if (allMarks[i][j] > obtainedSubs[i].max[j]) allMarks[i][j] = obtainedSubs[i].max[j];
       totalMarksSub += (allMarks[i][j] / obtainedSubs[i].max[j]) * obtainedSubs[i].weight[j];
     }
-    marks.push(totalMarksSub);
+    marks.push(totalMarksSub.toFixed(1));
   }
 
   let m = Array.from(document.querySelectorAll("#showMarks"));
@@ -480,16 +486,24 @@ document.getElementById("calculate-btn").onclick = () => {
   });
 };
 
-document.onkeydown = function (evt) {
-  evt = evt || window.event;
-  let popup = document.querySelector(".theme-popup").style;
-  if ("key" in evt) {
-    if (evt.key === "Enter") {
-      console.log(popup.display);
-      if(popup.display == "") {
-        popup.display = "flex";
-      } else if(popup.display == "flex")
-        popup.display = "";
-    }
-  }
-};
+let popup = document.querySelector(".theme-popup").style;
+document.getElementById("show-themes").onclick = () => {
+  popup.display = "flex";
+}
+
+document.getElementById("close-themes").onclick = () => {
+  popup.display = "";
+}
+
+// document.onkeydown = function (evt) {
+//   evt = evt || window.event;
+//   let popup = document.querySelector(".theme-popup").style;
+//   if ("key" in evt) {
+//     if (evt.key === "Enter") {
+//       if(popup.display == "") {
+//         popup.display = "flex";
+//       } else if(popup.display == "flex")
+//         popup.display = "";
+//     }
+//   }
+// };

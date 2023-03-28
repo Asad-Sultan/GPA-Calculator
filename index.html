@@ -92,7 +92,7 @@
       </div>
 
       <div class="theme-btn-div">
-        <button class="footer-btn theme-btn">
+        <button class="footer-btn theme-btn" id="show-themes">
           Change Theme
           <ion-icon name="color-palette-outline"></ion-icon>
         </button>
@@ -101,7 +101,7 @@
 
     <div class="theme-popup">
       <div class="theme-selector">
-        <button class="popup-close btn">
+        <button class="popup-close btn" id="close-themes">
           <ion-icon name="close-outline"></ion-icon>
         </button>
 
@@ -117,7 +117,7 @@
                 name="colors"
                 class="radioDots"
                 value="vanilla"
-                checked="true"
+                id="vanilla"
               />
 
               <label for="color" class="paletteName" id="paletteName">
@@ -140,6 +140,7 @@
                 name="colors"
                 class="radioDots"
                 value="saffron"
+                id="saffron"
               />
 
               <label for="color" class="paletteName" id="paletteName">
@@ -162,6 +163,7 @@
                 name="colors"
                 class="radioDots"
                 value="fruitCocktail"
+                id="fruitCocktail"
               />
 
               <label for="color" class="paletteName" id="paletteName">
@@ -184,6 +186,7 @@
                 name="colors"
                 class="radioDots"
                 value="breeze"
+                id="breeze"
               />
 
               <label for="color" class="paletteName" id="paletteName">
@@ -206,6 +209,7 @@
                 name="colors"
                 class="radioDots"
                 value="dracula"
+                id="dracula"
               />
 
               <label for="color" class="paletteName" id="paletteName">
@@ -223,7 +227,7 @@
 
           <div class="colorDiv" id="colorDiv">
             <div class="color-label">
-              <input type="radio" name="colors" class="radioDots" value="sky" />
+              <input type="radio" name="colors" class="radioDots" value="sky" id="sky"/>
               <label for="color" class="paletteName" id="paletteName"
                 >Sky</label
               >
