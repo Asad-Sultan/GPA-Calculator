@@ -113,6 +113,7 @@ function createInputs(subject) {
   let outerDiv = document.createElement("div");
   let innerDiv = document.createElement("div");
   outerDiv.className = "cardBody";
+  outerDiv.id = "card-" + noOfCards;
   innerDiv.className = "cardDiv";
 
 
@@ -123,9 +124,20 @@ function createInputs(subject) {
     }
   });
 
+  let headingDiv = document.createElement("div");
   let heading = document.createElement("h2");
+  let removeBtn = document.createElement("button");
+
+  headingDiv.className = "card-header";
   heading.innerHTML = subName;
-  innerDiv.appendChild(heading);
+  removeBtn.className = "btn remove-btn";
+  removeBtn.id = "remove-btn-" + noOfCards;
+  removeBtn.innerHTML = "-";
+
+  headingDiv.appendChild(heading);
+  headingDiv.appendChild(removeBtn);
+
+  innerDiv.appendChild(headingDiv);
 
   var labels = [];
   for (let i = 0; i < subject.max.length; i++) {
@@ -221,7 +233,7 @@ function getGrade(marks) {
   return 0;
 }
 
-createInputs(subObj[0]);
+// createInputs(subObj[0]);
 
 document.getElementById("plus-btn").onclick = () => {
   // document.getElementById("cardDiv").innerHTML = "";
