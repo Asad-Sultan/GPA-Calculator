@@ -1,10 +1,11 @@
 Addan:
-  - Weightage after labels
-  - After data entry, replace input with label and vice versa
-  - Fix the bug which prevents calculation after removing and re-adding subjects
-  - Implement theme selector
+  - Fix subject orders
+  - Investigate bug where a subject's total is interchanged with another subject
   - Implement "Add Subject" as default item in select menu. Also choose it back again after adding/removing subjects
+  - Change html layout for assessments
   - Hide SGPA when all subjects are removed
+  - Weightage after labels
+  - Implement theme selector
 
 Asad:
   - Implement grid layout on rowinputs
