@@ -471,3 +471,17 @@ document.getElementById("calculate-btn").onclick = () => {
     element.style.display = "flex";
   });
 };
+
+document.onkeydown = function (evt) {
+  evt = evt || window.event;
+  let popup = document.querySelector(".popup").style;
+  if ("key" in evt) {
+    if (evt.key === "Enter") {
+      console.log(popup.display);
+      if(popup.display == "") {
+        popup.display = "block";
+      } else if(popup.display == "block")
+        popup.display = "";
+    }
+  }
+};

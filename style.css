@@ -18,6 +18,15 @@
   --colorInputBorders: #675d50;
 }
 
+.popup {
+  display: none;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: red;
+  z-index: 2;
+}
+
 /* Palette 2 - Saffron*/
 /* :root {
   --colorBackground: #e4dccf;
