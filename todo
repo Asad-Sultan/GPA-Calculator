@@ -5,6 +5,7 @@ Addan:
   - Hide SGPA when all subjects are removed
   - Weightage after labels
   - Implement theme selector
+  - remember theme choice
 
 Asad:
   - Implement grid layout on rowinputs
