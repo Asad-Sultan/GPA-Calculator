@@ -230,8 +230,9 @@ input {
 
 /* Main Div */
 
-.theme-selector,
-.app {
+.app,
+.usage-guide,
+.theme-selector {
   background-color: var(--colorApp);
   box-shadow: 4px 4px 10px 0 var(--colorBoxShadow);
   padding: 40px 20px;
@@ -470,7 +471,8 @@ input {
   z-index: 2;
 }
 
-.theme-selector {
+.theme-selector,
+.usage-guide {
   position: relative;
 }
 
