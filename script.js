@@ -16,7 +16,6 @@ const inputTypeList = [
 var selectedSubjects = [];
 var removeBtns = [];
 var cardsUsed = [];
-// var labels = [];
 
 class Subject {
   constructor(displayName, name, max, weight, creditHR) {
@@ -116,15 +115,15 @@ subObj.push(
 );
 
 subObj.push(
-  new Subject("English", "eng", [0, 0, 0, 0], [1, 1, 1, 1], 3)
+  new Subject("English", "eng", [40, 40, 20, 40], [25, 25, 25, 25], 3)
 );
 
 subObj.push(
-  new Subject("ICT", "ict", [0, 0, 0, 0, 0, 0], [1, 1, 1, 1, 1, 1], 4)
+  new Subject("ICT", "ict", [40, 40, 20, 40, 10, 10], [20, 20, 20, 20, 10, 10], 4)
 );
 
 subObj.push(
-  new Subject("Logics", "logics", [0, 0, 0, 0, 0], [1, 1, 1, 1, 1], 3)
+  new Subject("Logics", "logics", [40, 40, 20, 40, 10], [20, 20, 20, 20, 20], 3)
 );
 
 subObj.push(
@@ -144,75 +143,12 @@ subObj.forEach(subject => {
   i++;
 });
 
-// function updateMax(element) {
-//   if (!(document.getElementById("change-txt").value === "")) {
-//     changingSubject.max[changingIndex] = Number(
-//       document.getElementById("change-txt").value
-//     );
-//     element.innerHTML = " / " + document.getElementById("change-txt").value;
-//   }
-
-//   document.querySelectorAll(".hoveringPrompt").forEach((element) => {
-//     element.remove();
-//   });
-// }
-
 if (document.cookie == "kulfa") color.kulfa();
 if (document.cookie == "saffron") color.saffron();
 if (document.cookie == "fruitCocktail") color.fruitCocktail();
 if (document.cookie == "breeze") color.breeze();
 if (document.cookie == "dracula") color.dracula();
 if (document.cookie == "sky") color.sky();
-
-// function addListeners(labels) {
-//   labels.forEach((element) => {
-//     element.addEventListener("contextmenu", (ev) => {
-//       ev.preventDefault();
-//       let div = document.createElement("div");
-//       let t = document.createElement("input");
-//       // let b = document.createElement("button");
-
-//       t.type = "number";
-//       t.id = "change-txt";
-//       t.className = "change-field";
-
-//       // b.innerHTML = "Change?";
-//       // b.id = "change-btn";
-//       // b.className = "change-btn btn";
-//       div.append(t);
-//       // div.append(b);
-
-//       div.className = "hoveringPrompt";
-//       div.style.left = ev.clientX.toString() + "px";
-//       div.style.top = ev.clientY.toString() + "px";
-
-//       changingIndex = labels.indexOf(element);
-
-//       document.querySelectorAll(".hoveringPrompt").forEach((el) => {
-//         el.remove();
-//       });
-
-//       document.body.appendChild(div);
-
-//       document.onkeydown = function (evt) {
-//         evt = evt || window.event;
-//         if ("key" in evt) {
-//           if (evt.key === "Enter") {
-//             updateMax(element);
-//           } else if (evt.key === "Escape") {
-//             document.querySelectorAll(".hoveringPrompt").forEach((element) => {
-//               element.remove();
-//             });
-//           }
-//         }
-//       };
-
-//       document.getElementById("change-btn").onclick = function () {
-//         updateMax(element);
-//       };
-//     });
-//   });
-// }
 
 function changeColor() {
   let colors = document.getElementById("colorsTop");
@@ -247,28 +183,11 @@ function addListenersRemove(removeBtns) {
       }
 
       document.getElementById("card-" + newID).remove();
-      // document.getElementById("card-" + index).remove();
-
-      
-      // document.getElementById("sub").appendChild(cardsUsed[index]);
-      // let allOptions = document.querySelectorAll("option");
-      // for (let i = 0; i < allOptions.length; i++) {
-      //   for (let x = 0; x < allOptions.length - 1; x++) {
-      //     if ((allOptions[x].innerHTML).localeCompare(allOptions[x + 1].innerHTML)) {
-      //       let temp = allOptions[x];
-      //       allOptions[x] = allOptions[x + 1];
-      //       allOptions[x + 1] = temp;
-      //     }
-      //   }
-      // }
-      // allOptions.sort((a, b) => a.displayName.localeCompare(b.displayName));
-      // document.getElementById("default-subject").remove();
-      // document.getElementById("sub").insertBefore(document.getElementById("sub-0"), "<option selected disabled hidden id='default-subject'>Choose Subject</option>")
-
 
       let alphabeticalOrderIndex = 0;
       let allOptions = document.querySelectorAll("option");
       let last = false;
+
       for (let x = 1; x < allOptions.length; x++) {        
         if ((cardsUsed[index].innerHTML.toLowerCase()).localeCompare(allOptions[x].innerHTML.toLowerCase()) === -1) {
           last = false;
@@ -277,22 +196,11 @@ function addListenersRemove(removeBtns) {
         } else {
           last = true;
         }
-        
-        // if (cardsUsed[index].innerHTML[0].toLowerCase() < allOptions[x].innerHTML[0].toLowerCase()) {
-        //   last = false;
-        //   alphabeticalOrderIndex = x;
-        //   break;
-        // } else {
-        //   last = true;
-        // }
       }
-
-      console.log(alphabeticalOrderIndex);
 
       if (last) {
         document.getElementById("sub").appendChild(cardsUsed[index]);
       } else {
-        // let nextElement = document.getElementById("sub-" + alphabeticalOrderIndex);
         document.getElementById("sub").insertBefore(cardsUsed[index], allOptions[alphabeticalOrderIndex]);
       }
 
@@ -375,6 +283,7 @@ function createInputs(subject) {
     label.appendChild(weightage);
 
     containerDiv.className = "rowInput";
+    twoDiv.className = "field-max";
 
     labels.push(total);
 
@@ -423,7 +332,6 @@ function createInputs(subject) {
   document
     .getElementById("app")
     .insertBefore(outerDiv, document.getElementById("calculate-btn-div"));
-  // addListeners(labels);
   addListenersRemove(removeBtns);
   noOfCards++;
 }
@@ -462,16 +370,6 @@ function calculateSubTotal() {
   }
 
   return totalMarks;
-
-  // for (let i = 0; i < subject.max.length; i++) {
-  //   let id = "criteria-" + i + "-" + cardNo;
-  //   let marks = document.getElementById(id).value;
-  //   if (marks < 0) marks = 0;
-  //   if (marks > subject.max[i]) marks = subject.max[i];
-  //   if (subject.max[i] > 0)
-  //     totalMarks += (marks / subject.max[i]) * subject.weight[i];
-  // }
-  // return totalMarks.toFixed(1);
 }
 
 function getGrade(marks) {
@@ -487,8 +385,6 @@ function getGrade(marks) {
   if (marks >= 50) return 1;
   return 0;
 }
-
-// createInputs(subObj[0]);
 
 document.getElementById("add-btn").onclick = () => {
   document.getElementById("spga-wrapper").style.display = "";
@@ -520,15 +416,10 @@ document.getElementById("calculate-btn").onclick = () => {
   selectedSubjects.forEach((subject) => {
     for (let i = 0; i < subObj.length; i++) {
       if (subject.name === subObj[i].name) {
-        // marks.push(
-        //   calculateSubTotal(subObj[i], selectedSubjects.indexOf(subject))
-        // );
         obtainedSubs.push(subObj[i]);
       }
     }
   });
-
-  console.log(obtainedSubs);
 
   for (let i = 0; i < allMarks.length; i++) {
     let totalMarksSub = 0;
@@ -582,16 +473,3 @@ document.getElementById("usage-popup-open").onclick = () => {
 document.getElementById("usage-popup-close").onclick = () => {
   usagePopup.display = "";
 }
-
-// document.onkeydown = function (evt) {
-//   evt = evt || window.event;
-//   let popup = document.querySelector(".theme-popup").style;
-//   if ("key" in evt) {
-//     if (evt.key === "Enter") {
-//       if(popup.display == "") {
-//         popup.display = "flex";
-//       } else if(popup.display == "flex")
-//         popup.display = "";
-//     }
-//   }
-// };

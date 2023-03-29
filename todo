@@ -1,8 +1,13 @@
 Addan:
-  - Give a class name to the unnamed div in .rowInput
-  - Fill up all subject marks/weightages with guesses for now
-  - Cleanup JS
-  - Help me think of a good site name (Current is "gpacalculator-fall2022")
+  - (Suggestion: gradecalculator) Help me think of a good site name (Current is "gpacalculator-fall2022")
+
+  - (Done) Cleanup JS
+  - (Done) (field-max) Give a class name to the unnamed div in .rowInput
+
+  - (I put the values but i wrote how to change in case you want to) Fill up all subject marks/weightages with guesses for now 
+  -- Line 113 - 131
+  -- First array is max
+  -- Second array is weight
 
   - (Done) Fix subject orders (Alphabetically)
   - (Done) Implement "Add Subject" as default item in select menu. Also choose it back again after adding/removing subjects
