@@ -1,4 +1,5 @@
 Addan:
+  - Add tooltip to weightage & update max marks tooltip
   - Fix subject orders (Alphabetically)
   - Implement "Add Subject" as default item in select menu. Also choose it back again after adding/removing subjects
 
@@ -13,6 +14,7 @@ Addan:
 
 Asad:
   - (Fix Found) Fix assessment inputs layout
-  - Design & populate Usage popup
+  - Design & populate usage popup
+  - Populate README.md
   - Obsess over small things
   - Waste time double checking everything (OCD)
