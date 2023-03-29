@@ -421,7 +421,6 @@ input {
   height: 18px;
   width: 18px;
   accent-color: var(--colorMain);
-  border: transparent;
 }
 
 .paletteName {
