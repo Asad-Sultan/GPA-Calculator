@@ -506,13 +506,22 @@ document.getElementById("calculate-btn").onclick = () => {
   });
 };
 
-let popup = document.querySelector(".theme-popup").style;
+let themePopup = document.querySelector(".theme-popup").style;
 document.getElementById("show-themes").onclick = () => {
-  popup.display = "flex";
+  themePopup.display = "flex";
 }
 
 document.getElementById("close-themes").onclick = () => {
-  popup.display = "";
+  themePopup.display = "";
+}
+
+let usagePopup = document.querySelector(".usage-popup").style;
+document.getElementById("usage-popup-open").onclick = () => {
+  usagePopup.display = "flex";
+}
+
+document.getElementById("usage-popup-close").onclick = () => {
+  usagePopup.display = "";
 }
 
 // document.onkeydown = function (evt) {

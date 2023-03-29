@@ -76,7 +76,7 @@
       </p>
 
       <div class="footer-btns">
-        <button href="#" class="footer-btn usage-btn">
+        <button href="#" class="footer-btn usage-btn" id="usage-popup-open">
           Usage
           <ion-icon name="settings-outline"></ion-icon>
         </button>
@@ -227,10 +227,16 @@
 
           <div class="colorDiv" id="colorDiv">
             <div class="color-label">
-              <input type="radio" name="colors" class="radioDots" value="sky" id="sky"/>
+              <input 
+                type="radio" 
+                name="colors" 
+                class="radioDots" 
+                value="sky" 
+                id="sky"
+              />
               <label for="color" class="paletteName" id="paletteName"
-                >Sky</label
-              >
+                >Sky
+              </label>
             </div>
 
             <div class="palettePreview">
@@ -246,7 +252,7 @@
 
     <div class="usage-popup">
       <div class="usage-guide">
-        <button class="popup-close btn" id="close-usage">
+        <button class="popup-close btn" id="usage-popup-close">
           <ion-icon name="close-outline"></ion-icon>
         </button>
       </div>
