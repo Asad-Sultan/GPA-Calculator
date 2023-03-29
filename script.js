@@ -110,6 +110,10 @@ const color = new ColorPallete();
 var subObj = [];
 var noOfCards = 0;
 
+// First Array: Maximum Marks
+// Second Array: Weightage
+// Third Value: Credit Hours
+
 subObj.push(
   new Subject("Applied Physics", "physics", [40, 40, 30, 40, 20], [10, 10, 20, 40, 20], 3)
 );

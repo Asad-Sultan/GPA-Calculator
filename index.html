@@ -39,7 +39,11 @@
       </div>
 
       <div class="seladd">
-        <select id="sub"><option selected disabled hidden id="default-subject">Choose Subject</option></select>
+        <select id="sub">
+          <option selected disabled hidden id="default-subject">
+            Choose Subject
+          </option>
+        </select>
 
         <button id="add-btn" class="btn add-btn">
           <ion-icon name="add-outline"></ion-icon>
@@ -47,7 +51,7 @@
       </div>
 
       <div class="calculate-btn-div" id="calculate-btn-div">
-        <button class="btn calculate-btn" id="calculate-btn">Calculate</button>
+        <button class="btn calculate-btn" id="calculate-btn">Calculate!</button>
       </div>
 
       <div class="sgpa" id="spga-wrapper">
@@ -87,6 +91,50 @@
           Change Theme
           <ion-icon name="color-palette-outline"></ion-icon>
         </button>
+      </div>
+    </div>
+
+    <!------------------------------>
+    <!------ How To Use Popup ------>
+    <!------------------------------>
+    <div class="usage-popup">
+      <div class="usage-guide">
+        <button class="popup-close btn" id="usage-popup-close">
+          <ion-icon name="close-outline"></ion-icon>
+        </button>
+
+        <div class="usage-popup-heading">
+          <h2>How To Use</h2>
+        </div>
+
+        <div class="usage-steps-wrapper">
+          <div class="usage-step">
+            <ion-icon name="checkmark-outline"></ion-icon>
+            <h3>Select A Subject</h3>
+          </div>
+
+          <div class="usage-step">
+            <ion-icon name="add-outline"></ion-icon>
+            <h3>Click Add Button</h3>
+          </div>
+
+          <div class="usage-step">
+            <ion-icon name="code-outline"></ion-icon>
+            <h3>Input Your Marks</h3>
+          </div>
+
+          <div class="usage-step">
+            <ion-icon name="flash-outline"></ion-icon>
+            <h3>Click Calculate!</h3>
+          </div>
+        </div>
+
+        <div class="note">
+          <p>
+            <span>Note:&nbsp;</span>All subject marks & weightages are not
+            accurate and are likely to be changed
+          </p>
+        </div>
       </div>
     </div>
 
@@ -241,17 +289,6 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
-
-    <!------------------------------>
-    <!------ How To Use Popup ------>
-    <!------------------------------>
-    <div class="usage-popup">
-      <div class="usage-guide">
-        <button class="popup-close btn" id="usage-popup-close">
-          <ion-icon name="close-outline"></ion-icon>
-        </button>
       </div>
     </div>
 

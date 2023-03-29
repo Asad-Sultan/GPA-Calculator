@@ -1,32 +1,6 @@
-/***********************************/
-/* Removing Arrows From Number Input */
-/***********************************/
-
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input[type="number"] {
-  -moz-appearance: textfield;
-  appearance: textfield;
-}
-
-/***********************************/
-/* Customizing Focus Shadow */
-/***********************************/
-
-*:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--colorMain_ShadeOne);
-}
-
-/***********************************/
-/* Universal Styles */
-/***********************************/
+/************************************/
+/********* Universal Styles *********/
+/************************************/
 
 * {
   padding: 0;
@@ -44,8 +18,58 @@ body {
   align-items: center;
 }
 
+/*********************************/
+/***** Customizing Scrollbar *****/
+/*********************************/
+
+/* Width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--colorApp);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--colorMain);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--colorMain_ShadeOne);
+}
+
+/***************************************/
+/** Removing Arrows From Number Input **/
+/***************************************/
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/**********************************/
+/**** Customizing Focus Shadow ****/
+/**********************************/
+
+*:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--colorMain_ShadeOne);
+}
+
 /***********************************/
-/* General Classes */
+/********* General Classes *********/
 /***********************************/
 
 /* General Button Styles */
@@ -94,9 +118,10 @@ body {
 
 .popup-close {
   position: absolute;
-  right: 6px;
-  top: 8px;
+  right: 0;
+  top: 0;
   box-shadow: none;
+  border-radius: 0 6px 0 6px;
 }
 
 .popup-close ion-icon {
@@ -106,8 +131,8 @@ body {
 
 /* Popup Styles */
 
-.theme-popup,
-.usage-popup {
+.usage-popup,
+.theme-popup {
   display: none;
   align-items: center;
   justify-content: center;
@@ -132,7 +157,7 @@ input {
 }
 
 /***********************************/
-/* Div Styles */
+/*********** Div Styles ************/
 /***********************************/
 
 /* Main Divs */
@@ -144,7 +169,7 @@ input {
   box-shadow: 4px 4px 10px 0 var(--colorBoxShadow);
   padding: 40px 20px;
   border-radius: 7px;
-  min-width: 325px;
+  width: 325px;
 }
 
 .app {
@@ -153,22 +178,23 @@ input {
   margin-top: 50px;
 }
 
-.theme-selector,
-.usage-guide {
+.usage-guide,
+.theme-selector {
   position: relative;
 }
 
 /* Divs Headings */
 
 .heading,
+.usage-popup-heading,
 .theme-selector-heading {
   text-align: center;
   margin-bottom: 30px;
 }
 
-/***********************************/
-/* Main App */
-/***********************************/
+/**********************************/
+/************ Main App ************/
+/**********************************/
 
 /* Subject Selection */
 
@@ -255,7 +281,7 @@ input {
   color: var(--colorMain_ShadeTwo);
 }
 
-.rowInput div:nth-child(2) {
+.field-max {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -309,9 +335,9 @@ input {
   color: var(--colorMain_ShadeTwo);
 }
 
-/***********************************/
-/* App Footer */
-/***********************************/
+/************************************/
+/************ App Footer ************/
+/************************************/
 
 /* App Footer */
 
@@ -321,6 +347,12 @@ input {
 }
 
 /* Footer Credit */
+
+.credit-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 325px;
+}
 
 .credit {
   display: flex;
@@ -390,8 +422,51 @@ input {
   --ionicon-stroke-width: 50px;
 }
 
+/**********************************/
+/******* Usage Popup Styles *******/
+/**********************************/
+
+.usage-steps-wrapper {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.usage-step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 210px;
+}
+
+.usage-step ion-icon {
+  height: 24px;
+  width: 24px;
+  --ionicon-stroke-width: 45px;
+  padding: 8px;
+  border-radius: 50px;
+  background-color: var(--colorInputBorders);
+  color: var(--colorMain);
+}
+
+.usage-step h3 {
+  font-weight: 600;
+  color: var(--colorInputBorders);
+}
+
+.note {
+  font-size: 14px;
+  text-align: center;
+}
+
+.note span {
+  font-weight: 600;
+}
+
 /***********************************/
-/* Theme Selector Styles */
+/*** Popup Theme Selector Styles ***/
 /***********************************/
 
 /* Theme Selector */
