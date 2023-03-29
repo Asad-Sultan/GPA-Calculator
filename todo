@@ -1,14 +1,18 @@
 Addan:
-Done  - Add toFixed(1) to subject marks
-Done  - Trigger .popup-theme-selector with button instead of "Enter"
-Done  - Add functionality to pop-up closing button
-  - Fix subject orders
+  - Fix subject orders (Alphabetically)
   - Implement "Add Subject" as default item in select menu. Also choose it back again after adding/removing subjects
-  - Change html layout for assessments
-Done  - Hide SGPA when subject is added or removed
-Done  - Add weightage after labels
-Done  - Since theme preference is saved, sync the checked radio-button with current theme after refresh/revisit
+
+  - (Fix Found) Change html layout for assessments (Can be solved using flexbox on .rowInput div:nth-child(2), give a class name to the unnamed div and also make the '/' a sepearate element to make the fix work)
+
+  - (Done) Add toFixed(1) to subject marks
+  - (Done) Trigger .popup-theme-selector with button instead of "Enter"
+  - (Done) Add functionality to pop-up closing button
+  - (Done) Hide SGPA when subject is added or removed
+  - (Done) Add weightage after labels
+  - (Done) Since theme preference is saved, sync the checked radio-button with current theme after refresh/revisit
+
 Asad:
-  - Implement grid layout on rowinputs
-  - Design new features
+  - (Fix Found) Fix assessment inputs layout
+  - Design & populate Usage popup
   - Obsess over small things
+  - Waste time double checking everything (OCD)

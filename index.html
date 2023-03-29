@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!----- Import Icons ----->
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
@@ -14,6 +15,7 @@
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
 
+    <!----- Import Font ----->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,44 +23,28 @@
       rel="stylesheet"
     />
 
+    <!----- Link CSS ----->
     <link rel="stylesheet" href="style.css" />
 
     <title>GPA Calculator</title>
   </head>
+
   <body>
+    <!------------------------------>
+    <!---------- Main App ---------->
+    <!------------------------------>
     <div class="app" id="app">
       <div class="heading">
         <h1>GPA Calculator</h1>
       </div>
 
       <div class="seladd">
-        <select id="sub">
-          <!-- <option value="physics">Applied Physics</option>
-          <option value="pf">PF</option>
-          <option value="ict">ICT</option>
-          <option value="eng">English</option>
-          <option value="logics">Logics</option> -->
-        </select>
+        <select id="sub"></select>
 
         <button id="add-btn" class="btn add-btn">
           <ion-icon name="add-outline"></ion-icon>
         </button>
       </div>
-
-      <!-- <div class="cardBody" id="cardBody">
-        <div class="cardDiv" id="cardDiv"></div>
-
-        <div class="results">
-          <div class="marks">
-            <label>Marks:</label>
-            <label id="showMarks"></label>
-          </div>
-          <div class="gpa">
-            <label>GPA:</label>
-            <label id="showGrade"></label><br />
-          </div>
-        </div>
-      </div> -->
 
       <div class="calculate-btn-div" id="calculate-btn-div">
         <button class="btn calculate-btn" id="calculate-btn">Calculate</button>
@@ -70,10 +56,15 @@
       </div>
     </div>
 
+    <!------------------------------>
+    <!--------- App Footer --------->
+    <!------------------------------>
     <div class="app-footer">
-      <p class="credit">
-        Made with <ion-icon name="heart-outline"></ion-icon> by Addan & Asad
-      </p>
+      <div class="credit-wrapper">
+        <p class="credit">
+          Made with <ion-icon name="heart-outline"></ion-icon> by Addan & Asad
+        </p>
+      </div>
 
       <div class="footer-btns">
         <button href="#" class="footer-btn usage-btn" id="usage-popup-open">
@@ -99,6 +90,9 @@
       </div>
     </div>
 
+    <!------------------------------>
+    <!---- Popup Theme Selector ---->
+    <!------------------------------>
     <div class="theme-popup">
       <div class="theme-selector">
         <button class="popup-close btn" id="close-themes">
@@ -227,11 +221,11 @@
 
           <div class="colorDiv" id="colorDiv">
             <div class="color-label">
-              <input 
-                type="radio" 
-                name="colors" 
-                class="radioDots" 
-                value="sky" 
+              <input
+                type="radio"
+                name="colors"
+                class="radioDots"
+                value="sky"
                 id="sky"
               />
               <label for="color" class="paletteName" id="paletteName"
@@ -250,6 +244,9 @@
       </div>
     </div>
 
+    <!------------------------------>
+    <!------ How To Use Popup ------>
+    <!------------------------------>
     <div class="usage-popup">
       <div class="usage-guide">
         <button class="popup-close btn" id="usage-popup-close">
@@ -258,6 +255,7 @@
       </div>
     </div>
 
+    <!----- Link JS ----->
     <script src="script.js"></script>
   </body>
 </html>
