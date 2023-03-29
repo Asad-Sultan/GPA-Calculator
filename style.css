@@ -376,7 +376,8 @@ input {
   padding: 4px 8px;
 }
 
-.theme-btn:hover {
+.theme-btn:hover,
+.theme-btn:active {
   background-color: var(--colorMain);
   color: var(--colorText);
   transform: scale(1.069);
@@ -420,6 +421,7 @@ input {
   height: 18px;
   width: 18px;
   accent-color: var(--colorMain);
+  border: transparent;
 }
 
 .paletteName {
