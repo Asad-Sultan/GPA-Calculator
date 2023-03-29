@@ -19,7 +19,8 @@ var cardsUsed = [];
 // var labels = [];
 
 class Subject {
-  constructor(name, max, weight, creditHR) {
+  constructor(displayName, name, max, weight, creditHR) {
+    this.displayName = displayName;
     this.name = name;
     this.max = max;
     this.weight = weight;
@@ -29,9 +30,9 @@ class Subject {
 
 class ColorPallete {
   constructor() {
-    this.vanilla();
+    this.kulfa();
   }
-  vanilla() {
+  kulfa() {
     document.documentElement.style.setProperty("--colorBackground", "#f3deba");
     document.documentElement.style.setProperty("--colorApp", "#dbc8a7");
     document.documentElement.style.setProperty("--colorInputBackground", "#d3d3d3");
@@ -41,7 +42,7 @@ class ColorPallete {
     document.documentElement.style.setProperty("--colorBoxShadow", "rgba(17, 20, 17, 0.5)");
     document.documentElement.style.setProperty("--colorText", "#1f1c18");
     document.documentElement.style.setProperty("--colorInputBorders", "#675d50");
-    document.getElementById("vanilla").checked = true;
+    document.getElementById("kulfa").checked = true;
   }
   saffron() {
     document.documentElement.style.setProperty("--colorBackground", "#e4dccf");
@@ -111,41 +112,54 @@ var subObj = [];
 var noOfCards = 0;
 
 subObj.push(
-  new Subject("physics", [40, 40, 30, 40, 20], [10, 10, 20, 40, 20], 3)
+  new Subject("Applied Physics", "physics", [40, 40, 30, 40, 20], [10, 10, 20, 40, 20], 3)
 );
 
 subObj.push(
-  new Subject("pf", [40, 40, 40, 60, 10, 10], [10, 10, 20, 40, 10, 10], 4)
+  new Subject("PF", "pf", [40, 40, 40, 60, 10, 10], [10, 10, 20, 40, 10, 10], 4)
 );
 
-subObj.push(new Subject("ict", [0, 0, 0, 0, 0, 0], [1, 1, 1, 1, 1, 1], 4));
+subObj.push(
+  new Subject("ICT", "ict", [0, 0, 0, 0, 0, 0], [1, 1, 1, 1, 1, 1], 4)
+);
 
-subObj.push(new Subject("eng", [0, 0, 0, 0], [1, 1, 1, 1], 3));
+subObj.push(
+  new Subject("English", "eng", [0, 0, 0, 0], [1, 1, 1, 1], 3)
+);
 
-subObj.push(new Subject("logics", [0, 0, 0, 0, 0], [1, 1, 1, 1, 1], 3));
+subObj.push(
+  new Subject("Logics", "logics", [0, 0, 0, 0, 0], [1, 1, 1, 1, 1], 3)
+);
 
 var changingSubject = subObj[0];
 var changingIndex = 0;
 
-function updateMax(element) {
-  if (!(document.getElementById("change-txt").value === "")) {
-    changingSubject.max[changingIndex] = Number(
-      document.getElementById("change-txt").value
-    );
-    element.innerHTML = " / " + document.getElementById("change-txt").value;
-  }
+subObj.forEach(subject => {
+  let opt = document.createElement("option");
+  opt.value = subject.name;
+  opt.innerHTML = subject.displayName;
+  document.getElementById("sub").appendChild(opt);
+});
 
-  document.querySelectorAll(".hoveringPrompt").forEach((element) => {
-    element.remove();
-  });
-}
+// function updateMax(element) {
+//   if (!(document.getElementById("change-txt").value === "")) {
+//     changingSubject.max[changingIndex] = Number(
+//       document.getElementById("change-txt").value
+//     );
+//     element.innerHTML = " / " + document.getElementById("change-txt").value;
+//   }
 
-if(document.cookie == "vanilla") color.vanilla();
-if(document.cookie == "saffron") color.saffron();
-if(document.cookie == "fruitCocktail") color.fruitCocktail();
-if(document.cookie == "breeze") color.breeze();
-if(document.cookie == "dracula") color.dracula();
-if(document.cookie == "sky") color.sky();
+//   document.querySelectorAll(".hoveringPrompt").forEach((element) => {
+//     element.remove();
+//   });
+// }
+
+if (document.cookie == "kulfa") color.kulfa();
+if (document.cookie == "saffron") color.saffron();
+if (document.cookie == "fruitCocktail") color.fruitCocktail();
+if (document.cookie == "breeze") color.breeze();
+if (document.cookie == "dracula") color.dracula();
+if (document.cookie == "sky") color.sky();
 
 // function addListeners(labels) {
 //   labels.forEach((element) => {
@@ -202,13 +216,13 @@ function changeColor() {
   let radioBtns = document.querySelectorAll(".radioDots");
   colors.addEventListener("click", () => {
     radioBtns.forEach(btn => {
-      if(btn.checked) {
-        if(btn.value == "vanilla") color.vanilla();
-        if(btn.value == "saffron") color.saffron();
-        if(btn.value == "fruitCocktail") color.fruitCocktail();
-        if(btn.value == "breeze") color.breeze();
-        if(btn.value == "dracula") color.dracula();
-        if(btn.value == "sky") color.sky();
+      if (btn.checked) {
+        if (btn.value == "kulfa") color.kulfa();
+        if (btn.value == "saffron") color.saffron();
+        if (btn.value == "fruitCocktail") color.fruitCocktail();
+        if (btn.value == "breeze") color.breeze();
+        if (btn.value == "dracula") color.dracula();
+        if (btn.value == "sky") color.sky();
         document.cookie = btn.value + "; expires=Tue, 31 Dec 2030 23:59:59 GMT";
       }
     })
@@ -220,6 +234,7 @@ changeColor();
 function addListenersRemove(removeBtns) {
   removeBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
+      document.getElementById("spga-wrapper").style.display = "";
       let index = removeBtns.indexOf(btn);
       let btnID = Array.from(btn.id).lastIndexOf("-");
       let newID = "";
@@ -254,7 +269,6 @@ function createInputs(subject) {
 
   let headingDiv = document.createElement("div");
   let heading = document.createElement("h2");
-  ``;
   let removeBtn = document.createElement("button");
 
   headingDiv.className = "card-header";
@@ -287,6 +301,7 @@ function createInputs(subject) {
     let input = document.createElement("input");
     let label = document.createElement("label");
     let total = document.createElement("label");
+    let weightage = document.createElement("span");
 
     input.type = "number";
     input.id = "criteria-" + i + "-" + noOfCards;
@@ -297,7 +312,12 @@ function createInputs(subject) {
     total.innerText = " / " + subject.max[i];
     total.title = "Right-click to edit maximum marks";
 
-    label.innerText = inputTypeList[i];
+    weightage.className = "weightage-text";
+    weightage.innerHTML = "(" + subject.weight[i] + ")";
+
+    label.innerText = inputTypeList[i] + " ";
+    label.appendChild(weightage);
+
     containerDiv.className = "rowInput";
 
     labels.push(total);
@@ -354,8 +374,8 @@ function createInputs(subject) {
 function calculateSubTotal() {
   let totalMarks = [];
   let ids = [];
-  //queryselectall the ids of criterias
   let allCards = document.querySelectorAll(".rowInput");
+
   allCards.forEach(card => {
     ids.push(card.querySelectorAll("input")[0].id);
   });
@@ -414,7 +434,7 @@ function getGrade(marks) {
 // createInputs(subObj[0]);
 
 document.getElementById("add-btn").onclick = () => {
-  // document.getElementById("cardDiv").innerHTML = "";
+  document.getElementById("spga-wrapper").style.display = "";
 
   for (let i = 0; i < subObj.length; i++) {
     if (document.getElementById("sub").value === subObj[i].name) {

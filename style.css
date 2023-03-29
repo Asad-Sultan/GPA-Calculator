@@ -2,7 +2,7 @@
 /* Color Variables */
 /***********************************/
 
-/* Palette 1 (Default) - Vanilla*/
+/* Palette 1 (Default) - Kulfa*/
 /* :root {
   --colorBackground: #f3deba;
   --colorApp: #dbc8a7;
@@ -537,16 +537,16 @@ input {
 
 /* Palette Colors */
 
-.vanilla1 {
+.kulfa1 {
   background-color: #f3deba;
 }
-.vanilla2 {
+.kulfa2 {
   background-color: #dbc8a7;
 }
-.vanilla3 {
+.kulfa3 {
   background-color: #9ed7a9;
 }
-.vanilla4 {
+.kulfa4 {
   background-color: #1f1c18;
 }
 

@@ -5,8 +5,8 @@ Done  - Add functionality to pop-up closing button
   - Fix subject orders
   - Implement "Add Subject" as default item in select menu. Also choose it back again after adding/removing subjects
   - Change html layout for assessments
-  - Hide SGPA when subject is added or removed
-  - Add weightage after labels
+Done  - Hide SGPA when subject is added or removed
+Done  - Add weightage after labels
 Done  - Since theme preference is saved, sync the checked radio-button with current theme after refresh/revisit
 Asad:
   - Implement grid layout on rowinputs
