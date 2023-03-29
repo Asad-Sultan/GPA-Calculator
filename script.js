@@ -116,7 +116,7 @@ subObj.push(
 );
 
 subObj.push(
-  new Subject("PF", "pf", [40, 40, 40, 60, 10, 10], [10, 10, 20, 40, 10, 10], 4)
+  new Subject("English", "eng", [0, 0, 0, 0], [1, 1, 1, 1], 3)
 );
 
 subObj.push(
@@ -124,21 +124,24 @@ subObj.push(
 );
 
 subObj.push(
-  new Subject("English", "eng", [0, 0, 0, 0], [1, 1, 1, 1], 3)
+  new Subject("Logics", "logics", [0, 0, 0, 0, 0], [1, 1, 1, 1, 1], 3)
 );
 
 subObj.push(
-  new Subject("Logics", "logics", [0, 0, 0, 0, 0], [1, 1, 1, 1, 1], 3)
+  new Subject("PF", "pf", [40, 40, 40, 60, 10, 10], [10, 10, 20, 40, 10, 10], 4)
 );
 
 var changingSubject = subObj[0];
 var changingIndex = 0;
 
+let i = 0;
 subObj.forEach(subject => {
   let opt = document.createElement("option");
   opt.value = subject.name;
   opt.innerHTML = subject.displayName;
+  opt.id = "sub-" + i;
   document.getElementById("sub").appendChild(opt);
+  i++;
 });
 
 // function updateMax(element) {
@@ -238,15 +241,65 @@ function addListenersRemove(removeBtns) {
       let index = removeBtns.indexOf(btn);
       let btnID = Array.from(btn.id).lastIndexOf("-");
       let newID = "";
+
       for (let x = btnID + 1; x < btn.id.length; x++) {
         newID += btn.id[x];
       }
+
       document.getElementById("card-" + newID).remove();
       // document.getElementById("card-" + index).remove();
-      document.getElementById("sub").appendChild(cardsUsed[index]);
+
+      
+      // document.getElementById("sub").appendChild(cardsUsed[index]);
+      // let allOptions = document.querySelectorAll("option");
+      // for (let i = 0; i < allOptions.length; i++) {
+      //   for (let x = 0; x < allOptions.length - 1; x++) {
+      //     if ((allOptions[x].innerHTML).localeCompare(allOptions[x + 1].innerHTML)) {
+      //       let temp = allOptions[x];
+      //       allOptions[x] = allOptions[x + 1];
+      //       allOptions[x + 1] = temp;
+      //     }
+      //   }
+      // }
+      // allOptions.sort((a, b) => a.displayName.localeCompare(b.displayName));
+      // document.getElementById("default-subject").remove();
+      // document.getElementById("sub").insertBefore(document.getElementById("sub-0"), "<option selected disabled hidden id='default-subject'>Choose Subject</option>")
+
+
+      let alphabeticalOrderIndex = 0;
+      let allOptions = document.querySelectorAll("option");
+      let last = false;
+      for (let x = 1; x < allOptions.length; x++) {        
+        if ((cardsUsed[index].innerHTML.toLowerCase()).localeCompare(allOptions[x].innerHTML.toLowerCase()) === -1) {
+          last = false;
+          alphabeticalOrderIndex = x;
+          break;
+        } else {
+          last = true;
+        }
+        
+        // if (cardsUsed[index].innerHTML[0].toLowerCase() < allOptions[x].innerHTML[0].toLowerCase()) {
+        //   last = false;
+        //   alphabeticalOrderIndex = x;
+        //   break;
+        // } else {
+        //   last = true;
+        // }
+      }
+
+      console.log(alphabeticalOrderIndex);
+
+      if (last) {
+        document.getElementById("sub").appendChild(cardsUsed[index]);
+      } else {
+        // let nextElement = document.getElementById("sub-" + alphabeticalOrderIndex);
+        document.getElementById("sub").insertBefore(cardsUsed[index], allOptions[alphabeticalOrderIndex]);
+      }
+
       cardsUsed.splice(index, 1);
       selectedSubjects.splice(index, 1);
       removeBtns.splice(index, 1);
+      document.getElementById("sub").value = "Choose Subject";
     });
   });
 }
@@ -301,6 +354,7 @@ function createInputs(subject) {
     let input = document.createElement("input");
     let label = document.createElement("label");
     let total = document.createElement("label");
+    let slash = document.createElement("label");
     let weightage = document.createElement("span");
 
     input.type = "number";
@@ -309,10 +363,12 @@ function createInputs(subject) {
     input.min = 0;
     input.max = subject.max[i];
 
-    total.innerText = " / " + subject.max[i];
-    total.title = "Right-click to edit maximum marks";
+    slash.innerText = " / ";
+    total.innerText = subject.max[i];
+    total.title = "Maximum marks";
 
     weightage.className = "weightage-text";
+    weightage.title = "Weightage";
     weightage.innerHTML = "(" + subject.weight[i] + ")";
 
     label.innerText = inputTypeList[i] + " ";
@@ -323,6 +379,7 @@ function createInputs(subject) {
     labels.push(total);
 
     twoDiv.append(input);
+    twoDiv.append(slash);
     twoDiv.append(total);
 
     containerDiv.appendChild(label);
@@ -435,6 +492,7 @@ function getGrade(marks) {
 
 document.getElementById("add-btn").onclick = () => {
   document.getElementById("spga-wrapper").style.display = "";
+  if (document.getElementById("sub").value === "Choose Subject") return
 
   for (let i = 0; i < subObj.length; i++) {
     if (document.getElementById("sub").value === subObj[i].name) {
@@ -448,6 +506,7 @@ document.getElementById("add-btn").onclick = () => {
       option.remove();
     }
   });
+  document.getElementById("sub").value = "Choose Subject";
 };
 
 document.getElementById("calculate-btn").onclick = () => {

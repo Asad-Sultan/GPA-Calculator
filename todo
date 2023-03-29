@@ -1,10 +1,9 @@
 Addan:
-  - Add tooltip to weightage & update max marks tooltip
-  - Fix subject orders (Alphabetically)
-  - Implement "Add Subject" as default item in select menu. Also choose it back again after adding/removing subjects
-
   - (Fix Found) Change html layout for assessments (Can be solved using flexbox on .rowInput div:nth-child(2), give a class name to the unnamed div and also make the '/' a sepearate element to make the fix work)
 
+  - (Done) Fix subject orders (Alphabetically)
+  - (Done) Implement "Add Subject" as default item in select menu. Also choose it back again after adding/removing subjects
+  - (Done) Add tooltip to weightage & update max marks tooltip
   - (Done) Add toFixed(1) to subject marks
   - (Done) Trigger .popup-theme-selector with button instead of "Enter"
   - (Done) Add functionality to pop-up closing button
