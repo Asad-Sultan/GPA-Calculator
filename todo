@@ -1,5 +1,8 @@
 Addan:
-  - (Fix Found) Change html layout for assessments (Can be solved using flexbox on .rowInput div:nth-child(2), give a class name to the unnamed div and also make the '/' a sepearate element to make the fix work)
+  - Give a class name to the unnamed div in .rowInput
+  - Fill up all subject marks/weightages with guesses for now
+  - Cleanup JS
+  - Help me think of a good site name (Current is "gpacalculator-fall2022")
 
   - (Done) Fix subject orders (Alphabetically)
   - (Done) Implement "Add Subject" as default item in select menu. Also choose it back again after adding/removing subjects
@@ -12,8 +15,5 @@ Addan:
   - (Done) Since theme preference is saved, sync the checked radio-button with current theme after refresh/revisit
 
 Asad:
-  - (Fix Found) Fix assessment inputs layout
   - Design & populate usage popup
-  - Populate README.md
-  - Obsess over small things
-  - Waste time double checking everything (OCD)
+  - Improve/Fix Design
