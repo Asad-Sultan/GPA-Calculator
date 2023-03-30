@@ -125,7 +125,7 @@ input[type="number"] {
   font-family: inherit;
   color: inherit;
   cursor: pointer;
-  transition-duration: 250ms;
+  transition-duration: 300ms;
 }
 
 .btn:hover,
@@ -433,7 +433,7 @@ input {
   padding: 3px 6px;
   border-radius: 4px;
   cursor: pointer;
-  transition-duration: 250ms;
+  transition-duration: 300ms;
 }
 
 .footer-btn:hover,
