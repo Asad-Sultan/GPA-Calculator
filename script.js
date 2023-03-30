@@ -513,18 +513,22 @@ document.getElementById("calculate-btn").onclick = () => {
 
 let themePopup = document.querySelector(".theme-popup").style;
 document.getElementById("show-themes").onclick = () => {
-  themePopup.display = "flex";
+  themePopup.visibility = "visible";
+  themePopup.opacity = "1"
 }
 
 document.getElementById("close-themes").onclick = () => {
-  themePopup.display = "";
+  themePopup.visibility = "hidden";
+  themePopup.opacity = "0"
 }
 
 let usagePopup = document.querySelector(".usage-popup").style;
 document.getElementById("usage-popup-open").onclick = () => {
-  usagePopup.display = "flex";
+  usagePopup.visibility = "visible";
+  usagePopup.opacity = "1"
 }
 
 document.getElementById("usage-popup-close").onclick = () => {
-  usagePopup.display = "";
+  usagePopup.visibility = "hidden";
+  usagePopup.opacity = "0"
 }
