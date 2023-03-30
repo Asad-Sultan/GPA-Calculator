@@ -294,6 +294,7 @@ function createInputs(subject) {
     slash.innerText = " / ";
     total.innerText = subject.max[i];
     total.title = "Maximum marks";
+    total.className = "max-marks";
 
     weightage.className = "weightage-text";
     weightage.title = "Weightage";

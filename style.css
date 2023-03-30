@@ -44,6 +44,10 @@ body {
   background: var(--colorMain_ShadeOne);
 }
 
+/********************************/
+/***** Customizing Tooltips *****/
+/********************************/
+
 /***************************************/
 /** Removing Arrows From Number Input **/
 /***************************************/
@@ -144,7 +148,7 @@ input[type="number"] {
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.69);
   backdrop-filter: blur(10px);
-  z-index: 10;
+  z-index: 2;
 }
 
 /* General Input Style */
