@@ -321,18 +321,16 @@ function createInputs(subject) {
 
     slash.innerText = " / ";
     total.innerText = subject.max[i];
-    total.title = "Maximum marks";
     total.className = "max-marks";
 
-    maxTooltip.innerHTML = "Your message here";
+    maxTooltip.innerHTML = "Max Marks";
     maxTooltip.className = "max-tooltip";
     total.append(maxTooltip);
 
     weightage.className = "weightage-text";
-    weightage.title = "Weightage";
     weightage.innerHTML = "(" + subject.weight[i] + ")";
     
-    weightTooltip.innerHTML = "Your message here";
+    weightTooltip.innerHTML = "Weightage";
     weightTooltip.className = "weight-tooltip";
     weightage.append(weightTooltip);
 
