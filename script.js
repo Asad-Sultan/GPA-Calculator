@@ -104,9 +104,9 @@ subObj.push(
   new Subject(
     "Applied Physics", 
     "physics", 
-    ["Assignments", "Quizes", "Mid", "Final", "Project"],
-    [40, 40, 30, 40, 20], 
-    [10, 10, 20, 40, 20], 
+    ["Assignments", "Quizes", "Project", "Mid", "Final"],
+    [40, 40, 20, 30, 40], 
+    [10, 10, 20, 20, 40], 
     3)
 );
 
@@ -114,9 +114,9 @@ subObj.push(
   new Subject(
     "English", 
     "eng", 
-    ["Assignments", "Quizes", "Mid", "Final"],
-    [40, 40, 20, 40], 
-    [25, 25, 25, 25], 
+    ["Assignments", "Quizes" ,"Presentation", "Mid", "Final"],
+    [40, 40, 20, 20, 40], 
+    [10, 10, 20, 20, 40], 
     3)
 );
 
@@ -124,9 +124,9 @@ subObj.push(
   new Subject(
     "ICT", 
     "ict", 
-    ["Assignments", "Quizes", "Mid", "Final", "Project", "Lab"],
-    [40, 40, 20, 40, 10, 10], 
-    [20, 20, 20, 20, 10, 10], 
+    ["Assignments", "Quizes", "Presentation", "Mid", "Final", "Lab"],
+    [70, 55, 20, 20, 40, 10], 
+    [5, 5, 5, 20, 40, 25], 
     4)
 );
 
@@ -134,9 +134,9 @@ subObj.push(
   new Subject(
     "Logics", 
     "logics", 
-    ["Assignments", "Quizes", "Mid", "Final", "Project"],
-    [40, 40, 20, 40, 10], 
-    [20, 20, 20, 20, 20], 
+    ["Assignments", "Quizes", "Project", "Mid", "Final"],
+    [40, 40, 20, 20, 40], 
+    [10, 10, 20, 20, 40], 
     3)
 );
 
@@ -144,9 +144,9 @@ subObj.push(
   new Subject(
     "PF", 
     "pf", 
-    ["Assignments", "Quizes", "Mid", "Final", "Project", "Lab"],
-    [40, 40, 40, 60, 10, 10], 
-    [10, 10, 20, 40, 10, 10], 
+    ["Assignments", "Quizes", "Project", "Mid", "Final", "Lab"],
+    [40, 40, 10, 40, 60, 10], 
+    [10, 10, 10, 20, 40, 10], 
     4)
 );
 
