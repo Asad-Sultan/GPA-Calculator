@@ -310,6 +310,8 @@ function createInputs(subject) {
     let total = document.createElement("label");
     let slash = document.createElement("label");
     let weightage = document.createElement("span");
+    let maxTooltip = document.createElement("span");
+    let weightTooltip = document.createElement("span");
 
     input.type = "number";
     input.id = "criteria-" + i + "-" + noOfCards;
@@ -319,12 +321,18 @@ function createInputs(subject) {
 
     slash.innerText = " / ";
     total.innerText = subject.max[i];
-    total.title = "Maximum marks";
     total.className = "max-marks";
 
+    maxTooltip.innerHTML = "Max Marks";
+    maxTooltip.className = "max-tooltip";
+    total.append(maxTooltip);
+
     weightage.className = "weightage-text";
-    weightage.title = "Weightage";
     weightage.innerHTML = "(" + subject.weight[i] + ")";
+    
+    weightTooltip.innerHTML = "Weightage";
+    weightTooltip.className = "weight-tooltip";
+    weightage.append(weightTooltip);
 
     label.innerText = subject.assessmentMode[i] + " ";
     label.appendChild(weightage);
