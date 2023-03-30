@@ -124,10 +124,20 @@ subObj.push(
   new Subject(
     "ICT", 
     "ict", 
-    ["Assignments", "Quizes", "Presentation", "Mid", "Final", "Lab"],
-    [70, 55, 20, 20, 40, 10], 
-    [5, 5, 5, 20, 40, 25], 
-    4)
+    ["Assignments", "Quizes", "Presentation", "Mid", "Final"],
+    [70, 55, 20, 20, 40], 
+    [10, 10, 20, 20, 40], 
+    3)
+);
+
+subObj.push(
+  new Subject(
+    "ICT Lab", 
+    "ict-lab", 
+    ["Tasks"],
+    [100], 
+    [100], 
+    1)
 );
 
 subObj.push(
@@ -144,10 +154,20 @@ subObj.push(
   new Subject(
     "PF", 
     "pf", 
-    ["Assignments", "Quizes", "Project", "Mid", "Final", "Lab"],
-    [40, 40, 10, 40, 60, 10], 
-    [10, 10, 10, 20, 40, 10], 
-    4)
+    ["Assignments", "Quizes", "Project", "Mid", "Final"],
+    [40, 40, 10, 40, 60], 
+    [10, 10, 20, 20, 40], 
+    3)
+);
+
+subObj.push(
+  new Subject(
+    "PF Lab", 
+    "pf-lab", 
+    ["Tasks", "Viva", "Project"],
+    [40, 30, 30], 
+    [40, 30, 30], 
+    1)
 );
 
 var changingSubject = subObj[0];
