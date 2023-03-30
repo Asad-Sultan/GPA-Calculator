@@ -122,8 +122,8 @@ subObj.push(
 
 subObj.push(
   new Subject(
-    "ICT", 
-    "ict", 
+    "ICT Theory", 
+    "ict-theory", 
     ["Assignments", "Quizes", "Presentation", "Mid", "Final"],
     [70, 55, 20, 20, 40], 
     [10, 10, 20, 20, 40], 
@@ -152,11 +152,11 @@ subObj.push(
 
 subObj.push(
   new Subject(
-    "PF", 
-    "pf", 
+    "PF Theory", 
+    "pf-theory", 
     ["Assignments", "Quizes", "Project", "Mid", "Final"],
     [40, 40, 10, 40, 60], 
-    [10, 10, 20, 20, 40], 
+    [10, 10, 10, 20, 50], 
     3)
 );
 
