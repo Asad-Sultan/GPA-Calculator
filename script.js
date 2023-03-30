@@ -28,6 +28,7 @@ class ColorPallete {
     document.documentElement.style.setProperty("--colorText", "#1f1c18");
     document.documentElement.style.setProperty("--colorInputBorders", "#675d50");
     document.getElementById("kulfa").checked = true;
+    document.querySelector("link[rel~='icon']").href = "favicon/favicon-kulfa.png";
   }
   saffron() {
     document.documentElement.style.setProperty("--colorBackground", "#e4dccf");
@@ -40,6 +41,7 @@ class ColorPallete {
     document.documentElement.style.setProperty("--colorText", "#00162e");
     document.documentElement.style.setProperty("--colorInputBorders", "#002b5b");
     document.getElementById("saffron").checked = true;
+    document.querySelector("link[rel~='icon']").href = "favicon/favicon-saffron.png";
   }
   fruitCocktail() {
     document.documentElement.style.setProperty("--colorBackground", "#f9ed69");
@@ -52,6 +54,7 @@ class ColorPallete {
     document.documentElement.style.setProperty("--colorText", "#351638");
     document.documentElement.style.setProperty("--colorInputBorders", "#401a43");
     document.getElementById("fruitCocktail").checked = true;
+    document.querySelector("link[rel~='icon']").href = "favicon/favicon-fc.png";
   }
   breeze() {
     document.documentElement.style.setProperty("--colorBackground", "#393e46");
@@ -64,6 +67,7 @@ class ColorPallete {
     document.documentElement.style.setProperty("--colorText", "#dddddd");
     document.documentElement.style.setProperty("--colorInputBorders", "#eeeeee");
     document.getElementById("breeze").checked = true;
+    document.querySelector("link[rel~='icon']").href = "favicon/favicon-breeze.png";
   }
   dracula() {
     document.documentElement.style.setProperty("--colorBackground", "#413543");
@@ -76,6 +80,7 @@ class ColorPallete {
     document.documentElement.style.setProperty("--colorText", "#f0eb8d");
     document.documentElement.style.setProperty("--colorInputBorders", "#d8d47f");
     document.getElementById("dracula").checked = true;
+    document.querySelector("link[rel~='icon']").href = "favicon/favicon-dracula.png";
   }
   sky() {
     document.documentElement.style.setProperty("--colorBackground", "#0f4c75");
@@ -88,6 +93,7 @@ class ColorPallete {
     document.documentElement.style.setProperty("--colorText", "#bbe1fa");
     document.documentElement.style.setProperty("--colorInputBorders", "#c2e4fb");
     document.getElementById("sky").checked = true;
+    document.querySelector("link[rel~='icon']").href = "favicon/favicon-sky.png";
   }
 }
 
