@@ -1,26 +1,12 @@
-const allSubjects = [
-  "Applied Physics",
-  "Programming Fundamentals",
-  "Introduction to Logics",
-  "Introduction to Communication and Information",
-  "English Composition and Comprehension",
-];
-const inputTypeList = [
-  "Assignments",
-  "Quizes",
-  "Mid",
-  "Final",
-  "Project",
-  "Lab",
-];
 var selectedSubjects = [];
 var removeBtns = [];
 var cardsUsed = [];
 
 class Subject {
-  constructor(displayName, name, max, weight, creditHR) {
+  constructor(displayName, name, assessmentMode, max, weight, creditHR) {
     this.displayName = displayName;
     this.name = name;
+    this.assessmentMode = assessmentMode;
     this.max = max;
     this.weight = weight;
     this.creditHR = creditHR;
@@ -115,23 +101,53 @@ var noOfCards = 0;
 // Third Value: Credit Hours
 
 subObj.push(
-  new Subject("Applied Physics", "physics", [40, 40, 30, 40, 20], [10, 10, 20, 40, 20], 3)
+  new Subject(
+    "Applied Physics", 
+    "physics", 
+    ["Assignments", "Quizes", "Mid", "Final", "Project"],
+    [40, 40, 30, 40, 20], 
+    [10, 10, 20, 40, 20], 
+    3)
 );
 
 subObj.push(
-  new Subject("English", "eng", [40, 40, 20, 40], [25, 25, 25, 25], 3)
+  new Subject(
+    "English", 
+    "eng", 
+    ["Assignments", "Quizes", "Mid", "Final"],
+    [40, 40, 20, 40], 
+    [25, 25, 25, 25], 
+    3)
 );
 
 subObj.push(
-  new Subject("ICT", "ict", [40, 40, 20, 40, 10, 10], [20, 20, 20, 20, 10, 10], 4)
+  new Subject(
+    "ICT", 
+    "ict", 
+    ["Assignments", "Quizes", "Mid", "Final", "Project", "Lab"],
+    [40, 40, 20, 40, 10, 10], 
+    [20, 20, 20, 20, 10, 10], 
+    4)
 );
 
 subObj.push(
-  new Subject("Logics", "logics", [40, 40, 20, 40, 10], [20, 20, 20, 20, 20], 3)
+  new Subject(
+    "Logics", 
+    "logics", 
+    ["Assignments", "Quizes", "Mid", "Final", "Project"],
+    [40, 40, 20, 40, 10], 
+    [20, 20, 20, 20, 20], 
+    3)
 );
 
 subObj.push(
-  new Subject("PF", "pf", [40, 40, 40, 60, 10, 10], [10, 10, 20, 40, 10, 10], 4)
+  new Subject(
+    "PF", 
+    "pf", 
+    ["Assignments", "Quizes", "Mid", "Final", "Project", "Lab"],
+    [40, 40, 40, 60, 10, 10], 
+    [10, 10, 20, 40, 10, 10], 
+    4)
 );
 
 var changingSubject = subObj[0];
@@ -283,7 +299,7 @@ function createInputs(subject) {
     weightage.title = "Weightage";
     weightage.innerHTML = "(" + subject.weight[i] + ")";
 
-    label.innerText = inputTypeList[i] + " ";
+    label.innerText = subject.assessmentMode[i] + " ";
     label.appendChild(weightage);
 
     containerDiv.className = "rowInput";
