@@ -111,9 +111,9 @@ input[type="number"] {
   box-shadow: 0 0 0 2px var(--colorMain_ShadeOne);
 }
 
-/***********************************/
-/********* General Classes *********/
-/***********************************/
+/**********************************/
+/********* General Styles *********/
+/**********************************/
 
 /* General Button Styles */
 
@@ -371,7 +371,7 @@ input {
 /* SGPA */
 
 .sgpa {
-  display: none;
+  display: flex;
   justify-content: center;
   margin-top: 30px;
   font-size: 22px;
@@ -380,6 +380,20 @@ input {
 
 #sgpa {
   color: var(--colorMain_ShadeTwo);
+}
+
+/***********************************/
+/******** Height Animations ********/
+/***********************************/
+
+.sgpa-div {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 300ms ease;
+}
+
+.app:hover .sgpa-div {
+  max-height: 57px;
 }
 
 /************************************/

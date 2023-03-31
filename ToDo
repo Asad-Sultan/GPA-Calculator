@@ -1,0 +1,22 @@
+Asad:
+  - Update class names with hyphen delimiter (CSS naming convention) instead of camelCase
+  - Improve class names for better readablility
+  Proposed changes:
+    - .seladd -> .subject-add
+    - .cardBody -> .subject-div
+    - .cardDiv -> .subject
+    - .card-header -> .subject-header
+    - .rowInput -> .assessment-row
+    - .weight-tooltip -> .weightage-tooltip
+    - .field-max -> .assessment-marks
+    - .numberBox -> .obtained-marks-input
+    - .max-tooltip -> .max-marks-tooltip
+    - .showMarks -> .show-marks
+    - .showGrade -> .show-grade
+    - .colorDivWrapper -> .themes-div
+    - .color-div -> .theme-row
+    - .radioDots -> .radio-dot
+    - .paletteName -> .theme-name
+    - .palettePreview -> .theme-palette
+
+What is up with same element having id and class of the same name?
