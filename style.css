@@ -125,7 +125,7 @@ input[type="number"] {
   font-family: inherit;
   color: inherit;
   cursor: pointer;
-  transition-duration: 250ms;
+  transition-duration: 300ms;
 }
 
 .btn:hover,
@@ -176,14 +176,17 @@ input[type="number"] {
 
 .usage-popup,
 .theme-popup {
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition-duration: 300ms;
+  display: flex;
   align-items: center;
   justify-content: center;
   position: fixed;
   top: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.69);
+  background-color: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(10px);
   z-index: 2;
 }
@@ -430,7 +433,7 @@ input {
   padding: 3px 6px;
   border-radius: 4px;
   cursor: pointer;
-  transition-duration: 250ms;
+  transition-duration: 300ms;
 }
 
 .footer-btn:hover,
