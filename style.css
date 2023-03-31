@@ -342,7 +342,7 @@ input {
 /* Subject Results */
 
 .results {
-  display: none;
+  display: flex;
   justify-content: center;
   gap: 30px;
   margin-top: 30px;
@@ -370,7 +370,7 @@ input {
 
 /* SGPA */
 
-.sgpa {
+.sgpa-div {
   display: flex;
   justify-content: center;
   margin-top: 30px;
@@ -386,13 +386,16 @@ input {
 /******** Height Animations ********/
 /***********************************/
 
-.sgpa-div {
+.subject-wrapper,
+.sgpa-wrapper,
+.results-wrapper {
   max-height: 0;
   overflow: hidden;
   transition: max-height 300ms ease;
 }
 
-.app:hover .sgpa-div {
+/* Delete this after implementing JS functionality */
+.app:hover .sgpa-wrapper {
   max-height: 57px;
 }
 
