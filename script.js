@@ -219,7 +219,7 @@ changeColor();
 function addListenersRemove(removeBtns) {
   removeBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
-      document.getElementById("spga-wrapper").style.display = "";
+      document.getElementById("sgpa-wrapper").style.display = "";
       let index = removeBtns.indexOf(btn);
       let btnID = Array.from(btn.id).lastIndexOf("-");
       let newID = "";
@@ -442,7 +442,7 @@ function getGrade(marks) {
 }
 
 document.getElementById("add-btn").onclick = () => {
-  document.getElementById("spga-wrapper").style.display = "";
+  document.getElementById("sgpa-wrapper").style.display = "";
   if (document.getElementById("sub").value === "Choose Subject") return
 
   for (let i = 0; i < subObj.length; i++) {
@@ -503,7 +503,7 @@ document.getElementById("calculate-btn").onclick = () => {
     totalHrs += subObj[i].creditHR;
   }
 
-  document.getElementById("spga-wrapper").style.display = "flex";
+  document.getElementById("sgpa-wrapper").style.display = "flex";
   document.getElementById("sgpa").innerHTML = (totalGP / totalHrs).toFixed(2);
 
   Array.from(document.getElementsByClassName("results")).forEach((element) => {
