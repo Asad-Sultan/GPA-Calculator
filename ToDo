@@ -1,4 +1,3 @@
-
 - Update class names with hyphen delimiter (CSS naming convention) instead of camelCase
 - Improve class names for better readablility
 Proposed changes:
@@ -28,4 +27,6 @@ Wrap .results in .results-wrapper
 Remove "display" manipulation from .results & .sgpa-div
 For .subject-wrapper .sgpa-wrapper & .results-wrapper, calculate the div height and set the "max-height" to that value to make the div appear instead of doing "display flex". Visa-versa for "display none" ("max-height 0")
 
-Remove CSS line 397
+Remove CSS line 397-400
+
+Add subjects to the top instead of the bottom
