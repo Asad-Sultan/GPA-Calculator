@@ -197,8 +197,8 @@ if (document.cookie == "dracula") color.dracula();
 if (document.cookie == "sky") color.sky();
 
 function changeColor() {
-  let colors = document.getElementById("colorsTop");
-  let radioBtns = document.querySelectorAll(".radioDots");
+  let colors = document.getElementById("themes-div");
+  let radioBtns = document.querySelectorAll(".radio-dot");
   colors.addEventListener("click", () => {
     radioBtns.forEach(btn => {
       if (btn.checked) {
@@ -228,7 +228,7 @@ function addListenersRemove(removeBtns) {
         newID += btn.id[x];
       }
 
-      document.getElementById("card-" + newID).remove();
+      document.getElementById("subject-" + newID).remove();
 
       let alphabeticalOrderIndex = 0;
       let allOptions = document.querySelectorAll("option");
@@ -263,9 +263,9 @@ function createInputs(subject) {
 
   let outerDiv = document.createElement("div");
   let innerDiv = document.createElement("div");
-  outerDiv.className = "cardBody";
-  outerDiv.id = "card-" + noOfCards;
-  innerDiv.className = "cardDiv";
+  outerDiv.className = "subject-div";
+  outerDiv.id = "subject-" + noOfCards;
+  innerDiv.className = "subject-card";
 
   let subName = "";
   document.querySelectorAll("option").forEach((element) => {
@@ -278,7 +278,7 @@ function createInputs(subject) {
   let heading = document.createElement("h2");
   let removeBtn = document.createElement("button");
 
-  headingDiv.className = "card-header";
+  headingDiv.className = "subject-header";
   heading.innerHTML = subName;
   removeBtn.className = "btn remove-btn";
   removeBtn.id = "remove-btn-" + noOfCards;
@@ -315,7 +315,7 @@ function createInputs(subject) {
 
     input.type = "number";
     input.id = "criteria-" + i + "-" + noOfCards;
-    input.className = "numberBox";
+    input.className = "obtained-marks-input";
     input.min = 0;
     input.max = subject.max[i];
 
@@ -324,21 +324,21 @@ function createInputs(subject) {
     total.className = "max-marks";
 
     maxTooltip.innerHTML = "Max Marks";
-    maxTooltip.className = "max-tooltip";
+    maxTooltip.className = "max-marks-tooltip";
     total.append(maxTooltip);
 
     weightage.className = "weightage-text";
     weightage.innerHTML = "(" + subject.weight[i] + ")";
     
     weightTooltip.innerHTML = "Weightage";
-    weightTooltip.className = "weight-tooltip";
+    weightTooltip.className = "weightage-tooltip";
     weightage.append(weightTooltip);
 
     label.innerText = subject.assessmentMode[i] + " ";
     label.appendChild(weightage);
 
-    containerDiv.className = "rowInput";
-    twoDiv.className = "field-max";
+    containerDiv.className = "assessment-row";
+    twoDiv.className = "assessment-marks";
 
     labels.push(total);
 
@@ -364,13 +364,13 @@ function createInputs(subject) {
   marksDiv.className = "marks";
 
   statmarksLabel.innerHTML = "Marks: ";
-  marksLabel.id = "showMarks";
-  marksLabel.className = "showMarks";
+  marksLabel.id = "show-marks";
+  marksLabel.className = "show-marks";
   marksLabel.innerHTML = "";
 
   statgradeLabel.innerHTML = "GPA: ";
-  gradeLabel.id = "showGrade";
-  gradeLabel.className = "showGrade";
+  gradeLabel.id = "show-grade";
+  gradeLabel.className = "show-grade";
   gradeLabel.innerHTML = "";
 
   marksDiv.appendChild(statmarksLabel);
@@ -394,7 +394,7 @@ function createInputs(subject) {
 function calculateSubTotal() {
   let totalMarks = [];
   let ids = [];
-  let allCards = document.querySelectorAll(".rowInput");
+  let allCards = document.querySelectorAll(".assessment-row");
 
   allCards.forEach(card => {
     ids.push(card.querySelectorAll("input")[0].id);
@@ -486,12 +486,12 @@ document.getElementById("calculate-btn").onclick = () => {
     marks.push(totalMarksSub.toFixed(1));
   }
 
-  let m = Array.from(document.querySelectorAll("#showMarks"));
+  let m = Array.from(document.querySelectorAll("#show-marks"));
   m.forEach((label) => {
     label.innerHTML = marks[m.indexOf(label)];
   });
 
-  let g = Array.from(document.querySelectorAll("#showGrade"));
+  let g = Array.from(document.querySelectorAll("#show-grade"));
   g.forEach((label) => {
     let grade = getGrade(marks[g.indexOf(label)]).toFixed(2);
     label.innerHTML = grade;

@@ -53,8 +53,8 @@ body {
   position: relative;
 }
 
-.weight-tooltip,
-.max-tooltip {
+.weightage-tooltip,
+.max-marks-tooltip {
   /* Visibilty */
   visibility: hidden;
   opacity: 0;
@@ -79,8 +79,8 @@ body {
   transition-duration: 300ms;
 }
 
-.weightage-text:hover .weight-tooltip,
-.max-marks:hover .max-tooltip {
+.weightage-text:hover .weightage-tooltip,
+.max-marks:hover .max-marks-tooltip {
   visibility: visible;
   opacity: 1;
 }
@@ -245,13 +245,13 @@ input {
 
 /* Subject Selection */
 
-.seladd {
+.subject-add {
   display: flex;
   justify-content: center;
   gap: 10px;
 }
 
-.seladd select {
+.subject-add select {
   text-align-last: center;
   font-family: inherit;
   color: inherit;
@@ -265,7 +265,7 @@ input {
 
 /* Subject Outer Div */
 
-.cardBody {
+.subject-div {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -277,14 +277,14 @@ input {
 
 /* Subject Inner Div */
 
-.cardDiv {
+.subject-card {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   gap: 5px;
 }
 
-.card-header {
+.subject-header {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -292,7 +292,7 @@ input {
   margin-bottom: 3px;
 }
 
-.card-header h2 {
+.subject-header h2 {
   font-size: 20px;
   font-weight: 600;
 }
@@ -318,7 +318,7 @@ input {
 
 /* Row Including Assessment Type, Weightage, Obtained & Max Marks */
 
-.rowInput {
+.assessment-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -328,14 +328,14 @@ input {
   color: var(--colorMain_ShadeTwo);
 }
 
-.field-max {
+.assessment-marks {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 80px;
 }
 
-.cardDiv input {
+.subject-card input {
   margin-right: 3px;
 }
 
@@ -350,8 +350,8 @@ input {
   font-weight: 500;
 }
 
-.showMarks,
-.showGrade {
+.show-marks,
+.show-grade {
   color: var(--colorMain_ShadeTwo);
 }
 
@@ -534,7 +534,7 @@ input {
 
 /* Theme Selector */
 
-.colorDivWrapper {
+.themes-div {
   display: flex;
   flex-direction: column;
   gap: 7px;
@@ -542,7 +542,7 @@ input {
 
 /* Theme Row */
 
-.colorDiv {
+.theme-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -555,35 +555,35 @@ input {
   gap: 6px;
 }
 
-.radioDots {
+.radio-dot {
   height: 18px;
   width: 18px;
   accent-color: var(--colorMain);
 }
 
-.paletteName {
+.theme-name {
   font-size: 18px;
   font-weight: 500;
 }
 
-.palettePreview {
+.theme-palette {
   display: flex;
   border: 2px solid var(--colorText);
   border-radius: 4px;
   width: fit-content;
 }
 
-.palettePreview div {
+.theme-palette div {
   height: 28px;
   width: 28px;
 }
 
-.palettePreview div:nth-child(1) {
+.theme-palette div:nth-child(1) {
   border-bottom-left-radius: 2px;
   border-top-left-radius: 2px;
 }
 
-.palettePreview div:nth-child(4) {
+.theme-palette div:nth-child(4) {
   border-bottom-right-radius: 2px;
   border-top-right-radius: 2px;
 }
