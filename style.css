@@ -395,9 +395,9 @@ input {
 }
 
 /* Delete this after implementing JS functionality */
-.app:hover .sgpa-wrapper {
+/* .app:hover .sgpa-wrapper {
   max-height: 57px;
-}
+} */
 
 /************************************/
 /************ App Footer ************/

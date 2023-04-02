@@ -108,71 +108,71 @@ var noOfCards = 0;
 
 subObj.push(
   new Subject(
-    "Applied Physics", 
-    "physics", 
+    "Applied Physics",
+    "physics",
     ["Assignments", "Quizes", "Project", "Mid", "Final"],
-    [40, 40, 20, 30, 40], 
-    [10, 10, 20, 20, 40], 
+    [40, 40, 20, 30, 40],
+    [10, 10, 20, 20, 40],
     3)
 );
 
 subObj.push(
   new Subject(
-    "English", 
-    "eng", 
-    ["Assignments", "Quizes" ,"Presentation", "Mid", "Final"],
-    [40, 40, 20, 20, 40], 
-    [10, 10, 20, 20, 40], 
-    3)
-);
-
-subObj.push(
-  new Subject(
-    "ICT Theory", 
-    "ict-theory", 
+    "English",
+    "eng",
     ["Assignments", "Quizes", "Presentation", "Mid", "Final"],
-    [70, 55, 20, 20, 40], 
-    [10, 10, 20, 20, 40], 
+    [40, 40, 20, 20, 40],
+    [10, 10, 20, 20, 40],
     3)
 );
 
 subObj.push(
   new Subject(
-    "ICT Lab", 
-    "ict-lab", 
+    "ICT Theory",
+    "ict-theory",
+    ["Assignments", "Quizes", "Presentation", "Mid", "Final"],
+    [70, 55, 20, 20, 40],
+    [10, 10, 20, 20, 40],
+    3)
+);
+
+subObj.push(
+  new Subject(
+    "ICT Lab",
+    "ict-lab",
     ["Tasks"],
-    [100], 
-    [100], 
+    [100],
+    [100],
     1)
 );
 
 subObj.push(
   new Subject(
-    "Logics", 
-    "logics", 
+    "Logics",
+    "logics",
     ["Assignments", "Quizes", "Project", "Mid", "Final"],
-    [40, 40, 20, 20, 40], 
-    [10, 10, 20, 20, 40], 
+    [40, 40, 20, 20, 40],
+    [10, 10, 20, 20, 40],
     3)
 );
 
 subObj.push(
   new Subject(
-    "PF Theory", 
-    "pf-theory", 
+    "PF Theory",
+    "pf-theory",
     ["Assignments", "Quizes", "Project", "Mid", "Final"],
-    [40, 40, 10, 40, 60], 
-    [10, 10, 10, 20, 50], 
+    [40, 40, 10, 40, 60],
+    [10, 10, 10, 20, 50],
     3)
 );
 
 subObj.push(
   new Subject(
-    "PF Lab", 
-    "pf-lab", 
+    "PF Lab",
+    "pf-lab",
     ["Tasks", "Viva", "Project"],
-    [40, 30, 30], 
-    [40, 30, 30], 
+    [40, 30, 30],
+    [40, 30, 30],
     1)
 );
 
@@ -195,6 +195,10 @@ if (document.cookie == "fruitCocktail") color.fruitCocktail();
 if (document.cookie == "breeze") color.breeze();
 if (document.cookie == "dracula") color.dracula();
 if (document.cookie == "sky") color.sky();
+
+function sleep(time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
 
 function changeColor() {
   let colors = document.getElementById("themes-div");
@@ -220,6 +224,7 @@ function addListenersRemove(removeBtns) {
   removeBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
       document.getElementById("sgpa-div").style.display = "";
+      document.getElementById("sgpa-wrapper").style.maxHeight = "0px";
       let index = removeBtns.indexOf(btn);
       let btnID = Array.from(btn.id).lastIndexOf("-");
       let newID = "";
@@ -228,13 +233,24 @@ function addListenersRemove(removeBtns) {
         newID += btn.id[x];
       }
 
-      document.getElementById("subject-" + newID).remove();
+      let remElement = document.getElementById("subject-" + newID).parentElement;
+
+      for (let x = 450; x >= 0; x--) {
+        sleep(1).then(() => {
+          remElement.style.maxHeight = x + "px";
+        });
+      }
+
+      // document.getElementById("subject-" + newID).remove();
+      sleep(500).then(() => {
+        remElement.remove();
+      });
 
       let alphabeticalOrderIndex = 0;
       let allOptions = document.querySelectorAll("option");
       let last = false;
 
-      for (let x = 1; x < allOptions.length; x++) {        
+      for (let x = 1; x < allOptions.length; x++) {
         if ((cardsUsed[index].innerHTML.toLowerCase()).localeCompare(allOptions[x].innerHTML.toLowerCase()) === -1) {
           last = false;
           alphabeticalOrderIndex = x;
@@ -261,8 +277,12 @@ function addListenersRemove(removeBtns) {
 function createInputs(subject) {
   selectedSubjects.push(subject);
 
+  let outerDivWrapper = document.createElement("div");
   let outerDiv = document.createElement("div");
   let innerDiv = document.createElement("div");
+
+  outerDivWrapper.className = "subject-wrapper";
+
   outerDiv.className = "subject-div";
   outerDiv.id = "subject-" + noOfCards;
   innerDiv.className = "subject-card";
@@ -329,7 +349,7 @@ function createInputs(subject) {
 
     weightage.className = "weightage-text";
     weightage.innerHTML = "(" + subject.weight[i] + ")";
-    
+
     weightTooltip.innerHTML = "Weightage";
     weightTooltip.className = "weightage-tooltip";
     weightage.append(weightTooltip);
@@ -352,6 +372,7 @@ function createInputs(subject) {
   }
   outerDiv.appendChild(innerDiv);
 
+  let resultWrapper = document.createElement("div");
   let resultDiv = document.createElement("div");
   let marksDiv = document.createElement("div");
   let statmarksLabel = document.createElement("label");
@@ -360,6 +381,7 @@ function createInputs(subject) {
   let statgradeLabel = document.createElement("label");
   let gradeLabel = document.createElement("label");
 
+  resultWrapper.className = "results-wrapper";
   resultDiv.className = "results";
   marksDiv.className = "marks";
 
@@ -381,12 +403,15 @@ function createInputs(subject) {
 
   resultDiv.appendChild(marksDiv);
   resultDiv.appendChild(gradeDiv);
+  resultWrapper.appendChild(resultDiv);
 
-  outerDiv.appendChild(resultDiv);
+  outerDiv.appendChild(resultWrapper);
+
+  outerDivWrapper.append(outerDiv);
 
   document
     .getElementById("app")
-    .insertBefore(outerDiv, document.getElementById("calculate-btn-div"));
+    .insertBefore(outerDivWrapper, document.getElementById("calculate-btn-div"));
   addListenersRemove(removeBtns);
   noOfCards++;
 }
@@ -444,6 +469,7 @@ function getGrade(marks) {
 document.getElementById("add-btn").onclick = () => {
   document.getElementById("sgpa-div").style.display = "";
   if (document.getElementById("sub").value === "Choose Subject") return
+  document.getElementById("sgpa-wrapper").style.maxHeight = "0px";
 
   for (let i = 0; i < subObj.length; i++) {
     if (document.getElementById("sub").value === subObj[i].name) {
@@ -458,6 +484,17 @@ document.getElementById("add-btn").onclick = () => {
     }
   });
   document.getElementById("sub").value = "Choose Subject";
+
+  // sleep(500).then(() => {
+  Array.from(document.getElementsByClassName("subject-wrapper")).forEach((element) => {
+    for (let i = 0; i <= 450; i++) {
+      sleep(1).then(() => {
+        element.style.maxHeight = i + "px";
+      });
+    }
+    // element.className = "subject-wrapper-new";
+  });
+  // });
 };
 
 document.getElementById("calculate-btn").onclick = () => {
@@ -503,12 +540,27 @@ document.getElementById("calculate-btn").onclick = () => {
     totalHrs += subObj[i].creditHR;
   }
 
-  document.getElementById("sgpa-div").style.display = "flex";
+  // document.getElementById("sgpa-div").style.display = "flex";
   document.getElementById("sgpa").innerHTML = (totalGP / totalHrs).toFixed(2);
 
-  Array.from(document.getElementsByClassName("results")).forEach((element) => {
-    element.style.display = "flex";
+  for (let i = 0; i <= 450; i++) {
+    sleep(1).then(() => {
+      document.getElementById("sgpa-wrapper").style.maxHeight = i + "px";
+      // element.style.maxHeight = i + "px";
+    });
+  }
+
+  Array.from(document.getElementsByClassName("results-wrapper")).forEach((element) => {
+    for (let i = 0; i <= 450; i++) {
+      sleep(1).then(() => {
+        element.style.maxHeight = i + "px";
+      });
+    }
   });
+
+  // Array.from(document.getElementsByClassName("results")).forEach((element) => {
+  //   element.style.display = "flex";
+  // });
 };
 
 let themePopup = document.querySelector(".theme-popup").style;
