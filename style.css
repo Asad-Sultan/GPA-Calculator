@@ -203,6 +203,41 @@ input {
   width: 40px;
 }
 
+/************************************/
+/************ Animations ************/
+/************************************/
+
+@keyframes appAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes footerAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  25% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.subject-wrapper,
+.sgpa-wrapper,
+.results-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 500ms ease;
+}
+
 /***********************************/
 /*********** Div Styles ************/
 /***********************************/
@@ -223,6 +258,7 @@ input {
   display: flex;
   flex-direction: column;
   margin-top: 50px;
+  animation: appAnimation 1.5s ease;
 }
 
 .usage-guide,
@@ -382,23 +418,6 @@ input {
   color: var(--colorMain_ShadeTwo);
 }
 
-/***********************************/
-/******** Height Animations ********/
-/***********************************/
-
-.subject-wrapper,
-.sgpa-wrapper,
-.results-wrapper {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 300ms ease;
-}
-
-/* Delete this after implementing JS functionality */
-/* .app:hover .sgpa-wrapper {
-  max-height: 57px;
-} */
-
 /************************************/
 /************ App Footer ************/
 /************************************/
@@ -408,6 +427,7 @@ input {
 .app-footer {
   margin-top: 30px;
   margin-bottom: 50px;
+  animation: footerAnimation 1s ease;
 }
 
 /* Footer Credit */
