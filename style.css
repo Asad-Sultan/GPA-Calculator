@@ -1,48 +1,4 @@
 /************************************/
-/********** Page Prelaoder **********/
-/************************************/
-
-#preloader {
-  height: 100vh;
-  width: 100vw;
-  position: fixed;
-  z-index: 3;
-  background-color: var(--colorApp);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.custom-loader {
-  width: 50px;
-  height: 50px;
-  --c: radial-gradient(farthest-side, var(--colorMain_ShadeTwo) 92%, #0000);
-  background: var(--c) 50% 0, var(--c) 50% 100%, var(--c) 100% 50%,
-    var(--c) 0 50%;
-  background-size: 10px 10px;
-  background-repeat: no-repeat;
-  animation: spin 1s infinite;
-  position: relative;
-}
-
-.custom-loader::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  margin: 3px;
-  background: repeating-conic-gradient(#0000 0 35deg, var(--colorMain_ShadeTwo) 0 90deg);
-  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 3px), #000 0);
-  mask: radial-gradient(farthest-side, #0000 calc(100% - 3px), #000 0);
-  border-radius: 50%;
-}
-
-@keyframes spin {
-  100% {
-    transform: rotate(0.5turn);
-  }
-}
-
-/************************************/
 /********* Universal Styles *********/
 /************************************/
 
@@ -247,9 +203,32 @@ input {
   width: 40px;
 }
 
-/*************************************/
-/********* Height Animations *********/
-/*************************************/
+/************************************/
+/************ Animations ************/
+/************************************/
+
+@keyframes appAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes footerAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  25% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 .subject-wrapper,
 .sgpa-wrapper,
@@ -276,21 +255,10 @@ input {
 }
 
 .app {
-  opacity: 0;
   display: flex;
   flex-direction: column;
   margin-top: 50px;
   animation: appAnimation 1.5s ease;
-  animation-delay: 0.3s;
-}
-
-@keyframes appAnimation {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 
 .usage-guide,
@@ -457,25 +425,9 @@ input {
 /* App Footer */
 
 .app-footer {
-  opacity: 0;
   margin-top: 30px;
   margin-bottom: 50px;
   animation: footerAnimation 1s ease;
-  animation-delay: 0.3s;
-}
-
-@keyframes footerAnimation {
-  0% {
-    opacity: 0;
-    transform: translateY(100%);
-  }
-  25% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* Footer Credit */
