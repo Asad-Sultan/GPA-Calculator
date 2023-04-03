@@ -176,19 +176,18 @@ input[type="number"] {
 
 .usage-popup,
 .theme-popup {
-  visibility: hidden;
-  opacity: 0;
-  transition-duration: 300ms;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: fixed;
-  top: 0;
-  width: 100vw;
   height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 2;
+  visibility: hidden;
+  opacity: 0;
+  transition-duration: 300ms;
   background-color: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(10px);
-  z-index: 2;
 }
 
 /* General Input Style */
@@ -203,32 +202,9 @@ input {
   width: 40px;
 }
 
-/************************************/
-/************ Animations ************/
-/************************************/
-
-@keyframes appAnimation {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes footerAnimation {
-  0% {
-    opacity: 0;
-    transform: translateY(100%);
-  }
-  25% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+/***********************************/
+/******** Height Animations ********/
+/***********************************/
 
 .subject-wrapper,
 .sgpa-wrapper,
@@ -259,6 +235,15 @@ input {
   flex-direction: column;
   margin-top: 50px;
   animation: appAnimation 1.5s ease;
+}
+
+@keyframes appAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .usage-guide,
@@ -428,6 +413,20 @@ input {
   margin-top: 30px;
   margin-bottom: 50px;
   animation: footerAnimation 1s ease;
+}
+
+@keyframes footerAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  25% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Footer Credit */
