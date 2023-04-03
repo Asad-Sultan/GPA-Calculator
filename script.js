@@ -409,11 +409,11 @@ function createInputs(subject) {
 
   outerDivWrapper.append(outerDiv);
 
-  // document
-  //   .getElementById("app")
-  //   .insertBefore(outerDivWrapper, document.getElementById("calculate-btn-div"));
+  document
+    .getElementById("app")
+    .insertBefore(outerDivWrapper, document.getElementById("calculate-btn-div"));
 
-  insertAfter(outerDivWrapper, document.getElementById("subject-add"));
+  // insertAfter(outerDivWrapper, document.getElementById("subject-add"));
   addListenersRemove(removeBtns);
   noOfCards++;
 }
