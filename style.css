@@ -234,7 +234,7 @@ input {
   display: flex;
   flex-direction: column;
   margin-top: 50px;
-  animation: appAnimation 1.5s ease;
+  /* animation: appAnimation 1.5s ease; */
 }
 
 @keyframes appAnimation {
@@ -412,7 +412,7 @@ input {
 .app-footer {
   margin-top: 30px;
   margin-bottom: 50px;
-  animation: footerAnimation 1s ease;
+  /* animation: footerAnimation 1s ease; */
 }
 
 @keyframes footerAnimation {
