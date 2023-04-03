@@ -497,6 +497,7 @@ document.getElementById("add-btn").onclick = () => {
       sleep(1).then(() => {
         element.style.maxHeight = i + "px";
       });
+      element.style.overflow = "visible";
     }
     // element.className = "subject-wrapper-new";
   });
