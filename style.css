@@ -60,10 +60,10 @@ body {
   opacity: 0;
 
   /* Positioning */
-  position: absolute;
+  position: fixed;
   width: max-content;
-  top: -2px;
-  left: 115%;
+  margin-top: -2px;
+  margin-left: 6px;
   z-index: 1;
 
   /* Styling */
