@@ -113,7 +113,8 @@ subObj.push(
     ["Assignments", "Quizes", "Project", "Mid", "Final"],
     [40, 40, 20, 30, 40],
     [10, 10, 20, 20, 40],
-    3)
+    3
+  )
 );
 
 subObj.push(
@@ -123,7 +124,8 @@ subObj.push(
     ["Assignments", "Quizes", "Presentation", "Mid", "Final"],
     [40, 40, 20, 20, 40],
     [10, 10, 10, 30, 40],
-    3)
+    3
+  )
 );
 
 subObj.push(
@@ -133,18 +135,11 @@ subObj.push(
     ["Assignments", "Quizes", "Presentation", "Mid", "Final"],
     [70, 55, 20, 20, 40],
     [10, 10, 20, 20, 40],
-    3)
+    3
+  )
 );
 
-subObj.push(
-  new Subject(
-    "ICT Lab",
-    "ict-lab",
-    ["Tasks"],
-    [100],
-    [100],
-    1)
-);
+subObj.push(new Subject("ICT Lab", "ict-lab", ["Tasks"], [100], [100], 1));
 
 subObj.push(
   new Subject(
@@ -153,7 +148,8 @@ subObj.push(
     ["Assignments", "Quizes", "Project", "Mid", "Final"],
     [40, 40, 20, 20, 40],
     [10, 10, 20, 20, 40],
-    3)
+    3
+  )
 );
 
 subObj.push(
@@ -163,24 +159,17 @@ subObj.push(
     ["Assignments", "Quizes", "Project", "Mid", "Final"],
     [40, 40, 10, 40, 60],
     [10, 10, 10, 20, 50],
-    3)
+    3
+  )
 );
 
-subObj.push(
-  new Subject(
-    "PF Lab",
-    "pf-lab",
-    ["Tasks", "Viva", "Project"],
-    [40, 30, 30],
-    [40, 30, 30],
-    1)
-);
+subObj.push(new Subject("PF Lab", "pf-lab", ["Tasks", "Viva", "Project"], [40, 30, 30], [40, 30, 30], 1));
 
 var changingSubject = subObj[0];
 var changingIndex = 0;
 
 let i = 0;
-subObj.forEach(subject => {
+subObj.forEach((subject) => {
   let opt = document.createElement("option");
   opt.value = subject.name;
   opt.innerHTML = subject.displayName;
@@ -204,7 +193,7 @@ function changeColor() {
   let colors = document.getElementById("themes-div");
   let radioBtns = document.querySelectorAll(".radio-dot");
   colors.addEventListener("click", () => {
-    radioBtns.forEach(btn => {
+    radioBtns.forEach((btn) => {
       if (btn.checked) {
         if (btn.value == "kulfa") color.kulfa();
         if (btn.value == "saffron") color.saffron();
@@ -214,8 +203,8 @@ function changeColor() {
         if (btn.value == "sky") color.sky();
         document.cookie = btn.value + "; expires=Tue, 31 Dec 2030 23:59:59 GMT";
       }
-    })
-  })
+    });
+  });
 }
 
 changeColor();
@@ -251,7 +240,7 @@ function addListenersRemove(removeBtns) {
       let last = false;
 
       for (let x = 1; x < allOptions.length; x++) {
-        if ((cardsUsed[index].innerHTML.toLowerCase()).localeCompare(allOptions[x].innerHTML.toLowerCase()) === -1) {
+        if (cardsUsed[index].innerHTML.toLowerCase().localeCompare(allOptions[x].innerHTML.toLowerCase()) === -1) {
           last = false;
           alphabeticalOrderIndex = x;
           break;
@@ -427,7 +416,7 @@ function calculateSubTotal() {
   let ids = [];
   let allCards = document.querySelectorAll(".assessment-row");
 
-  allCards.forEach(card => {
+  allCards.forEach((card) => {
     ids.push(card.querySelectorAll("input")[0].id);
   });
 
@@ -474,7 +463,7 @@ function getGrade(marks) {
 
 document.getElementById("add-btn").onclick = () => {
   document.getElementById("sgpa-div").style.display = "";
-  if (document.getElementById("sub").value === "Choose Subject") return
+  if (document.getElementById("sub").value === "Choose Subject") return;
   document.getElementById("sgpa-wrapper").style.maxHeight = "0px";
 
   for (let i = 0; i < subObj.length; i++) {
@@ -574,21 +563,21 @@ document.getElementById("calculate-btn").onclick = () => {
 let themePopup = document.querySelector(".theme-popup").style;
 document.getElementById("show-themes").onclick = () => {
   themePopup.visibility = "visible";
-  themePopup.opacity = "1"
-}
+  themePopup.opacity = "1";
+};
 
 document.getElementById("close-themes").onclick = () => {
   themePopup.visibility = "hidden";
-  themePopup.opacity = "0"
-}
+  themePopup.opacity = "0";
+};
 
 let usagePopup = document.querySelector(".usage-popup").style;
 document.getElementById("usage-popup-open").onclick = () => {
   usagePopup.visibility = "visible";
-  usagePopup.opacity = "1"
-}
+  usagePopup.opacity = "1";
+};
 
 document.getElementById("usage-popup-close").onclick = () => {
   usagePopup.visibility = "hidden";
-  usagePopup.opacity = "0"
-}
+  usagePopup.opacity = "0";
+};
