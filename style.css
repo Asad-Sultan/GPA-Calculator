@@ -48,11 +48,6 @@ body {
 /***** Customizing Tooltips *****/
 /********************************/
 
-.weightage-text,
-.max-marks {
-  position: relative;
-}
-
 .weightage-tooltip,
 .max-marks-tooltip {
   /* Visibilty */
@@ -62,18 +57,19 @@ body {
   /* Positioning */
   position: fixed;
   width: max-content;
-  margin-top: -2px;
-  margin-left: 6px;
-  z-index: 1;
+  bottom: 20px;
+  right: -100px;
+
+  z-index: 2;
 
   /* Styling */
   background-color: var(--colorInputBorders);
   color: var(--colorMain);
-  border-left: 4px solid var(--colorMain);
-  box-shadow: 1px 1px 5px 1px var(--colorBoxShadow);
-  padding: 4px;
-  border-radius: 4px;
-  font-size: 12px;
+  box-shadow: 1px 1px 15px 2px var(--colorBoxShadow);
+  border: 3px solid var(--colorMain);
+  padding: 6px;
+  border-radius: 6px;
+  font-size: 16px;
   font-weight: 500;
   text-align: center;
   transition-duration: 300ms;
@@ -83,6 +79,7 @@ body {
 .max-marks:hover .max-marks-tooltip {
   visibility: visible;
   opacity: 1;
+  transform: translateX(-120px);
 }
 
 /***************************************/
@@ -183,7 +180,7 @@ input[type="number"] {
   width: 100vw;
   top: 0;
   position: fixed;
-  z-index: 2;
+  z-index: 3;
   visibility: hidden;
   opacity: 0;
   transition-duration: 300ms;
