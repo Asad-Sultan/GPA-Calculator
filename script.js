@@ -139,14 +139,23 @@ subObj.push(
   )
 );
 
-subObj.push(new Subject("ICT Lab", "ict-lab", ["Tasks"], [100], [100], 1));
+subObj.push(
+  new Subject(
+    "ICT Lab", 
+    "ict-lab", 
+    ["Tasks"], 
+    [100], 
+    [100], 
+    1
+  )
+);
 
 subObj.push(
   new Subject(
     "Logics",
     "logics",
     ["Assignments", "Quizes", "Project", "Mid", "Final"],
-    [40, 40, 20, 20, 40],
+    [40, 40, 20, 40, 40],
     [10, 10, 20, 20, 40],
     3
   )
@@ -163,7 +172,16 @@ subObj.push(
   )
 );
 
-subObj.push(new Subject("PF Lab", "pf-lab", ["Tasks", "Viva", "Project"], [40, 30, 30], [40, 30, 30], 1));
+subObj.push(
+  new Subject(
+    "PF Lab", 
+    "pf-lab", 
+    ["Tasks", "Viva", "Project"], 
+    [40, 30, 30], 
+    [40, 30, 30], 
+    1
+  )
+);
 
 var changingSubject = subObj[0];
 var changingIndex = 0;
