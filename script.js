@@ -533,8 +533,8 @@ document.getElementById("calculate-btn").onclick = () => {
   });
 
   for (let i = 0; i < grades.length; i++) {
-    totalGP += grades[i] * subObj[i].creditHR;
-    totalHrs += subObj[i].creditHR;
+    totalGP += grades[i] * obtainedSubs[i].creditHR;
+    totalHrs += obtainedSubs[i].creditHR;
   }
 
   // document.getElementById("sgpa-div").style.display = "flex";
