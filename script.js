@@ -122,7 +122,7 @@ subObj.push(
     "English",
     "eng",
     ["Assignments", "Quizes", "Presentation", "Mid", "Final"],
-    [55, 40, 20, 20, 40],
+    [55, 40, 20, 30, 40],
     [10, 10, 10, 30, 40],
     3
   )
