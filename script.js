@@ -146,7 +146,7 @@ subObj.push(
     "Logics",
     "logics",
     ["Assignments", "Quizes", "Project", "Mid", "Final"],
-    [40, 40, 20, 20, 40],
+    [30, 30, 20, 20, 40],
     [10, 10, 20, 20, 40],
     3
   )
