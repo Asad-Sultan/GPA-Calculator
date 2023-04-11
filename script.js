@@ -121,9 +121,9 @@ subObj.push(
   new Subject(
     "English",
     "eng",
-    ["Assignments", "Quizes", "Presentation", "Mid", "Final"],
-    [40, 55, 20, 30, 40],
-    [10, 10, 10, 30, 40],
+    ["Assignments", "Quizes", "Mid", "Final"],
+    [40, 55, 30, 40],
+    [20, 10, 30, 40],
     3
   )
 );
