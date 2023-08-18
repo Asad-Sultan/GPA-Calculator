@@ -191,7 +191,7 @@ subObj.push(
     "oop-theory", 
     ["Assignment", "Quiz", "Project", "Mids", "Final"], 
     [40, 40, 20, 40, 60], 
-    [10, 10, 10, 20, 60], 
+    [10, 10, 10, 20, 50], 
     3
   )
 );
