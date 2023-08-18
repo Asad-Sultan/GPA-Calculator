@@ -190,8 +190,30 @@ subObj.push(
     "OOP Theory", 
     "oop-theory", 
     ["Assignment", "Quiz", "Project", "Mids", "Final"], 
-    [40, 40, 20, 40, 60], 
+    [40, 40, 10, 40, 60], 
     [10, 10, 10, 20, 50], 
+    3
+  )
+);
+
+subObj.push(
+  new Subject(
+    "Discrete Structures", 
+    "discrete-structures", 
+    ["Assignment", "Quiz", "Presentation", "Mids", "Final"], 
+    [75, 45, 20, 40, 40], 
+    [10, 10, 20, 20, 40], //TODO: confirm
+    3
+  )
+);
+
+subObj.push(
+  new Subject(
+    "Sofware Engineering", 
+    "software-engineering", 
+    ["Assignment", "Quiz", "Project", "Mids", "Final"], 
+    [50, 40, 20, 30, 40], 
+    [10, 10, 20, 20, 40], //TODO: confirm
     3
   )
 );
