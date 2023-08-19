@@ -83,11 +83,9 @@ class Subject {
 
     let remElement = document.getElementById("subject-" + this.nthInstance).parentElement.parentElement;
 
-    // for (let x = 450; x >= 0; x--) {
-    //   sleep(1).then(() => {
-    //   });
-    // }
-    remElement.style.gridTemplateRows = "0fr";// = x + "px";
+    sleep(200).then(() => {
+      remElement.style.gridTemplateRows = "0fr";// = x + "px";
+    });
 
     sleep(500).then(() => {
       remElement.remove();
