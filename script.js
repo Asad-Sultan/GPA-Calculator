@@ -411,12 +411,10 @@ document.getElementById("add-btn").onclick = () => {
 
   document.getElementById("sub").value = "Choose Subject";
 
-  Array.from(document.getElementsByClassName("subject-wrapper-outer")).forEach((element) => {
-    element.style.gridTemplateRows = "1fr";// = i + "px";
-    // for (let i = 0; i <= 450; i++) {
-    //   sleep(1).then(() => {
-    //   });
-    // }
+  sleep(100).then(() => {
+    Array.from(document.getElementsByClassName("subject-wrapper-outer")).forEach((element) => {
+      element.style.gridTemplateRows = "1fr";// = i + "px";
+    });
   });
 };
 
