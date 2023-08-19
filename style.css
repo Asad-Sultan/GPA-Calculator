@@ -204,12 +204,18 @@ input {
 /******** Height Animations ********/
 /***********************************/
 
+.subject-wrapper-outer,
+.cgpa-wrapper-outer,
+.results-wrapper-outer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 420ms ease;
+}
+
 .subject-wrapper,
 .cgpa-wrapper,
 .results-wrapper {
-  max-height: 0;
   overflow: hidden;
-  transition: max-height 500ms ease;
 }
 
 /***********************************/
