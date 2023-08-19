@@ -81,7 +81,7 @@ class Subject {
     document.getElementById("cgpa-div").style.display = "";
     document.getElementById("cgpa-wrapper-outer").style.gridTemplateRows = "0fr";// = "0px";
 
-    let remElement = document.getElementById("subject-" + this.nthInstance).parentElement;
+    let remElement = document.getElementById("subject-" + this.nthInstance).parentElement.parentElement;
 
     // for (let x = 450; x >= 0; x--) {
     //   sleep(1).then(() => {
@@ -233,9 +233,13 @@ class Subject {
     
     outerDiv.appendChild(outerResultWrapper);
 
+    let subjectWrapper = document.createElement("div");
+    subjectWrapper.className = "subject-wrapper";
+    subjectWrapper.append(outerDiv);
+
     this.cardRepresentation = document.createElement("div");
-    this.cardRepresentation.className = "subject-wrapper";
-    this.cardRepresentation.append(outerDiv);
+    this.cardRepresentation.className = "subject-wrapper-outer";
+    this.cardRepresentation.append(subjectWrapper);
   }
   insertCard() {
     insertAfter(this.cardRepresentation, document.getElementById("subject-add"));
@@ -252,7 +256,7 @@ class Subject {
     var marks = 0;
 
     for (let i = 2; i < (2 + this.assessmentMode.length); i++) {
-      var xMarks = this.cardRepresentation.childNodes[0].childNodes[0].childNodes[i].childNodes[1].childNodes[0].value;
+      var xMarks = this.cardRepresentation.childNodes[0].childNodes[0].childNodes[0].childNodes[i].childNodes[1].childNodes[0].value;
       obtainedMarks.push(Math.max(Math.min(xMarks, this.max[i - 2]), 0));
     }
 
@@ -262,8 +266,8 @@ class Subject {
 
     this.grade = getGrade(marks);
 
-    this.cardRepresentation.childNodes[0].childNodes[1].childNodes[0].childNodes[0].childNodes[0].childNodes[1].innerHTML = marks.toFixed(1);
-    this.cardRepresentation.childNodes[0].childNodes[1].childNodes[0].childNodes[0].childNodes[1].childNodes[1].innerHTML = this.grade.toFixed(2);
+    this.cardRepresentation.childNodes[0].childNodes[0].childNodes[1].childNodes[0].childNodes[0].childNodes[0].childNodes[1].innerHTML = marks.toFixed(1);
+    this.cardRepresentation.childNodes[0].childNodes[0].childNodes[1].childNodes[0].childNodes[0].childNodes[1].childNodes[1].innerHTML = this.grade.toFixed(2);
   }
 }
 
@@ -271,7 +275,7 @@ class Semester extends Subject {
   constructor(displayName, name, assessmentMode, max, weight, creditHR, semester) {
     super(displayName, name, assessmentMode, max, weight, creditHR, semester, false);
     semesters.push(this);
-    this.cardRepresentation.childNodes[0].childNodes[1].childNodes[0].childNodes[0].childNodes[1].childNodes[0].innerHTML = "SGPA: ";
+    this.cardRepresentation.childNodes[0].childNodes[0].childNodes[1].childNodes[0].childNodes[0].childNodes[1].childNodes[0].innerHTML = "SGPA: ";
 
     this.subjectsUsed = [];
     for (let i = 0; i < subjects.length; i++) {
@@ -287,7 +291,7 @@ class Semester extends Subject {
     document.getElementById("cgpa-div").style.display = "";
     document.getElementById("cgpa-wrapper-outer").style.gridTemplateRows = "0fr";// = "0px";
 
-    let remElement = document.getElementById("subject-" + this.nthInstance).parentElement;
+    let remElement = document.getElementById("subject-" + this.nthInstance).parentElement.parentElement;
 
     // for (let x = 450; x >= 0; x--) {
     //   sleep(1).then(() => {
@@ -361,7 +365,7 @@ class Semester extends Subject {
     var obtainedMarksForKeepSake = [];
 
     for (let i = 2; i < (2 + this.assessmentMode.length); i++) {
-      var xMarks = this.cardRepresentation.childNodes[0].childNodes[0].childNodes[i].childNodes[1].childNodes[0].value;
+      var xMarks = this.cardRepresentation.childNodes[0].childNodes[0].childNodes[0].childNodes[i].childNodes[1].childNodes[0].value;
       console.log(xMarks);
       obtainedMarks.push(Math.max(Math.min(xMarks, this.max[i - 2]), 0));
       obtainedMarksForKeepSake.push(Math.max(Math.min(xMarks, this.max[i - 2]), 0));
@@ -380,8 +384,8 @@ class Semester extends Subject {
 
     this.grade = (sum(obtainedMarks) / this.creditHR);
 
-    this.cardRepresentation.childNodes[0].childNodes[1].childNodes[0].childNodes[0].childNodes[0].childNodes[1].innerHTML = marks.toFixed(1);
-    this.cardRepresentation.childNodes[0].childNodes[1].childNodes[0].childNodes[0].childNodes[1].childNodes[1].innerHTML = this.grade.toFixed(2);
+    this.cardRepresentation.childNodes[0].childNodes[0].childNodes[1].childNodes[0].childNodes[0].childNodes[0].childNodes[1].innerHTML = marks.toFixed(1);
+    this.cardRepresentation.childNodes[0].childNodes[0].childNodes[1].childNodes[0].childNodes[0].childNodes[1].childNodes[1].innerHTML = this.grade.toFixed(2);
   }
 }
 
@@ -407,7 +411,7 @@ document.getElementById("add-btn").onclick = () => {
 
   document.getElementById("sub").value = "Choose Subject";
 
-  Array.from(document.getElementsByClassName("subject-wrapper")).forEach((element) => {
+  Array.from(document.getElementsByClassName("subject-wrapper-outer")).forEach((element) => {
     element.style.gridTemplateRows = "1fr";// = i + "px";
     // for (let i = 0; i <= 450; i++) {
     //   sleep(1).then(() => {
