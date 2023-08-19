@@ -323,6 +323,14 @@ class Semester extends Subject {
     selectedSemesters.push(this);
 
     for (let i = 0; i < this.subjectsUsed.length; i++) {
+      for (let j = 0; j < selectedSubjects.length; j++) {
+        if (selectedSubjects[j] == this.subjectsUsed[i]) {
+          selectedSubjects[j].removeEventListenerBehaviour();
+        }
+      }
+    }
+
+    for (let i = 0; i < this.subjectsUsed.length; i++) {
       for (let j = 0; j < this.assessmentMode.length; j++) {
         if (this.subjectsUsed[i].displayName === this.assessmentMode[j]) {
           selectedSubjects.push(this.subjectsUsed[i]);
