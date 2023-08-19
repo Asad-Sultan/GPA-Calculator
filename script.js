@@ -1,5 +1,7 @@
 var subjects = [];
+var semesters = [];
 var selectedSubjects = [];
+var selectedSemesters = [];
 
 function sum(array) {
   var sum = 0
@@ -33,7 +35,7 @@ function sleep(time) {
 
 class Subject {
   static noOfInstances = 0;
-  constructor(displayName, name, assessmentMode, max, weight, creditHR, semester) {
+  constructor(displayName, name, assessmentMode, max, weight, creditHR, semester, add = true) {
     this.displayName = displayName;
     this.name = name;
     this.assessmentMode = assessmentMode;
@@ -50,22 +52,57 @@ class Subject {
     this.optionRepresentation.value = this.name;
     this.optionRepresentation.innerHTML = this.displayName;
     this.optionRepresentation.id = "sub-" + this.nthInstance;
+    this.optionRepresentation.semester = this.semester;
 
     this.insertToDropdown();
     this.createCard();
 
-    subjects.push(this);
+    if (add) {
+      subjects.push(this);
+    }
   }
   insertToDropdown() {
     let allOptions = document.querySelectorAll("option");
     for (let x = 1; x < allOptions.length; x++) {
-      if (this.optionRepresentation.innerHTML.toLowerCase().localeCompare(allOptions[x].innerHTML.toLowerCase()) === -1) {
+      if (this.optionRepresentation.semester < allOptions[x].semester) {
         document.getElementById("sub").insertBefore(this.optionRepresentation, allOptions[x]);
         return;
+      } else if (this.optionRepresentation.semester === allOptions[x].semester) {
+        if (this.optionRepresentation.innerHTML.toLowerCase().localeCompare(allOptions[x].innerHTML.toLowerCase()) === -1) {
+          document.getElementById("sub").insertBefore(this.optionRepresentation, allOptions[x]);
+          return;
+        }
       }
     }
 
     document.getElementById("sub").appendChild(this.optionRepresentation);
+  }
+  removeEventListenerBehaviour() {
+    document.getElementById("cgpa-div").style.display = "";
+    document.getElementById("cgpa-wrapper").style.maxHeight = "0px";
+
+    let remElement = document.getElementById("subject-" + this.nthInstance).parentElement;
+
+    for (let x = 450; x >= 0; x--) {
+      sleep(1).then(() => {
+        remElement.style.maxHeight = x + "px";
+      });
+    }
+
+    sleep(500).then(() => {
+      remElement.remove();
+    });
+
+    this.insertToDropdown();
+
+    document.getElementById("sub").value = "Choose Subject";
+    for (let index = 0; index < selectedSubjects.length; index++) {
+      console.log(selectedSubjects[index] == this);
+      if (selectedSubjects[index] == this) {
+        selectedSubjects.splice(index, 1);
+        return;
+      }
+    }
   }
   createCard() {
     let outerDiv = document.createElement("div");
@@ -86,31 +123,7 @@ class Subject {
     removeBtn.innerHTML = "<ion-icon name='trash-outline'></ion-icon>";
 
     removeBtn.addEventListener("click", () => {
-      document.getElementById("sgpa-div").style.display = "";
-      document.getElementById("sgpa-wrapper").style.maxHeight = "0px";
-
-      let remElement = document.getElementById("subject-" + this.nthInstance).parentElement;
-
-      for (let x = 450; x >= 0; x--) {
-        sleep(1).then(() => {
-          remElement.style.maxHeight = x + "px";
-        });
-      }
-
-      sleep(500).then(() => {
-        remElement.remove();
-      });
-
-      this.insertToDropdown();
-
-      document.getElementById("sub").value = "Choose Subject";
-      for (let index = 0; index < selectedSubjects.length; index++) {
-        console.log(selectedSubjects[index] == this);
-        if (selectedSubjects[index] == this) {
-          selectedSubjects.splice(index, 1);
-          return;
-        }
-      }
+      this.removeEventListenerBehaviour();
     });
 
     headingDiv.appendChild(heading);
@@ -197,7 +210,7 @@ class Subject {
     marksLabel.className = "show-marks";
     marksLabel.innerHTML = "";
 
-    statgradeLabel.innerHTML = "GPA: ";
+    statgradeLabel.innerHTML = "GP: ";
     gradeLabel.id = "show-grade";
     gradeLabel.className = "show-grade";
     gradeLabel.innerHTML = "";
@@ -246,6 +259,198 @@ class Subject {
     this.cardRepresentation.childNodes[0].childNodes[1].childNodes[0].childNodes[1].childNodes[1].innerHTML = this.grade.toFixed(2);
   }
 }
+
+class Semester extends Subject {
+  constructor(displayName, name, assessmentMode, max, weight, creditHR, semester) {
+    super(displayName, name, assessmentMode, max, weight, creditHR, semester, false);
+    semesters.push(this);
+    this.cardRepresentation.childNodes[0].childNodes[1].childNodes[0].childNodes[1].childNodes[0].innerHTML = "SGPA: ";
+
+    // TODONE: add all subjects to local
+    this.subjectsUsed = [];
+    for (let i = 0; i < subjects.length; i++) {
+      for (let j = 0; j < this.assessmentMode.length; j++) {
+        if (subjects[i].displayName === this.assessmentMode[j]) {
+          this.subjectsUsed.push(subjects[i]);
+          break;
+        }
+      }
+    }
+  }
+  removeEventListenerBehaviour() {
+    // TODONE: override removelistener to remove all subjects from selectedSubjects
+    document.getElementById("cgpa-div").style.display = "";
+    document.getElementById("cgpa-wrapper").style.maxHeight = "0px";
+
+    let remElement = document.getElementById("subject-" + this.nthInstance).parentElement;
+
+    for (let x = 450; x >= 0; x--) {
+      sleep(1).then(() => {
+        remElement.style.maxHeight = x + "px";
+      });
+    }
+
+    sleep(500).then(() => {
+      remElement.remove();
+    });
+
+    this.insertToDropdown();
+
+    document.getElementById("sub").value = "Choose Subject";
+    for (let i = 0; i < this.subjectsUsed.length; i++) {
+      for (let index = 0; index < selectedSubjects.length; index++) {
+        if (selectedSubjects[index] == this.subjectsUsed[i]) {
+          selectedSubjects.splice(index, 1);
+          break;
+        }
+      }
+    }
+
+    for (let index = 0; index < selectedSemesters.length; index++) {
+      if (selectedSemesters[index] == this) {
+        selectedSemesters.splice(index, 1);
+        break;
+      }
+    }
+
+    // EXPERIMENTAL: 
+    for (let i = 0; i < this.subjectsUsed.length; i++) {
+      this.subjectsUsed[i].insertToDropdown();
+    }
+  }
+  insertCard() {
+    // TODONE: add subjects to selectedSubjects
+    insertAfter(this.cardRepresentation, document.getElementById("subject-add"));
+    selectedSemesters.push(this);
+
+    for (let i = 0; i < this.subjectsUsed.length; i++) {
+      for (let j = 0; j < this.assessmentMode.length; j++) {
+        if (this.subjectsUsed[i].displayName === this.assessmentMode[j]) {
+          selectedSubjects.push(this.subjectsUsed[i]);
+          break;
+        }
+      }
+    }
+
+    document.querySelectorAll("option").forEach((option) => {
+      if (option.value === this.name) {
+        option.remove();
+      }
+
+      for (let i = 0; i < this.subjectsUsed.length; i++) {
+        if (option.value === this.subjectsUsed[i].name) {
+          option.remove();
+        }
+      }
+    });
+  }
+  calculateGrade() {
+    // TODONE: override gradecalculations
+    var marks = 0;
+    var obtainedMarks = [];
+    var obtainedMarksForKeepSake = [];
+
+    for (let i = 2; i < (2 + this.assessmentMode.length); i++) {
+      obtainedMarks.push(Math.max(Math.min(this.cardRepresentation.childNodes[0].childNodes[0].childNodes[i].childNodes[1].childNodes[0].value, this.max[i - 2]), 0));
+      obtainedMarksForKeepSake.push(Math.max(Math.min(this.cardRepresentation.childNodes[0].childNodes[0].childNodes[i].childNodes[1].childNodes[0].value, this.max[i - 2]), 0));
+      // this.subjectsUsed[i - 2].grade = getGrade(obtainedMarks[i - 2]);
+      marks += obtainedMarks[i - 2];
+      obtainedMarks[i - 2] = getGrade(obtainedMarks[i - 2]) * this.weight[i - 2];
+    }
+
+    // TODO: Assign grade to each obj
+    for (let i = 0; i < this.subjectsUsed.length; i++) {
+      for (let j = 0; j < selectedSubjects.length; j++) {
+        if (this.subjectsUsed[i].name === selectedSubjects[j].name) {
+          selectedSubjects[j].grade = getGrade(obtainedMarksForKeepSake[i]);
+        }
+      }
+    }
+    // this.subjectsUsed[i - 2].grade = getGrade(obtainedMarks[i - 2]);
+
+    // for (let i = 0; i < this.assessmentMode.length; i++) {
+    //   marks += obtainedMarks[i] / this.max[i] * this.weight[i];
+    // }
+
+    this.grade = (sum(obtainedMarks) / this.creditHR);
+
+    this.cardRepresentation.childNodes[0].childNodes[1].childNodes[0].childNodes[0].childNodes[1].innerHTML = marks.toFixed(1);
+    this.cardRepresentation.childNodes[0].childNodes[1].childNodes[0].childNodes[1].childNodes[1].innerHTML = this.grade.toFixed(2);
+  }
+}
+
+document.getElementById("add-btn").onclick = () => {
+  document.getElementById("cgpa-div").style.display = "";
+  if (document.getElementById("sub").value === "Choose Subject") return;
+  document.getElementById("cgpa-wrapper").style.maxHeight = "0px";
+
+  for (let i = 0; i < semesters.length; i++) {
+    if (document.getElementById("sub").value === semesters[i].name) {
+      semesters[i].insertCard();
+      document.getElementById("sub").value = "Choose Subject";
+      break;
+    }
+  }
+
+  for (let i = 0; i < subjects.length; i++) {
+    if (document.getElementById("sub").value === subjects[i].name) {
+      subjects[i].insertCard();
+      break;
+    }
+  }
+
+  document.getElementById("sub").value = "Choose Subject";
+
+  Array.from(document.getElementsByClassName("subject-wrapper")).forEach((element) => {
+    for (let i = 0; i <= 450; i++) {
+      sleep(1).then(() => {
+        element.style.maxHeight = i + "px";
+      });
+    }
+  });
+};
+
+document.getElementById("calculate-btn").onclick = () => {
+  let totalHrs = [0, 0, 0, 0, 0, 0, 0, 0];
+  let totalGP = [0, 0, 0, 0, 0, 0, 0, 0];
+  let sgpa = [0, 0, 0, 0, 0, 0, 0, 0];
+
+  if (selectedSubjects.length == 0 && selectedSemesters.length == 0) return;
+
+  selectedSubjects.forEach((sub) => {
+    sub.calculateGrade();
+  });
+
+  selectedSemesters.forEach((sem) => {
+    sem.calculateGrade();
+  })
+
+  selectedSubjects.forEach((sub) => {
+    totalGP[sub.semester - 1] += (sub.grade * sub.creditHR);
+    totalHrs[sub.semester - 1] += sub.creditHR;
+  });
+
+  document.getElementById("cgpa").innerHTML = (sum(totalGP) / sum(totalHrs)).toFixed(2);
+
+  for (let i = 0; i < sgpa.length; i++) {
+    sgpa[i] = totalGP[i] / totalHrs[i];
+  }
+  console.log(totalGP, totalHrs, sgpa);
+
+  for (let i = 0; i <= 450; i++) {
+    sleep(1).then(() => {
+      document.getElementById("cgpa-wrapper").style.maxHeight = i + "px";
+    });
+  }
+
+  Array.from(document.getElementsByClassName("results-wrapper")).forEach((element) => {
+    for (let i = 0; i <= 450; i++) {
+      sleep(1).then(() => {
+        element.style.maxHeight = i + "px";
+      });
+    }
+  });
+};
 
 new Subject(
   "Applied Physics",
@@ -317,6 +522,16 @@ new Subject(
   1
 );
 
+new Semester(
+  "First Semester",
+  "first-semester",
+  ["Applied Physics", "English", "ICT Theory", "ICT Lab", "Logics", "PF Theory", "PF Lab"],
+  [100, 100, 100, 100, 100, 100, 100],
+  [3, 3, 3, 1, 3, 3, 1],
+  17,
+  0.5
+);
+
 new Subject(
   "Calculus",
   "calculus-and-analytic-geometry",
@@ -356,61 +571,3 @@ new Subject(
   3,
   2
 );
-
-document.getElementById("add-btn").onclick = () => {
-  document.getElementById("sgpa-div").style.display = "";
-  if (document.getElementById("sub").value === "Choose Subject") return;
-  document.getElementById("sgpa-wrapper").style.maxHeight = "0px";
-
-  for (let i = 0; i < subjects.length; i++) {
-    if (document.getElementById("sub").value === subjects[i].name) {
-      subjects[i].insertCard();
-      break;
-    }
-  }
-
-  document.getElementById("sub").value = "Choose Subject";
-
-  Array.from(document.getElementsByClassName("subject-wrapper")).forEach((element) => {
-    for (let i = 0; i <= 450; i++) {
-      sleep(1).then(() => {
-        element.style.maxHeight = i + "px";
-      });
-    }
-  });
-};
-
-document.getElementById("calculate-btn").onclick = () => {
-  let totalHrs = [0, 0, 0, 0, 0, 0, 0, 0];
-  let totalGP = [0, 0, 0, 0, 0, 0, 0, 0];
-  let sgpa = [0, 0, 0, 0, 0, 0, 0, 0];
-
-  if (selectedSubjects.length == 0) return;
-
-  selectedSubjects.forEach((sub) => {
-    sub.calculateGrade();
-    totalGP[sub.semester - 1] += (sub.grade * sub.creditHR);
-    totalHrs[sub.semester - 1] += sub.creditHR;
-  });
-
-  document.getElementById("sgpa").innerHTML = (sum(totalGP) / sum(totalHrs)).toFixed(2);
-
-  for (let i = 0; i < sgpa.length; i++) {
-    sgpa[i] = totalGP[i] / totalHrs[i];
-  }
-  console.log(sgpa);
-
-  for (let i = 0; i <= 450; i++) {
-    sleep(1).then(() => {
-      document.getElementById("sgpa-wrapper").style.maxHeight = i + "px";
-    });
-  }
-
-  Array.from(document.getElementsByClassName("results-wrapper")).forEach((element) => {
-    for (let i = 0; i <= 450; i++) {
-      sleep(1).then(() => {
-        element.style.maxHeight = i + "px";
-      });
-    }
-  });
-};

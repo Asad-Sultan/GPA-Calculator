@@ -205,7 +205,7 @@ input {
 /***********************************/
 
 .subject-wrapper,
-.sgpa-wrapper,
+.cgpa-wrapper,
 .results-wrapper {
   max-height: 0;
   overflow: hidden;
@@ -377,9 +377,9 @@ input {
   font-weight: 500;
 }
 
-/* SGPA */
+/* CGPA */
 
-.sgpa-div {
+.cgpa-div {
   display: flex;
   justify-content: center;
   margin-top: 30px;
@@ -387,7 +387,7 @@ input {
   font-weight: 500;
 }
 
-#sgpa {
+#cgpa {
   color: var(--colorMain_ShadeTwo);
 }
 
