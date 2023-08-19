@@ -296,7 +296,6 @@ class Semester extends Subject {
 
     this.insertToDropdown();
 
-    document.getElementById("sub").value = "Choose Subject";
     for (let i = 0; i < this.subjectsUsed.length; i++) {
       for (let index = 0; index < selectedSubjects.length; index++) {
         if (selectedSubjects[index] == this.subjectsUsed[i]) {
@@ -313,10 +312,10 @@ class Semester extends Subject {
       }
     }
 
-    // EXPERIMENTAL: 
     for (let i = 0; i < this.subjectsUsed.length; i++) {
       this.subjectsUsed[i].insertToDropdown();
     }
+    document.getElementById("sub").value = "Choose Subject";
   }
   insertCard() {
     // TODONE: add subjects to selectedSubjects
