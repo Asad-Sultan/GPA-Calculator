@@ -252,6 +252,11 @@ input {
 /************ Main App ************/
 /**********************************/
 
+option {
+  text-align: center;
+  padding: 5px;
+}
+
 /* Subject Selection */
 
 .subject-add {
