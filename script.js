@@ -192,6 +192,7 @@ class Subject {
     }
     outerDiv.appendChild(innerDiv);
 
+    let outerResultWrapper = document.createElement("div");
     let resultWrapper = document.createElement("div");
     let resultDiv = document.createElement("div");
     let marksDiv = document.createElement("div");
@@ -200,6 +201,9 @@ class Subject {
     let gradeDiv = document.createElement("div");
     let statgradeLabel = document.createElement("label");
     let gradeLabel = document.createElement("label");
+    
+    outerResultWrapper.className = "results-wrapper-outer";
+    outerResultWrapper.id = "results-wrapper-outer";
 
     resultWrapper.className = "results-wrapper";
     resultDiv.className = "results";
@@ -225,7 +229,9 @@ class Subject {
     resultDiv.appendChild(gradeDiv);
     resultWrapper.appendChild(resultDiv);
 
-    outerDiv.appendChild(resultWrapper);
+    outerResultWrapper.appendChild(resultWrapper);
+    
+    outerDiv.appendChild(outerResultWrapper);
 
     this.cardRepresentation = document.createElement("div");
     this.cardRepresentation.className = "subject-wrapper";
@@ -246,7 +252,8 @@ class Subject {
     var marks = 0;
 
     for (let i = 2; i < (2 + this.assessmentMode.length); i++) {
-      obtainedMarks.push(Math.max(Math.min(this.cardRepresentation.childNodes[0].childNodes[0].childNodes[i].childNodes[1].childNodes[0].value, this.max[i - 2]), 0));
+      var xMarks = this.cardRepresentation.childNodes[0].childNodes[0].childNodes[i].childNodes[1].childNodes[0].value;
+      obtainedMarks.push(Math.max(Math.min(xMarks, this.max[i - 2]), 0));
     }
 
     for (let i = 0; i < this.assessmentMode.length; i++) {
@@ -255,8 +262,8 @@ class Subject {
 
     this.grade = getGrade(marks);
 
-    this.cardRepresentation.childNodes[0].childNodes[1].childNodes[0].childNodes[0].childNodes[1].innerHTML = marks.toFixed(1);
-    this.cardRepresentation.childNodes[0].childNodes[1].childNodes[0].childNodes[1].childNodes[1].innerHTML = this.grade.toFixed(2);
+    this.cardRepresentation.childNodes[0].childNodes[1].childNodes[0].childNodes[0].childNodes[0].childNodes[1].innerHTML = marks.toFixed(1);
+    this.cardRepresentation.childNodes[0].childNodes[1].childNodes[0].childNodes[0].childNodes[1].childNodes[1].innerHTML = this.grade.toFixed(2);
   }
 }
 
@@ -264,9 +271,8 @@ class Semester extends Subject {
   constructor(displayName, name, assessmentMode, max, weight, creditHR, semester) {
     super(displayName, name, assessmentMode, max, weight, creditHR, semester, false);
     semesters.push(this);
-    this.cardRepresentation.childNodes[0].childNodes[1].childNodes[0].childNodes[1].childNodes[0].innerHTML = "SGPA: ";
+    this.cardRepresentation.childNodes[0].childNodes[1].childNodes[0].childNodes[0].childNodes[1].childNodes[0].innerHTML = "SGPA: ";
 
-    // TODONE: add all subjects to local
     this.subjectsUsed = [];
     for (let i = 0; i < subjects.length; i++) {
       for (let j = 0; j < this.assessmentMode.length; j++) {
@@ -278,7 +284,6 @@ class Semester extends Subject {
     }
   }
   removeEventListenerBehaviour() {
-    // TODONE: override removelistener to remove all subjects from selectedSubjects
     document.getElementById("cgpa-div").style.display = "";
     document.getElementById("cgpa-wrapper-outer").style.gridTemplateRows = "0fr";// = "0px";
 
@@ -318,7 +323,6 @@ class Semester extends Subject {
     document.getElementById("sub").value = "Choose Subject";
   }
   insertCard() {
-    // TODONE: add subjects to selectedSubjects
     insertAfter(this.cardRepresentation, document.getElementById("subject-add"));
     selectedSemesters.push(this);
 
@@ -352,20 +356,20 @@ class Semester extends Subject {
     });
   }
   calculateGrade() {
-    // TODONE: override gradecalculations
     var marks = 0;
     var obtainedMarks = [];
     var obtainedMarksForKeepSake = [];
 
     for (let i = 2; i < (2 + this.assessmentMode.length); i++) {
-      obtainedMarks.push(Math.max(Math.min(this.cardRepresentation.childNodes[0].childNodes[0].childNodes[i].childNodes[1].childNodes[0].value, this.max[i - 2]), 0));
-      obtainedMarksForKeepSake.push(Math.max(Math.min(this.cardRepresentation.childNodes[0].childNodes[0].childNodes[i].childNodes[1].childNodes[0].value, this.max[i - 2]), 0));
+      var xMarks = this.cardRepresentation.childNodes[0].childNodes[0].childNodes[i].childNodes[1].childNodes[0].value;
+      console.log(xMarks);
+      obtainedMarks.push(Math.max(Math.min(xMarks, this.max[i - 2]), 0));
+      obtainedMarksForKeepSake.push(Math.max(Math.min(xMarks, this.max[i - 2]), 0));
       // this.subjectsUsed[i - 2].grade = getGrade(obtainedMarks[i - 2]);
       marks += obtainedMarks[i - 2];
       obtainedMarks[i - 2] = getGrade(obtainedMarks[i - 2]) * this.weight[i - 2];
     }
 
-    // TODO: Assign grade to each obj
     for (let i = 0; i < this.subjectsUsed.length; i++) {
       for (let j = 0; j < selectedSubjects.length; j++) {
         if (this.subjectsUsed[i].name === selectedSubjects[j].name) {
@@ -373,16 +377,11 @@ class Semester extends Subject {
         }
       }
     }
-    // this.subjectsUsed[i - 2].grade = getGrade(obtainedMarks[i - 2]);
-
-    // for (let i = 0; i < this.assessmentMode.length; i++) {
-    //   marks += obtainedMarks[i] / this.max[i] * this.weight[i];
-    // }
 
     this.grade = (sum(obtainedMarks) / this.creditHR);
 
-    this.cardRepresentation.childNodes[0].childNodes[1].childNodes[0].childNodes[0].childNodes[1].innerHTML = marks.toFixed(1);
-    this.cardRepresentation.childNodes[0].childNodes[1].childNodes[0].childNodes[1].childNodes[1].innerHTML = this.grade.toFixed(2);
+    this.cardRepresentation.childNodes[0].childNodes[1].childNodes[0].childNodes[0].childNodes[0].childNodes[1].innerHTML = marks.toFixed(1);
+    this.cardRepresentation.childNodes[0].childNodes[1].childNodes[0].childNodes[0].childNodes[1].childNodes[1].innerHTML = this.grade.toFixed(2);
   }
 }
 
@@ -450,7 +449,7 @@ document.getElementById("calculate-btn").onclick = () => {
   // }
   document.getElementById("cgpa-wrapper-outer").style.gridTemplateRows = "1fr";// = i + "px";
 
-  Array.from(document.getElementsByClassName("results-wrapper")).forEach((element) => {
+  Array.from(document.getElementsByClassName("results-wrapper-outer")).forEach((element) => {
     // for (let i = 0; i <= 450; i++) {
     //   sleep(1).then(() => {
     //   });
