@@ -205,7 +205,7 @@ input {
 /***********************************/
 
 .subject-wrapper,
-.sgpa-wrapper,
+.cgpa-wrapper,
 .results-wrapper {
   max-height: 0;
   overflow: hidden;
@@ -251,6 +251,11 @@ input {
 /**********************************/
 /************ Main App ************/
 /**********************************/
+
+option {
+  text-align: center;
+  padding: 5px;
+}
 
 /* Subject Selection */
 
@@ -355,7 +360,7 @@ input {
   justify-content: center;
   gap: 30px;
   margin-top: 30px;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
 }
 
@@ -377,9 +382,9 @@ input {
   font-weight: 500;
 }
 
-/* SGPA */
+/* CGPA */
 
-.sgpa-div {
+.cgpa-div {
   display: flex;
   justify-content: center;
   margin-top: 30px;
@@ -387,7 +392,7 @@ input {
   font-weight: 500;
 }
 
-#sgpa {
+#cgpa {
   color: var(--colorMain_ShadeTwo);
 }
 
