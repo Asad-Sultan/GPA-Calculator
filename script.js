@@ -522,16 +522,6 @@ new Subject(
   1
 );
 
-new Semester(
-  "First Semester",
-  "first-semester",
-  ["Applied Physics", "English", "ICT Theory", "ICT Lab", "Logics", "PF Theory", "PF Lab"],
-  [100, 100, 100, 100, 100, 100, 100],
-  [3, 3, 3, 1, 3, 3, 1],
-  17,
-  0.5
-);
-
 new Subject(
   "Calculus",
   "calculus-and-analytic-geometry",
@@ -570,4 +560,14 @@ new Subject(
   [10, 10, 20, 20, 40], //TODO: confirm
   3,
   2
+);
+
+new Semester(
+  "First Semester",
+  "first-semester",
+  ["Applied Physics", "English", "ICT Theory", "ICT Lab", "Logics", "PF Theory", "PF Lab"],
+  [100, 100, 100, 100, 100, 100, 100],
+  [3, 3, 3, 1, 3, 3, 1],
+  17,
+  0.5
 );
