@@ -79,15 +79,15 @@ class Subject {
   }
   removeEventListenerBehaviour() {
     document.getElementById("cgpa-div").style.display = "";
-    document.getElementById("cgpa-wrapper").style.maxHeight = "0px";
+    document.getElementById("cgpa-wrapper-outer").style.gridTemplateRows = "0fr";// = "0px";
 
     let remElement = document.getElementById("subject-" + this.nthInstance).parentElement;
 
-    for (let x = 450; x >= 0; x--) {
-      sleep(1).then(() => {
-        remElement.style.maxHeight = x + "px";
-      });
-    }
+    // for (let x = 450; x >= 0; x--) {
+    //   sleep(1).then(() => {
+    //   });
+    // }
+    remElement.style.gridTemplateRows = "0fr";// = x + "px";
 
     sleep(500).then(() => {
       remElement.remove();
@@ -280,15 +280,15 @@ class Semester extends Subject {
   removeEventListenerBehaviour() {
     // TODONE: override removelistener to remove all subjects from selectedSubjects
     document.getElementById("cgpa-div").style.display = "";
-    document.getElementById("cgpa-wrapper").style.maxHeight = "0px";
+    document.getElementById("cgpa-wrapper-outer").style.gridTemplateRows = "0fr";// = "0px";
 
     let remElement = document.getElementById("subject-" + this.nthInstance).parentElement;
 
-    for (let x = 450; x >= 0; x--) {
-      sleep(1).then(() => {
-        remElement.style.maxHeight = x + "px";
-      });
-    }
+    // for (let x = 450; x >= 0; x--) {
+    //   sleep(1).then(() => {
+    //   });
+    // }
+    remElement.style.gridTemplateRows = "0fr";// = x + "px";
 
     sleep(500).then(() => {
       remElement.remove();
@@ -389,7 +389,7 @@ class Semester extends Subject {
 document.getElementById("add-btn").onclick = () => {
   document.getElementById("cgpa-div").style.display = "";
   if (document.getElementById("sub").value === "Choose Subject") return;
-  document.getElementById("cgpa-wrapper").style.maxHeight = "0px";
+  document.getElementById("cgpa-wrapper-outer").style.gridTemplateRows = "0fr";// = "0px";
 
   for (let i = 0; i < semesters.length; i++) {
     if (document.getElementById("sub").value === semesters[i].name) {
@@ -409,11 +409,11 @@ document.getElementById("add-btn").onclick = () => {
   document.getElementById("sub").value = "Choose Subject";
 
   Array.from(document.getElementsByClassName("subject-wrapper")).forEach((element) => {
-    for (let i = 0; i <= 450; i++) {
-      sleep(1).then(() => {
-        element.style.maxHeight = i + "px";
-      });
-    }
+    element.style.gridTemplateRows = "1fr";// = i + "px";
+    // for (let i = 0; i <= 450; i++) {
+    //   sleep(1).then(() => {
+    //   });
+    // }
   });
 };
 
@@ -444,18 +444,18 @@ document.getElementById("calculate-btn").onclick = () => {
   }
   console.log(totalGP, totalHrs, sgpa);
 
-  for (let i = 0; i <= 450; i++) {
-    sleep(1).then(() => {
-      document.getElementById("cgpa-wrapper").style.maxHeight = i + "px";
-    });
-  }
+  // for (let i = 0; i <= 450; i++) {
+  //   sleep(1).then(() => {
+  //   });
+  // }
+  document.getElementById("cgpa-wrapper-outer").style.gridTemplateRows = "1fr";// = i + "px";
 
   Array.from(document.getElementsByClassName("results-wrapper")).forEach((element) => {
-    for (let i = 0; i <= 450; i++) {
-      sleep(1).then(() => {
-        element.style.maxHeight = i + "px";
-      });
-    }
+    // for (let i = 0; i <= 450; i++) {
+    //   sleep(1).then(() => {
+    //   });
+    // }
+    element.style.gridTemplateRows = "1fr";// = i + "px";
   });
 };
 
