@@ -79,12 +79,19 @@ class Subject {
   }
   removeEventListenerBehaviour() {
     document.getElementById("cgpa-div").style.display = "";
-    document.getElementById("cgpa-wrapper-outer").style.gridTemplateRows = "0fr";// = "0px";
+    document.getElementById("cgpa-wrapper-outer").style.gridTemplateRows = "0fr";
+    document.getElementById("sgpa-wrapper-outer").style.gridTemplateRows = "0fr";
+
+    let sgpaWrapper = document.getElementById("sgpa-wrapper");
+
+    sgpaWrapper.style.padding = "";
+    sgpaWrapper.style.margin = "";
+    sgpaWrapper.style.border = "";
 
     let remElement = document.getElementById("subject-" + this.nthInstance).parentElement.parentElement;
 
     sleep(200).then(() => {
-      remElement.style.gridTemplateRows = "0fr";// = x + "px";
+      remElement.style.gridTemplateRows = "0fr";
     });
 
     sleep(500).then(() => {
@@ -95,7 +102,6 @@ class Subject {
 
     document.getElementById("sub").value = "Choose Subject";
     for (let index = 0; index < selectedSubjects.length; index++) {
-      console.log(selectedSubjects[index] == this);
       if (selectedSubjects[index] == this) {
         selectedSubjects.splice(index, 1);
         return;
@@ -199,7 +205,7 @@ class Subject {
     let gradeDiv = document.createElement("div");
     let statgradeLabel = document.createElement("label");
     let gradeLabel = document.createElement("label");
-    
+
     outerResultWrapper.className = "results-wrapper-outer";
     outerResultWrapper.id = "results-wrapper-outer";
 
@@ -228,7 +234,7 @@ class Subject {
     resultWrapper.appendChild(resultDiv);
 
     outerResultWrapper.appendChild(resultWrapper);
-    
+
     outerDiv.appendChild(outerResultWrapper);
 
     let subjectWrapper = document.createElement("div");
@@ -271,7 +277,7 @@ class Subject {
 
 class Semester extends Subject {
   constructor(displayName, name, assessmentMode, max, weight, creditHR, semester) {
-    super(displayName, name, assessmentMode, max, weight, creditHR, semester, false);
+    super(displayName, name, assessmentMode, max, weight, creditHR, semester - 0.5, false);
     semesters.push(this);
     this.cardRepresentation.childNodes[0].childNodes[0].childNodes[1].childNodes[0].childNodes[0].childNodes[1].childNodes[0].innerHTML = "SGPA: ";
 
@@ -287,15 +293,18 @@ class Semester extends Subject {
   }
   removeEventListenerBehaviour() {
     document.getElementById("cgpa-div").style.display = "";
-    document.getElementById("cgpa-wrapper-outer").style.gridTemplateRows = "0fr";// = "0px";
+    document.getElementById("cgpa-wrapper-outer").style.gridTemplateRows = "0fr";
+    document.getElementById("sgpa-wrapper-outer").style.gridTemplateRows = "0fr";
+
+    let sgpaWrapper = document.getElementById("sgpa-wrapper");
+
+    sgpaWrapper.style.padding = "";
+    sgpaWrapper.style.margin = "";
+    sgpaWrapper.style.border = "";
 
     let remElement = document.getElementById("subject-" + this.nthInstance).parentElement.parentElement;
 
-    // for (let x = 450; x >= 0; x--) {
-    //   sleep(1).then(() => {
-    //   });
-    // }
-    remElement.style.gridTemplateRows = "0fr";// = x + "px";
+    remElement.style.gridTemplateRows = "0fr";
 
     sleep(500).then(() => {
       remElement.remove();
@@ -364,10 +373,10 @@ class Semester extends Subject {
 
     for (let i = 2; i < (2 + this.assessmentMode.length); i++) {
       var xMarks = this.cardRepresentation.childNodes[0].childNodes[0].childNodes[0].childNodes[i].childNodes[1].childNodes[0].value;
-      console.log(xMarks);
+
       obtainedMarks.push(Math.max(Math.min(xMarks, this.max[i - 2]), 0));
       obtainedMarksForKeepSake.push(Math.max(Math.min(xMarks, this.max[i - 2]), 0));
-      // this.subjectsUsed[i - 2].grade = getGrade(obtainedMarks[i - 2]);
+
       marks += obtainedMarks[i - 2];
       obtainedMarks[i - 2] = getGrade(obtainedMarks[i - 2]) * this.weight[i - 2];
     }
@@ -390,7 +399,14 @@ class Semester extends Subject {
 document.getElementById("add-btn").onclick = () => {
   document.getElementById("cgpa-div").style.display = "";
   if (document.getElementById("sub").value === "Choose Subject") return;
-  document.getElementById("cgpa-wrapper-outer").style.gridTemplateRows = "0fr";// = "0px";
+  document.getElementById("cgpa-wrapper-outer").style.gridTemplateRows = "0fr";
+  document.getElementById("sgpa-wrapper-outer").style.gridTemplateRows = "0fr";
+
+  let sgpaWrapper = document.getElementById("sgpa-wrapper");
+
+  sgpaWrapper.style.padding = "";
+  sgpaWrapper.style.margin = "";
+  sgpaWrapper.style.border = "";
 
   for (let i = 0; i < semesters.length; i++) {
     if (document.getElementById("sub").value === semesters[i].name) {
@@ -411,7 +427,7 @@ document.getElementById("add-btn").onclick = () => {
 
   sleep(100).then(() => {
     Array.from(document.getElementsByClassName("subject-wrapper-outer")).forEach((element) => {
-      element.style.gridTemplateRows = "1fr";// = i + "px";
+      element.style.gridTemplateRows = "1fr";
     });
   });
 };
@@ -437,24 +453,28 @@ document.getElementById("calculate-btn").onclick = () => {
   });
 
   document.getElementById("cgpa").innerHTML = (sum(totalGP) / sum(totalHrs)).toFixed(2);
+  
+  let sgpaWrapper = document.getElementById("sgpa-wrapper");
 
   for (let i = 0; i < sgpa.length; i++) {
     sgpa[i] = totalGP[i] / totalHrs[i];
+    if (isNaN(sgpa[i])) {
+      sgpaWrapper.childNodes[2 * i + 3].style.display = "none";
+    } else {
+      sgpaWrapper.childNodes[2 * i + 3].style.display = "flex";
+    }
+    sgpaWrapper.childNodes[2 * i + 3].childNodes[3].innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + sgpa[i].toFixed(2);
   }
-  console.log(totalGP, totalHrs, sgpa);
 
-  // for (let i = 0; i <= 450; i++) {
-  //   sleep(1).then(() => {
-  //   });
-  // }
-  document.getElementById("cgpa-wrapper-outer").style.gridTemplateRows = "1fr";// = i + "px";
+  document.getElementById("cgpa-wrapper-outer").style.gridTemplateRows = "1fr";
+  document.getElementById("sgpa-wrapper-outer").style.gridTemplateRows = "1fr";
+
+  sgpaWrapper.style.padding = "5px";
+  sgpaWrapper.style.margin = "20px";
+  sgpaWrapper.style.border = "2px solid " + getComputedStyle(document.querySelector(':root')).getPropertyValue('--colorMain_ShadeOne');
 
   Array.from(document.getElementsByClassName("results-wrapper-outer")).forEach((element) => {
-    // for (let i = 0; i <= 450; i++) {
-    //   sleep(1).then(() => {
-    //   });
-    // }
-    element.style.gridTemplateRows = "1fr";// = i + "px";
+    element.style.gridTemplateRows = "1fr";
   });
 };
 
@@ -568,6 +588,26 @@ new Subject(
   2
 );
 
+new Subject(
+  "C&PS",
+  "caps",
+  ["Assignment", "Quiz", "Presentation", "Interview", "Mids", "Final"],
+  [40, 37, 10, 10, 30, 40],
+  [10, 10, 10, 10, 20, 40], //TODO: confirm
+  3,
+  2
+);
+
+new Subject(
+  "OOP Lab",
+  "oop-lab",
+  ["Project", "Final"],
+  [40, 60],
+  [40, 60], //TODO: confirm
+  1,
+  2
+);
+
 new Semester(
   "First Semester",
   "first-semester",
@@ -575,5 +615,5 @@ new Semester(
   [100, 100, 100, 100, 100, 100, 100],
   [3, 3, 3, 1, 3, 3, 1],
   17,
-  0.5
+  1
 );

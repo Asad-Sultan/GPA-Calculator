@@ -204,6 +204,7 @@ input {
 /******** Height Animations ********/
 /***********************************/
 
+.sgpa-wrapper-outer,
 .subject-wrapper-outer,
 .cgpa-wrapper-outer,
 .results-wrapper-outer {
@@ -212,10 +213,32 @@ input {
   transition: grid-template-rows 420ms ease;
 }
 
+.sgpa-wrapper, 
 .subject-wrapper,
 .cgpa-wrapper,
 .results-wrapper {
   overflow: hidden;
+}
+
+.sgpa-wrapper {
+  display: flex;
+  flex-direction: column;
+  border-radius: 3px;
+  padding: 0px;
+  margin: 0px;
+  border: "";
+}
+
+.sgpa-row {
+  display: flex;
+  justify-content: space-around;
+  padding: 5px;
+}
+
+.sgpa-head {
+  justify-content: space-between;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 /***********************************/
