@@ -277,7 +277,7 @@ class Subject {
 
 class Semester extends Subject {
   constructor(displayName, name, assessmentMode, max, weight, creditHR, semester) {
-    super(displayName, name, assessmentMode, max, weight, creditHR, semester, false);
+    super(displayName, name, assessmentMode, max, weight, creditHR, semester - 0.5, false);
     semesters.push(this);
     this.cardRepresentation.childNodes[0].childNodes[0].childNodes[1].childNodes[0].childNodes[0].childNodes[1].childNodes[0].innerHTML = "SGPA: ";
 
@@ -456,7 +456,7 @@ document.getElementById("calculate-btn").onclick = () => {
     } else {
       sgpaWrapper.childNodes[2 * i + 3].style.display = "flex";
     }
-    sgpaWrapper.childNodes[2 * i + 3].childNodes[3].innerHTML = sgpa[i].toFixed(2);
+    sgpaWrapper.childNodes[2 * i + 3].childNodes[3].innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + sgpa[i].toFixed(2);
   }
 
   document.getElementById("cgpa-wrapper-outer").style.gridTemplateRows = "1fr";
@@ -581,6 +581,26 @@ new Subject(
   2
 );
 
+new Subject(
+  "C&PS",
+  "caps",
+  ["Assignment", "Quiz", "Presentation", "Interview", "Mids", "Final"],
+  [40, 37, 10, 10, 30, 40],
+  [10, 10, 10, 10, 20, 40], //TODO: confirm
+  3,
+  2
+);
+
+new Subject(
+  "OOP Lab",
+  "oop-lab",
+  ["Project", "Final"],
+  [40, 60],
+  [40, 60], //TODO: confirm
+  1,
+  2
+);
+
 new Semester(
   "First Semester",
   "first-semester",
@@ -588,5 +608,5 @@ new Semester(
   [100, 100, 100, 100, 100, 100, 100],
   [3, 3, 3, 1, 3, 3, 1],
   17,
-  0.5
+  1
 );

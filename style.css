@@ -235,6 +235,12 @@ input {
   padding: 5px;
 }
 
+.sgpa-head {
+  justify-content: space-between;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
 /***********************************/
 /*********** Div Styles ************/
 /***********************************/
