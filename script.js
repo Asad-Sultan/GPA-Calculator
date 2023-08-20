@@ -294,6 +294,13 @@ class Semester extends Subject {
   removeEventListenerBehaviour() {
     document.getElementById("cgpa-div").style.display = "";
     document.getElementById("cgpa-wrapper-outer").style.gridTemplateRows = "0fr";
+    document.getElementById("sgpa-wrapper-outer").style.gridTemplateRows = "0fr";
+
+    let sgpaWrapper = document.getElementById("sgpa-wrapper");
+
+    sgpaWrapper.style.padding = "";
+    sgpaWrapper.style.margin = "";
+    sgpaWrapper.style.border = "";
 
     let remElement = document.getElementById("subject-" + this.nthInstance).parentElement.parentElement;
 
