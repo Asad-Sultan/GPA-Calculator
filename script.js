@@ -547,8 +547,8 @@ new Subject(
   "Discrete Structures",
   "discrete-structures",
   ["Assignment", "Quiz", "Presentation", "Mids", "Final"],
-  [75, 45, 20, 40, 40],
-  [10, 10, 20, 20, 40], //TODO: confirm
+  [75, 45, 15, 40, 40],
+  [10, 15, 15, 20, 40],
   3,
   2
 );
