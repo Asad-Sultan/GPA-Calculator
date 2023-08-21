@@ -78,15 +78,8 @@ class Subject {
     document.getElementById("sub").appendChild(this.optionRepresentation);
   }
   removeEventListenerBehaviour() {
-    document.getElementById("cgpa-div").style.display = "";
     document.getElementById("cgpa-wrapper-outer").style.gridTemplateRows = "0fr";
     document.getElementById("sgpa-wrapper-outer").style.gridTemplateRows = "0fr";
-
-    let sgpaWrapper = document.getElementById("sgpa-wrapper");
-
-    sgpaWrapper.style.padding = "";
-    sgpaWrapper.style.margin = "";
-    sgpaWrapper.style.border = "";
 
     let remElement = document.getElementById("subject-" + this.nthInstance).parentElement.parentElement;
 
@@ -292,15 +285,8 @@ class Semester extends Subject {
     }
   }
   removeEventListenerBehaviour() {
-    document.getElementById("cgpa-div").style.display = "";
     document.getElementById("cgpa-wrapper-outer").style.gridTemplateRows = "0fr";
     document.getElementById("sgpa-wrapper-outer").style.gridTemplateRows = "0fr";
-
-    let sgpaWrapper = document.getElementById("sgpa-wrapper");
-
-    sgpaWrapper.style.padding = "";
-    sgpaWrapper.style.margin = "";
-    sgpaWrapper.style.border = "";
 
     let remElement = document.getElementById("subject-" + this.nthInstance).parentElement.parentElement;
 
@@ -397,16 +383,9 @@ class Semester extends Subject {
 }
 
 document.getElementById("add-btn").onclick = () => {
-  document.getElementById("cgpa-div").style.display = "";
   if (document.getElementById("sub").value === "Choose Subject") return;
   document.getElementById("cgpa-wrapper-outer").style.gridTemplateRows = "0fr";
   document.getElementById("sgpa-wrapper-outer").style.gridTemplateRows = "0fr";
-
-  let sgpaWrapper = document.getElementById("sgpa-wrapper");
-
-  sgpaWrapper.style.padding = "";
-  sgpaWrapper.style.margin = "";
-  sgpaWrapper.style.border = "";
 
   for (let i = 0; i < semesters.length; i++) {
     if (document.getElementById("sub").value === semesters[i].name) {
@@ -454,7 +433,7 @@ document.getElementById("calculate-btn").onclick = () => {
 
   document.getElementById("cgpa").innerHTML = (sum(totalGP) / sum(totalHrs)).toFixed(2);
   
-  let sgpaWrapper = document.getElementById("sgpa-wrapper");
+  let sgpaWrapper = document.getElementById("sgpa-div");
 
   for (let i = 0; i < sgpa.length; i++) {
     sgpa[i] = totalGP[i] / totalHrs[i];
@@ -463,15 +442,11 @@ document.getElementById("calculate-btn").onclick = () => {
     } else {
       sgpaWrapper.childNodes[2 * i + 3].style.display = "flex";
     }
-    sgpaWrapper.childNodes[2 * i + 3].childNodes[3].innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + sgpa[i].toFixed(2);
+    sgpaWrapper.childNodes[2 * i + 3].childNodes[3].innerHTML = sgpa[i].toFixed(2);
   }
 
   document.getElementById("cgpa-wrapper-outer").style.gridTemplateRows = "1fr";
   document.getElementById("sgpa-wrapper-outer").style.gridTemplateRows = "1fr";
-
-  sgpaWrapper.style.padding = "5px";
-  sgpaWrapper.style.margin = "20px";
-  sgpaWrapper.style.border = "2px solid " + getComputedStyle(document.querySelector(':root')).getPropertyValue('--colorMain_ShadeOne');
 
   Array.from(document.getElementsByClassName("results-wrapper-outer")).forEach((element) => {
     element.style.gridTemplateRows = "1fr";
