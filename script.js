@@ -558,7 +558,7 @@ new Subject(
   "software-engineering",
   ["Assignment", "Quiz", "Project", "Mids", "Final"],
   [50, 40, 20, 30, 40],
-  [10, 10, 20, 20, 40], //TODO: confirm
+  [10, 10, 20, 20, 40],
   3,
   2
 );
@@ -576,10 +576,20 @@ new Subject(
 new Subject(
   "OOP Lab",
   "oop-lab",
-  ["Project", "Final"],
-  [40, 60],
-  [40, 60], //TODO: confirm
+  ["Project", "Viva", "Tasks"],
+  [30, 30, 40],
+  [30, 30, 40],
   1,
+  2
+);
+
+new Subject(
+  "Pre-Calculus",
+  "pre-calculus",
+  ["Assignment", "Quiz", "Presentation", "Mids", "Final"],
+  [40, 40, 10, 20, 40],
+  [15, 15, 10, 20, 40],
+  3,
   2
 );
 
