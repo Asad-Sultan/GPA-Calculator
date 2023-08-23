@@ -453,10 +453,12 @@ document.getElementById("calculate-btn").onclick = () => {
   });
 };
 
+
+
 new Subject(
   "Applied Physics",
   "physics",
-  ["Assignments", "Quizes", "Project", "Mid", "Final"],
+  ["Assignment", "Quiz", "Project", "Mid", "Final"],
   [40, 40, 20, 30, 40],
   [10, 10, 20, 20, 40],
   3,
@@ -466,7 +468,7 @@ new Subject(
 new Subject(
   "English",
   "eng",
-  ["Assignments", "Quizes", "Mid", "Final"],
+  ["Assignment", "Quiz", "Mid", "Final"],
   [40, 55, 30, 40],
   [20, 10, 30, 40],
   3,
@@ -476,7 +478,7 @@ new Subject(
 new Subject(
   "ICT Theory",
   "ict-theory",
-  ["Assignments", "Quizes", "Presentation", "Mid", "Final"],
+  ["Assignment", "Quiz", "Presentation", "Mid", "Final"],
   [70, 55, 20, 20, 40],
   [10, 10, 20, 20, 40],
   3,
@@ -496,7 +498,7 @@ new Subject(
 new Subject(
   "Logics",
   "logics",
-  ["Assignments", "Quizes", "Project", "Mid", "Final"],
+  ["Assignment", "Quiz", "Project", "Mid", "Final"],
   [30, 30, 20, 20, 40],
   [10, 10, 20, 20, 40],
   3,
@@ -506,7 +508,7 @@ new Subject(
 new Subject(
   "PF Theory",
   "pf-theory",
-  ["Assignments", "Quizes", "Project", "Mid", "Final"],
+  ["Assignment", "Quiz", "Project", "Mid", "Final"],
   [40, 40, 10, 40, 60],
   [10, 10, 10, 20, 50],
   3,
@@ -544,7 +546,7 @@ new Subject(
 );
 
 new Subject(
-  "Discrete Structures",
+  "DS",
   "discrete-structures",
   ["Assignment", "Quiz", "Presentation", "Mids", "Final"],
   [75, 45, 15, 40, 40],
@@ -554,7 +556,7 @@ new Subject(
 );
 
 new Subject(
-  "Sofware Engineering",
+  "SE",
   "software-engineering",
   ["Assignment", "Quiz", "Project", "Mids", "Final"],
   [50, 40, 20, 30, 40],
@@ -566,9 +568,9 @@ new Subject(
 new Subject(
   "C&PS",
   "caps",
-  ["Assignment", "Quiz", "Presentation", "Interview", "Mids", "Final"],
-  [40, 37, 10, 10, 30, 40],
-  [10, 10, 10, 10, 20, 40], //TODO: confirm
+  ["Assignment", "Quiz", "Presentation", "Interview", "Project", "Mids", "Final"],
+  [40, 54, 5, 5, 10, 30, 30],
+  [10, 10, 5, 5, 10, 30, 30],
   3,
   2
 );
@@ -601,4 +603,14 @@ new Semester(
   [3, 3, 3, 1, 3, 3, 1],
   17,
   1
+);
+
+new Semester(
+  "Second Semester",
+  "second-semester",
+  ["DS", "Calculus", "OOP Theory", "SE", "C&PS", "OOP Lab"],
+  [100, 100, 100, 100, 100, 100],
+  [3, 3, 3, 3, 3, 1],
+  16,
+  2
 );
