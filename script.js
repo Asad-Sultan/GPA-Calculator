@@ -570,7 +570,7 @@ new Subject(
   "caps",
   ["Assignment", "Quiz", "Presentation", "Interview", "Project", "Mids", "Final"],
   [40, 54, 5, 5, 10, 30, 30],
-  [10, 10, 5, 5, 10, 30, 30],
+  [15, 10, 5, 5, 5, 30, 30],
   3,
   2
 );
