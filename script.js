@@ -453,6 +453,8 @@ document.getElementById("calculate-btn").onclick = () => {
   });
 };
 
+
+
 new Subject(
   "Applied Physics",
   "physics",
@@ -544,7 +546,7 @@ new Subject(
 );
 
 new Subject(
-  "Discrete Structures",
+  "DS",
   "discrete-structures",
   ["Assignment", "Quiz", "Presentation", "Mids", "Final"],
   [75, 45, 15, 40, 40],
@@ -554,7 +556,7 @@ new Subject(
 );
 
 new Subject(
-  "Sofware Engineering",
+  "SE",
   "software-engineering",
   ["Assignment", "Quiz", "Project", "Mids", "Final"],
   [50, 40, 20, 30, 40],
@@ -601,4 +603,14 @@ new Semester(
   [3, 3, 3, 1, 3, 3, 1],
   17,
   1
+);
+
+new Semester(
+  "Second Semester",
+  "second-semester",
+  ["DS", "Calculus", "OOP Theory", "SE", "C&PS", "OOP Lab"],
+  [100, 100, 100, 100, 100, 100],
+  [3, 3, 3, 3, 3, 1],
+  16,
+  2
 );

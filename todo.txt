@@ -1,0 +1,6 @@
+- Remove "Pre Calculus" when "Calculus" is added and visa versa
+- Remove "Pre Calculus" when "Second Semester" is added
+- Add subjects to the bottom instead of the top and jump the viewport to the added card for easier access to the subject card and the calculate button
+- Implement menu nesting
+- Change the behavior when "All Subjects" of a semester are added. Instead of removing all other subject options allow addition of individual subjects of that semester and remove the added subject's row from "All Subjects" instead when it's added
+- Don't Die (Optional)
