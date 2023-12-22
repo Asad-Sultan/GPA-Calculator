@@ -432,7 +432,7 @@ document.getElementById("calculate-btn").onclick = () => {
   });
 
   document.getElementById("cgpa").innerHTML = (sum(totalGP) / sum(totalHrs)).toFixed(2);
-  
+
   let sgpaWrapper = document.getElementById("sgpa-div");
 
   for (let i = 0; i < sgpa.length; i++) {
@@ -595,6 +595,76 @@ new Subject(
   2
 );
 
+new Subject(
+  "DSA Theory",
+  "dsa-theory",
+  ["Assignment", "Quiz", "Project", "Mids", "Final"],
+  [40, 40, 10, 60, 60],
+  [10, 10, 10, 20, 50],
+  3,
+  3
+);
+
+new Subject(
+  "DSA Lab",
+  "dsa-lab",
+  ["Tasks", "Project", "Final"],
+  [30, 30, 40],
+  [30, 30, 40],
+  1,
+  3
+);
+
+new Subject(
+  "HCI",
+  "hci",
+  ["Assignment", "Quiz", "Presenation", "Mids", "Final"],
+  [40, 40, 10, 60, 60],
+  [10, 10, 10, 20, 50],
+  3,
+  3
+);
+
+new Subject(
+  "Islamic Stud.",
+  "i-stud",
+  ["Assignment", "Quiz", "Mids", "Final"],
+  [20, 20, 20, 40],
+  [20, 20, 20, 40],
+  2,
+  3
+);
+
+new Subject(
+  "Linear Algebra",
+  "linear-algebra",
+  ["Assignment", "Quiz", "Presenation", "Mids", "Final"],
+  [20, 20, 20, 40],
+  [20, 20, 20, 40],
+  3,
+  3
+);
+
+new Subject(
+  "Pak Stud.",
+  "pak-stud",
+  ["Assignment", "Quiz", "Mids", "Final"],
+  [40, 40, 20, 40],
+  [20, 20, 20, 40],
+  2,
+  3
+);
+
+new Subject(
+  "SRE",
+  "sre",
+  ["Assignment", "Quiz", "Presentation", "Project", "Mids", "Final"],
+  [40, 40, 10, 10, 30, 40],
+  [10, 10, 10, 10, 20, 40],
+  3,
+  3
+);
+
 new Semester(
   "First Semester",
   "first-semester",
@@ -613,4 +683,14 @@ new Semester(
   [3, 3, 3, 3, 3, 1],
   16,
   2
+);
+
+new Semester(
+  "Third Semester",
+  "third-semester",
+  ["DSA Theory", "DSA Lab", "HCI", "Islamic Stud.", "Linear Algebra", "Pak Stud.", "SRE"],
+  [100, 100, 100, 100, 100, 100, 100],
+  [3, 1, 3, 2, 3, 2, 3],
+  18,
+  3
 );
