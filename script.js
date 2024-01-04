@@ -619,7 +619,7 @@ new Subject(
   "HCI",
   "hci",
   ["Assignment", "Quiz", "Presenation", "Mids", "Final"],
-  [40, 40, 10, 60, 40],
+  [40, 40, 10, 20, 40],
   [10, 10, 10, 20, 50],
   3,
   3
