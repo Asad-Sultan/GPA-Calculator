@@ -599,8 +599,8 @@ new Subject(
   "DSA Theory",
   "dsa-theory",
   ["Assignment", "Quiz", "Project", "Mids", "Final"],
-  [40, 40, 10, 60, 40],
-  [10, 10, 10, 20, 50],
+  [40, 40, 20, 60, 40],
+  [10, 10, 20, 20, 40],
   3,
   3
 );
