@@ -599,7 +599,7 @@ new Subject(
   "DSA Theory",
   "dsa-theory",
   ["Assignment", "Quiz", "Project", "Mids", "Final"],
-  [40, 40, 10, 60, 60],
+  [40, 40, 10, 60, 40],
   [10, 10, 10, 20, 50],
   3,
   3
@@ -619,7 +619,7 @@ new Subject(
   "HCI",
   "hci",
   ["Assignment", "Quiz", "Presenation", "Mids", "Final"],
-  [40, 40, 10, 60, 60],
+  [40, 40, 10, 60, 40],
   [10, 10, 10, 20, 50],
   3,
   3
