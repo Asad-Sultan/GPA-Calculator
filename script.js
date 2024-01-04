@@ -638,7 +638,7 @@ new Subject(
 new Subject(
   "Linear Algebra",
   "linear-algebra",
-  ["Assignment", "Quiz", "Presenation", "Mids", "Final"],
+  ["Assignment", "Quiz", "Mids", "Final"],
   [20, 20, 20, 40],
   [20, 20, 20, 40],
   3,
