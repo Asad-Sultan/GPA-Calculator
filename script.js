@@ -367,15 +367,19 @@ class Semester extends Subject {
       obtainedMarks[i - 2] = getGrade(obtainedMarks[i - 2]) * this.weight[i - 2];
     }
 
+    let totalGP = 0;
+    let totalCRHR = 0;
     for (let i = 0; i < this.subjectsUsed.length; i++) {
       for (let j = 0; j < selectedSubjects.length; j++) {
         if (this.subjectsUsed[i].name === selectedSubjects[j].name) {
           selectedSubjects[j].grade = getGrade(obtainedMarksForKeepSake[i]);
+          totalGP += (selectedSubjects[j].grade * selectedSubjects[j].creditHR);
+          totalCRHR += selectedSubjects[j].creditHR;
         }
       }
     }
 
-    this.grade = (sum(obtainedMarks) / this.creditHR);
+    this.grade = (totalGP / totalCRHR);
 
     this.cardRepresentation.childNodes[0].childNodes[0].childNodes[1].childNodes[0].childNodes[0].childNodes[0].childNodes[1].innerHTML = marks.toFixed(1);
     this.cardRepresentation.childNodes[0].childNodes[0].childNodes[1].childNodes[0].childNodes[0].childNodes[1].childNodes[1].innerHTML = this.grade.toFixed(2);
