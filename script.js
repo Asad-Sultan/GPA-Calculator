@@ -367,7 +367,6 @@ class Semester extends Subject {
       obtainedMarks[i - 2] = getGrade(obtainedMarks[i - 2]) * this.weight[i - 2];
     }
 
-
     let totalGP = 0;
     let totalCRHR = 0;
     for (let i = 0; i < this.subjectsUsed.length; i++) {
@@ -623,7 +622,7 @@ new Subject(
 new Subject(
   "HCI",
   "hci",
-  ["Assignment", "Quiz", "Presenation", "Mids", "Final"],
+  ["Assignment", "Quiz", "Mids", "Final"],
   [20, 20, 20, 40],
   [20, 20, 20, 40],
   3,
