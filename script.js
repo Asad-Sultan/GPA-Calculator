@@ -631,7 +631,7 @@ new Subject(
 
 new Subject(
   "Islamiat",
-  "i-stud",
+  "islamiat",
   ["Assignment", "Quiz", "Mids", "Final"],
   [20, 20, 20, 40],
   [20, 20, 20, 40],
@@ -651,7 +651,7 @@ new Subject(
 
 new Subject(
   "Pak Studies",
-  "pak-stud",
+  "pak-studies",
   ["Assignment", "Quiz", "Mids", "Final"],
   [40, 40, 20, 40],
   [20, 20, 20, 40],
