@@ -692,7 +692,7 @@ new Semester(
 new Semester(
   "Third Semester",
   "third-semester",
-  ["DSA Theory", "DSA Lab", "HCI", "Islamic Stud.", "Linear Algebra", "Pak Stud.", "SRE"],
+  ["DSA Theory", "DSA Lab", "HCI", "Islamiat", "Linear Algebra", "Pak Studies", "SRE"],
   [100, 100, 100, 100, 100, 100, 100],
   [3, 1, 3, 2, 3, 2, 3],
   18,
