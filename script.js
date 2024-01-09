@@ -623,14 +623,14 @@ new Subject(
   "HCI",
   "hci",
   ["Assignment", "Quiz", "Presenation", "Mids", "Final"],
-  [40, 40, 10, 20, 40],
-  [10, 10, 10, 20, 50],
+  [20, 20, 20, 40],
+  [20, 20, 20, 40],
   3,
   3
 );
 
 new Subject(
-  "Islamic Stud.",
+  "Islamiat",
   "i-stud",
   ["Assignment", "Quiz", "Mids", "Final"],
   [20, 20, 20, 40],
@@ -650,7 +650,7 @@ new Subject(
 );
 
 new Subject(
-  "Pak Stud.",
+  "Pak Studies",
   "pak-stud",
   ["Assignment", "Quiz", "Mids", "Final"],
   [40, 40, 20, 40],
