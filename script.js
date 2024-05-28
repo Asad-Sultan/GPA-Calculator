@@ -669,6 +669,86 @@ new Subject(
   3
 );
 
+new Subject(
+  "ACP Theory",
+  "acp-theory",
+  ["Assignment", "Quiz", "Project", "Mids", "Final"],
+  [40, 40, 20, 30, 40],
+  [10, 10, 20, 20, 40],
+  2,
+  4
+);
+
+new Subject(
+  "ACP Lab",
+  "acp-lab",
+  ["Tasks", "Project", "Final"],
+  [30, 30, 40],
+  [30, 30, 40],
+  1,
+  4
+);
+
+new Subject(
+  "DB Theory",
+  "db-theory",
+  ["Assignment", "Quiz", "Project", "Mids", "Final"],
+  [40, 40, 20, 30, 40],
+  [10, 10, 20, 20, 40],
+  3,
+  4
+);
+
+new Subject(
+  "DB Lab",
+  "db-lab",
+  ["Tasks", "Project", "Final"],
+  [30, 30, 40],
+  [30, 30, 40],
+  1,
+  4
+);
+
+new Subject(
+  "OS Theory",
+  "os-theory",
+  ["Assignment", "Quiz", "Mids", "Final"],
+  [40, 40, 20, 40],
+  [20, 20, 20, 40],
+  3,
+  4
+);
+
+new Subject(
+  "OS Lab",
+  "os-lab",
+  ["Tasks", "Project", "Final"],
+  [30, 30, 40],
+  [30, 30, 40],
+  1,
+  4
+);
+
+new Subject(
+  "BPE",
+  "bpe",
+  ["Assignment", "Quiz", "Mids", "Final"],
+  [40, 40, 20, 40],
+  [20, 20, 20, 40],
+  3,
+  4
+);
+
+new Subject(
+  "SDA",
+  "sda",
+  ["Assignment", "Quiz", "Mids", "Final"],
+  [40, 40, 20, 40],
+  [20, 20, 20, 40],
+  3,
+  4
+);
+
 new Semester(
   "First Semester",
   "first-semester",
@@ -697,4 +777,14 @@ new Semester(
   [3, 1, 3, 2, 3, 2, 3],
   18,
   3
+);
+
+new Semester(
+  "Fourth Semester",
+  "fourth-semester",
+  ["ACP Theory", "ACP Lab", "DB Theory", "DB Lab", "OS Theory", "OS Lab", "BPE", "SDA"],
+  [100, 100, 100, 100, 100, 100, 100, 100],
+  [2, 1, 3, 1, 3, 1, 3, 3],
+  17,
+  4
 );
