@@ -712,9 +712,9 @@ new Subject(
 new Subject(
   "OS Theory",
   "os-theory",
-  ["Assignment", "Quiz", "Mids", "Final"],
-  [40, 40, 20, 40],
-  [20, 20, 20, 40],
+  ["Assignment", "Quiz", "Presentation", "Mids", "Final"],
+  [100, 80, 10, 30, 40],
+  [15, 15, 10, 20, 40],
   3,
   4
 );
