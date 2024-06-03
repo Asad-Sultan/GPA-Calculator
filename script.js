@@ -673,7 +673,7 @@ new Subject(
   "ACP Theory",
   "acp-theory",
   ["Assignment", "Quiz", "Project", "Mids", "Final"],
-  [40, 40, 20, 30, 40],
+  [10, 10, 20, 30, 40],
   [10, 10, 20, 20, 40],
   2,
   4
@@ -703,8 +703,8 @@ new Subject(
   "DB Lab",
   "db-lab",
   ["Tasks", "Project", "Final"],
-  [30, 30, 40],
-  [30, 30, 40],
+  [40, 20, 40],
+  [40, 20, 40],
   1,
   4
 );
@@ -732,9 +732,9 @@ new Subject(
 new Subject(
   "BPE",
   "bpe",
-  ["Assignment", "Quiz", "Mids", "Final"],
-  [40, 40, 20, 40],
-  [20, 20, 20, 40],
+  ["Assignment", "Quiz", "Project", "Mids", "Final"],
+  [10, 10, 20, 20, 40],
+  [10, 10, 20, 20, 40],
   3,
   4
 );
