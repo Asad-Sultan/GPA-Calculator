@@ -674,7 +674,7 @@ new Subject(
   "acp-theory",
   ["Assignment", "Quiz", "Project", "Mids", "Final"],
   [10, 10, 20, 30, 40],
-  [10, 10, 20, 20, 40],
+  [15, 15, 10, 20, 40],
   2,
   4
 );
