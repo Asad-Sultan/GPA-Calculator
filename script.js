@@ -682,9 +682,9 @@ new Subject(
 new Subject(
   "ACP Lab",
   "acp-lab",
-  ["Tasks", "Project", "Final"],
-  [30, 30, 40],
-  [30, 30, 40],
+  ["Tasks", "Final", "Project"],
+  [40, 40, 20],
+  [40, 40, 20],
   1,
   4
 );
