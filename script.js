@@ -261,6 +261,9 @@ class Subject {
       marks += obtainedMarks[i] / this.max[i] * this.weight[i];
     }
 
+    marks *= 100;
+    marks /= sum(this.weight);
+
     this.grade = getGrade(marks);
 
     this.cardRepresentation.childNodes[0].childNodes[0].childNodes[1].childNodes[0].childNodes[0].childNodes[0].childNodes[1].innerHTML = marks.toFixed(1);
@@ -674,7 +677,7 @@ new Subject(
   "acp-theory",
   ["Assignment", "Quiz", "Project", "Mids", "Final"],
   [10, 10, 20, 30, 40],
-  [15, 15, 10, 20, 40],
+  [10, 10, 20, 30, 40],
   2,
   4
 );
@@ -714,7 +717,7 @@ new Subject(
   "os-theory",
   ["Assignment", "Quiz", "Presentation", "Mids", "Final"],
   [100, 80, 10, 30, 40],
-  [15, 15, 10, 20, 40],
+  [60, 60, 10, 20, 40],
   3,
   4
 );
