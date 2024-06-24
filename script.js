@@ -745,9 +745,9 @@ new Subject(
 new Subject(
   "SDA",
   "sda",
-  ["Assignment", "Quiz", "Mids", "Final"],
-  [40, 40, 20, 40],
-  [20, 20, 20, 40],
+  ["Assignment", "Quiz", "Project", "Mids", "Final"],
+  [40, 40, 20, 20, 40],
+  [40, 40, 20, 20, 40],
   3,
   4
 );
