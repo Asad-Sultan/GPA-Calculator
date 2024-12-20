@@ -460,297 +460,33 @@ document.getElementById("calculate-btn").onclick = () => {
   });
 };
 
+fetch("https://gist.githubusercontent.com/AA-Siddiqui/8d7d08841af40672e194def7a17da8f0/raw").then((response) => {
+  const data = response.json();
+  data.then((actualInfo) => {
+    actualInfo.subjects.map((subject) => {
+      const modeNames = [];
+      const modeWeight = [];
+      const modeMax = [];
 
+      subject.mode.map((mode) => {
+        modeNames.push(mode.mode);
+        modeWeight.push(mode.weight);
+        modeMax.push(mode.max);
+      });
 
-new Subject(
-  "Applied Physics",
-  "physics",
-  ["Assignment", "Quiz", "Project", "Mid", "Final"],
-  [40, 40, 20, 30, 40],
-  [10, 10, 20, 20, 40],
-  3,
-  1
-);
+      new Subject(
+        subject.name,
+        subject.name.replace(" ", "-").toLowerCase(),
+        modeNames,
+        modeMax,
+        modeWeight,
+        subject.creditHR,
+        subject.semester
+      );
+    });
+  });
+});
 
-new Subject(
-  "English",
-  "eng",
-  ["Assignment", "Quiz", "Mid", "Final"],
-  [40, 55, 30, 40],
-  [20, 10, 30, 40],
-  3,
-  1
-);
-
-new Subject(
-  "ICT Theory",
-  "ict-theory",
-  ["Assignment", "Quiz", "Presentation", "Mid", "Final"],
-  [70, 55, 20, 20, 40],
-  [10, 10, 20, 20, 40],
-  3,
-  1
-);
-
-new Subject(
-  "ICT Lab",
-  "ict-lab",
-  ["Tasks"],
-  [100],
-  [100],
-  1,
-  1
-);
-
-new Subject(
-  "Logics",
-  "logics",
-  ["Assignment", "Quiz", "Project", "Mid", "Final"],
-  [30, 30, 20, 20, 40],
-  [10, 10, 20, 20, 40],
-  3,
-  1
-);
-
-new Subject(
-  "PF Theory",
-  "pf-theory",
-  ["Assignment", "Quiz", "Project", "Mid", "Final"],
-  [40, 40, 10, 40, 60],
-  [10, 10, 10, 20, 50],
-  3,
-  1
-);
-
-new Subject(
-  "PF Lab",
-  "pf-lab",
-  ["Tasks", "Viva", "Project"],
-  [40, 30, 30],
-  [40, 30, 30],
-  1,
-  1
-);
-
-new Subject(
-  "Calculus",
-  "calculus-and-analytic-geometry",
-  ["Assignment", "Quiz", "Mids", "Final"],
-  [20, 20, 20, 40],
-  [20, 20, 20, 40],
-  3,
-  2
-);
-
-new Subject(
-  "OOP Theory",
-  "oop-theory",
-  ["Assignment", "Quiz", "Project", "Mids", "Final"],
-  [40, 40, 10, 40, 60],
-  [10, 10, 10, 20, 50],
-  3,
-  2
-);
-
-new Subject(
-  "DS",
-  "discrete-structures",
-  ["Assignment", "Quiz", "Presentation", "Mids", "Final"],
-  [75, 45, 15, 40, 40],
-  [10, 15, 15, 20, 40],
-  3,
-  2
-);
-
-new Subject(
-  "SE",
-  "software-engineering",
-  ["Assignment", "Quiz", "Project", "Mids", "Final"],
-  [50, 40, 20, 30, 40],
-  [10, 10, 20, 20, 40],
-  3,
-  2
-);
-
-new Subject(
-  "C&PS",
-  "caps",
-  ["Assignment", "Quiz", "Presentation", "Interview", "Project", "Mids", "Final"],
-  [40, 54, 5, 5, 10, 30, 30],
-  [17, 10, 5, 5, 3, 30, 30],
-  3,
-  2
-);
-
-new Subject(
-  "OOP Lab",
-  "oop-lab",
-  ["Project", "Viva", "Tasks"],
-  [30, 30, 40],
-  [30, 30, 40],
-  1,
-  2
-);
-
-new Subject(
-  "Pre-Calculus",
-  "pre-calculus",
-  ["Assignment", "Quiz", "Presentation", "Mids", "Final"],
-  [40, 40, 10, 20, 40],
-  [15, 15, 10, 20, 40],
-  3,
-  2
-);
-
-new Subject(
-  "DSA Theory",
-  "dsa-theory",
-  ["Assignment", "Quiz", "Project", "Mids", "Final"],
-  [40, 40, 20, 60, 40],
-  [10, 10, 20, 20, 40],
-  3,
-  3
-);
-
-new Subject(
-  "DSA Lab",
-  "dsa-lab",
-  ["Tasks", "Project", "Final"],
-  [30, 30, 40],
-  [30, 30, 40],
-  1,
-  3
-);
-
-new Subject(
-  "HCI",
-  "hci",
-  ["Assignment", "Quiz", "Mids", "Final"],
-  [20, 20, 20, 40],
-  [20, 20, 20, 40],
-  3,
-  3
-);
-
-new Subject(
-  "Islamiat",
-  "islamiat",
-  ["Assignment", "Quiz", "Mids", "Final"],
-  [20, 20, 20, 40],
-  [20, 20, 20, 40],
-  2,
-  3
-);
-
-new Subject(
-  "Linear Algebra",
-  "linear-algebra",
-  ["Assignment", "Quiz", "Mids", "Final"],
-  [20, 20, 20, 40],
-  [20, 20, 20, 40],
-  3,
-  3
-);
-
-new Subject(
-  "Pak Studies",
-  "pak-studies",
-  ["Assignment", "Quiz", "Mids", "Final"],
-  [40, 40, 20, 40],
-  [20, 20, 20, 40],
-  2,
-  3
-);
-
-new Subject(
-  "SRE",
-  "sre",
-  ["Assignment", "Quiz", "Presentation", "Project", "Mids", "Final"],
-  [40, 40, 10, 10, 30, 40],
-  [10, 10, 10, 10, 20, 40],
-  3,
-  3
-);
-
-new Subject(
-  "ACP Theory",
-  "acp-theory",
-  ["Assignment", "Quiz", "Project", "Mids", "Final"],
-  [10, 10, 20, 30, 40],
-  [10, 10, 20, 30, 40],
-  2,
-  4
-);
-
-new Subject(
-  "ACP Lab",
-  "acp-lab",
-  ["Tasks", "Final", "Project"],
-  [40, 40, 20],
-  [40, 40, 20],
-  1,
-  4
-);
-
-new Subject(
-  "DB Theory",
-  "db-theory",
-  ["Assignment", "Quiz", "Project", "Mids", "Final"],
-  [40, 40, 20, 30, 40],
-  [10, 10, 20, 20, 40],
-  3,
-  4
-);
-
-new Subject(
-  "DB Lab",
-  "db-lab",
-  ["Tasks", "Project", "Final"],
-  [40, 20, 40],
-  [40, 20, 40],
-  1,
-  4
-);
-
-new Subject(
-  "OS Theory",
-  "os-theory",
-  ["Assignment", "Quiz", "Presentation", "Mids", "Final"],
-  [100, 80, 10, 30, 40],
-  [60, 60, 10, 20, 40],
-  3,
-  4
-);
-
-new Subject(
-  "OS Lab",
-  "os-lab",
-  ["Tasks", "Project", "Final"],
-  [30, 30, 40],
-  [30, 30, 40],
-  1,
-  4
-);
-
-new Subject(
-  "BPE",
-  "bpe",
-  ["Assignment", "Quiz", "Project", "Mids", "Final"],
-  [10, 10, 20, 20, 40],
-  [10, 10, 20, 20, 40],
-  3,
-  4
-);
-
-new Subject(
-  "SDA",
-  "sda",
-  ["Assignment", "Quiz", "Project", "Mids", "Final"],
-  [40, 40, 20, 20, 40],
-  [10, 10, 20, 20, 40],
-  3,
-  4
-);
 
 new Semester(
   "First Semester",
@@ -790,4 +526,14 @@ new Semester(
   [2, 1, 3, 1, 3, 1, 3, 3],
   17,
   4
+);
+
+new Semester(
+  "Fifth Semester",
+  "fifth-semester",
+  ["CN Theory", "CN Lab", "Web Engineering", "FBF", "Techno", "AI"],
+  [100, 100, 100, 100, 100, 100],
+  [3, 1, 3, 3, 3, 3],
+  16,
+  5
 );
