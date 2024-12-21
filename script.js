@@ -470,70 +470,69 @@ fetch("https://gist.githubusercontent.com/AA-Siddiqui/8d7d08841af40672e194def7a1
 
       subject.mode.map((mode) => {
         modeNames.push(mode.mode);
-        modeWeight.push(mode.weight);
-        modeMax.push(mode.max);
+        modeWeight.push(new Number(mode.weight));
+        modeMax.push(new Number(mode.max));
       });
 
       new Subject(
         subject.name,
-        subject.name.replace(" ", "-").toLowerCase(),
+        subject.name.replaceAll(" ", "-").toLowerCase(),
         modeNames,
         modeMax,
         modeWeight,
-        subject.creditHR,
-        subject.semester
+        new Number(subject.creditHR),
+        new Number(subject.semester)
       );
     });
+    new Semester(
+      "First Semester",
+      "first-semester",
+      ["Applied Physics", "English", "ICT Theory", "ICT Lab", "Logics", "PF Theory", "PF Lab"],
+      [100, 100, 100, 100, 100, 100, 100],
+      [3, 3, 3, 1, 3, 3, 1],
+      17,
+      1
+    );
+    
+    new Semester(
+      "Second Semester",
+      "second-semester",
+      ["DS", "Calculus", "OOP Theory", "SE", "C&PS", "OOP Lab"],
+      [100, 100, 100, 100, 100, 100],
+      [3, 3, 3, 3, 3, 1],
+      16,
+      2
+    );
+    
+    new Semester(
+      "Third Semester",
+      "third-semester",
+      ["DSA Theory", "DSA Lab", "HCI", "Islamiat", "Linear Algebra", "Pak Studies", "SRE"],
+      [100, 100, 100, 100, 100, 100, 100],
+      [3, 1, 3, 2, 3, 2, 3],
+      18,
+      3
+    );
+    
+    new Semester(
+      "Fourth Semester",
+      "fourth-semester",
+      ["ACP Theory", "ACP Lab", "DB Theory", "DB Lab", "OS Theory", "OS Lab", "BPE", "SDA"],
+      [100, 100, 100, 100, 100, 100, 100, 100],
+      [2, 1, 3, 1, 3, 1, 3, 3],
+      17,
+      4
+    );
+    
+    new Semester(
+      "Fifth Semester",
+      "fifth-semester",
+      ["AI", "CN Theory", "CN Lab", "FBF", "Techno", "Web Engineering"],
+      [100, 100, 100, 100, 100, 100],
+      [3, 3, 1, 3, 3, 3],
+      16,
+      5
+    );
   });
 });
 
-
-new Semester(
-  "First Semester",
-  "first-semester",
-  ["Applied Physics", "English", "ICT Theory", "ICT Lab", "Logics", "PF Theory", "PF Lab"],
-  [100, 100, 100, 100, 100, 100, 100],
-  [3, 3, 3, 1, 3, 3, 1],
-  17,
-  1
-);
-
-new Semester(
-  "Second Semester",
-  "second-semester",
-  ["DS", "Calculus", "OOP Theory", "SE", "C&PS", "OOP Lab"],
-  [100, 100, 100, 100, 100, 100],
-  [3, 3, 3, 3, 3, 1],
-  16,
-  2
-);
-
-new Semester(
-  "Third Semester",
-  "third-semester",
-  ["DSA Theory", "DSA Lab", "HCI", "Islamiat", "Linear Algebra", "Pak Studies", "SRE"],
-  [100, 100, 100, 100, 100, 100, 100],
-  [3, 1, 3, 2, 3, 2, 3],
-  18,
-  3
-);
-
-new Semester(
-  "Fourth Semester",
-  "fourth-semester",
-  ["ACP Theory", "ACP Lab", "DB Theory", "DB Lab", "OS Theory", "OS Lab", "BPE", "SDA"],
-  [100, 100, 100, 100, 100, 100, 100, 100],
-  [2, 1, 3, 1, 3, 1, 3, 3],
-  17,
-  4
-);
-
-new Semester(
-  "Fifth Semester",
-  "fifth-semester",
-  ["CN Theory", "CN Lab", "Web Engineering", "FBF", "Techno", "AI"],
-  [100, 100, 100, 100, 100, 100],
-  [3, 1, 3, 3, 3, 3],
-  16,
-  5
-);
