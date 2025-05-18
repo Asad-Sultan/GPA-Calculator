@@ -533,6 +533,16 @@ fetch("https://gist.githubusercontent.com/AA-Siddiqui/8d7d08841af40672e194def7a1
       16,
       5
     );
+    
+    new Semester(
+      "Sixth Semester",
+      "sixth-semester",
+      ["Data Science", "Foreign Language", "Formal Methods", "MAD Lab", "MAD Theory", "SQE"],
+      [100, 100, 100, 100, 100, 100],
+      [3, 3, 3, 1, 2, 3],
+      15,
+      6
+    );
   });
 });
 
